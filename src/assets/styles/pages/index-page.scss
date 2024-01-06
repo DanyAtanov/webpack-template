@@ -1,0 +1,56 @@
+.index-page {
+  $that: &;
+
+  padding-top: 64px;
+  padding-bottom: 64px;
+
+  @include tablet {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  @include laptop {
+    padding-top: 128px;
+    padding-bottom: 128px;
+  }
+
+  @include desktop {
+    padding-top: 192px;
+    padding-bottom: 192px;
+  }
+
+  &__container {
+    @extend %container;
+  }
+
+  &__list {
+    margin-top: 48px;
+  }
+
+  &__item {
+    margin-top: 16px;
+  }
+
+  &__link {
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &__text-link {
+    margin-right: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba($color_secondary, 0.4);
+    transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+      border-color 0.2s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    #{$that}__link:hover & {
+      color: $color_primary-dark;
+      border-color: rgba($color_primary-dark, 0.4);
+    }
+  }
+}
+
+.page_index .footer {
+  display: none;
+}

@@ -1,3 +1,2 @@
-import generateJoke from "./genrateJoke";
-
-console.log(generateJoke());
+import "./assets/javascript/app.js";
+import "./assets/styles/app.scss";

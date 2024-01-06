@@ -1,0 +1,201 @@
+// Media
+@mixin phone-s {
+	@media (max-width: 430px) {
+		@content;
+	}
+}
+
+@mixin phone($only: false) {
+	@if $only {
+		@media (min-width: 431px) and (max-width: 768px) {
+			@content;
+		}
+	} @else {
+		@media (max-width: 768px) {
+			@content;
+		}
+	}
+}
+
+@mixin tablet($only: false) {
+	@if $only {
+		@media (min-width: 769px) and (max-width: 1023px) {
+			@content;
+		}
+	} @else {
+		@media (max-width: 1023px) {
+			@content;
+		}
+	}
+}
+
+@mixin laptop($only: false) {
+	@if $only {
+		@media (min-width: 1024px) and (max-width: 1279px) {
+			@content;
+		}
+	} @else {
+		@media (max-width: 1279px) {
+			@content;
+		}
+	}
+}
+
+@mixin desktop-s($only: false) {
+	@if $only {
+		@media (min-width: 1280px) and (max-width: 1439px) {
+			@content;
+		}
+	} @else {
+		@media (max-width: 1439px) {
+			@content;
+		}
+	}
+}
+
+@mixin desktop($only: false) {
+	@if $only {
+		@media (min-width: 1440px) and (max-width: 1920px) {
+			@content;
+		}
+	} @else {
+		@media (max-width: 1920px) {
+			@content;
+		}
+	}
+}
+
+// Color placeholders
+@mixin placeholder($color: #000) {
+	&::-webkit-input-placeholder {
+		color: $color;
+	}
+	&::-moz-placeholder {
+		color: $color;
+	}
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+	&:-moz-placeholder {
+		color: $color;
+	}
+}
+
+// Visually hidden
+@mixin visually-hidden() {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+}
+
+// GPU
+@mixin gpu($change: transform) {
+	transform: translateZ(0);
+	will-change: $change;
+}
+
+// Object-fit
+/*
+  This mixin can be used to set the object-fit:
+  @include object-fit(contain);
+  or object-fit and object-position:
+  @include object-fit(cover, top);
+*/
+@mixin object-fit($fit: fill, $position: null) {
+	-o-object-fit: $fit;
+	object-fit: $fit;
+	@if $position {
+		-o-object-position: $position;
+		object-position: $position;
+		font-family: 'object-fit: #{$fit}; object-position: #{$position}';
+	} @else {
+		font-family: 'object-fit: #{$fit}';
+	}
+}
+
+@mixin absolute-fit($fit: fill, $position: null) {
+	@include object-fit($fit, $position);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+// Yandex Map filter
+@mixin ymaps-filter {
+	[class*='-ground-pane'] {
+		position: relative;
+		@content;
+	}
+}
+
+// Flex center (to parent)
+@mixin flex-center() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+// Absolute center (to child)
+@mixin absolute-center() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
+}
+
+@mixin lazy-loaded {
+	opacity: 0;
+	transition: opacity 0.45s ease-in-out;
+
+	&._is-loaded {
+		opacity: 1;
+	}
+}
+
+// fancybox костыль для min()-max()
+@function max($numbers...) {
+	@return m#{a}x(#{$numbers});
+}
+@function min($numbers...) {
+	@return m#{i}n(#{$numbers});
+}
+
+// Full-widht container
+@mixin full-width() {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+}
+
+@mixin absolute-fill {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+}
+
+@mixin circle($size, $background, $color: null, $padding: null ) {
+	width: $size;
+	height: $size;
+	padding: $padding;
+	color: $color;
+	overflow: hidden;
+	background-color: $background;
+	border-radius: 50%;
+}
+
+@mixin max-lines($max-lines: 3) {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $max-lines;
+}

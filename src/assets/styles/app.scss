@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+// SETTINGS
+@import "settings";
+
+// HELPERS
+@import "helpers/mixins";
+@import "helpers/placeholders";
+@import "helpers/keyframes";
+
+// GLOBAL
+@import "normalize.css";
+@import "global/fonts";
+@import "global/base";
+@import "global/page";
+
+// LAYOUTS
+@import "layouts/default";
+
+// COMPONENTS
+@import "../../components/header";
+@import "../../components/footer";
+
+// PAGES
+// @import "pages/index-page";
+

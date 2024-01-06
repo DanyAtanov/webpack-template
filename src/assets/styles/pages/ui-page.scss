@@ -1,0 +1,59 @@
+.ui-page {
+  $that: &;
+
+  margin-top: 144px;
+  padding: 64px 0;
+  color: $color_dark;
+  background: $white;
+
+  &__container {
+    @extend %container;
+  }
+
+  &__title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    .title {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        width: 130%;
+        height: 30%;
+        background: $color_primary;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &__block {
+    margin-top: 64px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__title-block {
+    margin-top: 32px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__body-block {
+    margin-top: 32px;
+  }
+
+  &__forms {
+    max-width: 632px;
+  }
+}
