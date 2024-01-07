@@ -1,3 +1,3 @@
 # Webpack Template
 
-👾
+👾🪓

@@ -1,9 +1,14 @@
 const path = require("path");
+const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
+
+const PAGES = fs
+  .readdirSync(path.resolve(__dirname, "./src/views/"))
+  .filter((fileName) => fileName.endsWith(".hbs"));
 
 module.exports = (env) => {
   const isDev = env.mode === "development";
@@ -81,6 +86,17 @@ module.exports = (env) => {
             filename: "assets/fonts/[name][ext]",
           },
         },
+        {
+          test: /\.hbs$/i,
+          loader: "handlebars-loader",
+          options: {
+            /* helperDirs: [path.join(__dirname, "src", "helpers")], */
+            partialDirs: [
+              path.join(__dirname, "src", "components"),
+             /*  path.join(__dirname, "src", "components", "modals"), */
+            ],
+          },
+        },
       ],
     },
     optimization: {
@@ -108,17 +124,28 @@ module.exports = (env) => {
       new CopyPlugin({
         patterns: [{ from: "src/assets/images", to: "assets/images" }],
       }),
-      new HtmlWebpackPlugin({
+      /*       new HtmlWebpackPlugin({
         title: "Webpack Template",
         filename: "index.html",
         template: "src/template.html",
         favicon: "src/assets/public/favicon.ico",
-      }),
+      }), */
+
       isDev
         ? false
         : new MiniCssExtractPlugin({
             filename: "assets/styles/[name].[contenthash].css",
           }),
+
+      ...PAGES.map(
+        (page) =>
+          new HtmlWebpackPlugin({
+            inject: "body",
+            minify: false,
+            template: path.resolve(__dirname, `./src/views/${page}`),
+            filename: `${page.replace(/\.hbs/, ".html")}`,
+          })
+      ),
     ],
   };
 };
