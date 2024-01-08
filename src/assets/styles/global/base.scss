@@ -1,31 +1,30 @@
 *,
 ::before,
 ::after {
-	box-sizing: border-box;
-	background-repeat: no-repeat;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
 }
 
 ::before,
 ::after {
-	text-decoration: inherit;
-	vertical-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
 }
 
 *,
 *:active {
-
-	-webkit-tap-highlight-color: $color_primary;
+  -webkit-tap-highlight-color: $color_primary;
 }
 
 *:focus {
-	outline: none;
+  outline: none;
 }
 
 html {
-	line-height: 1;
-	tab-size: 4;
-	word-break: break-word;
-	cursor: default;
+  line-height: 1;
+  tab-size: 4;
+  word-break: break-word;
+  cursor: default;
 }
 
 audio,
@@ -34,19 +33,19 @@ iframe,
 img,
 svg,
 video {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 svg:not([fill]) {
-	fill: currentColor;
+  fill: currentColor;
 }
 
 table {
-	border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 textarea {
-	resize: vertical;
+  resize: vertical;
 }
 
 a,
@@ -58,8 +57,8 @@ select,
 summary,
 textarea,
 [tabindex] {
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 iframe,
@@ -68,19 +67,18 @@ input,
 select,
 textarea,
 video {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 pre,
 code,
 kbd,
 samp {
-	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-		"Liberation Mono", "Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 
-// OPTIONAL
 blockquote,
 dl,
 dd,
@@ -93,7 +91,7 @@ h5,
 h6,
 p,
 pre {
-	margin: 0;
+  margin: 0;
 }
 
 h1,
@@ -102,30 +100,30 @@ h3,
 h4,
 h5,
 h6 {
-	font-size: inherit;
-	font-weight: inherit;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 fieldset {
-	border: 0;
-	margin: 0;
-	padding: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 iframe {
-	border: 0;
+  border: 0;
 }
 
 ol,
 ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-	color: inherit;
-	text-decoration: inherit;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 button,
@@ -133,17 +131,75 @@ input,
 optgroup,
 select,
 textarea {
-	padding: 0;
-	line-height: inherit;
-	color: inherit;
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
 }
 
 button {
-	background: transparent;
-	border: 0;
+  background: transparent;
+  border: 0;
 }
 
 button,
 [role="button"] {
-	cursor: pointer;
+  cursor: pointer;
+}
+
+/* OPTIONAL */
+
+.disable-hover {
+  pointer-events: none;
+}
+
+.will-change {
+  will-change: transform;
+}
+
+img[loading="lazy"] {
+  &.--not-loaded {
+    opacity: 0;
+    transition: opacity 0.25s linear;
+  }
+
+  &.--is-loaded {
+    opacity: 1;
+  }
+}
+
+/* [data-magnetic] {
+  will-change: transform;
+  transform: translateZ(0);
+} */
+
+/* .swiper {
+  --swiper-theme-color: #e0f0ff;
+  --swiper-pagination-color: #1070cf;
+  --swiper-pagination-bullet-inactive-color: #e0f0ff;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-size: 5px;
+  --swiper-pagination-bottom: 0;
+
+  overflow: visible;
+  opacity: 0;
+  transition: opacity 0.35s ease-out;
+
+  &._is-loaded {
+    opacity: 1;
+  }
+
+  .swiper-slide {
+    box-sizing: border-box;
+    height: auto;
+    transition: opacity 0.4s ease-out;
+    opacity: 0;
+  }
+} */
+
+.supports-hidden {
+  transition: opacity 0.25s linear;
+}
+
+.supports-transform {
+  transition: transform 0.25s ease-out;
 }

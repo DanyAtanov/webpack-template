@@ -10,20 +10,35 @@ const PAGES = fs
   .readdirSync(path.resolve(__dirname, "./src/views/"))
   .filter((fileName) => fileName.endsWith(".hbs"));
 
+const PARTIALS = fs
+  .readdirSync(path.resolve(__dirname, "./src/components/"))
+  .filter(
+    (fileName) => !fileName.endsWith(".hbs") && !fileName.endsWith(".scss")
+);
+  
+const UI_PARTIALS = fs
+  .readdirSync(path.resolve(__dirname, "./src/components/_ui"))
+  .filter(
+    (fileName) => !fileName.endsWith(".hbs") && !fileName.endsWith(".scss")
+  );
+
 module.exports = (env) => {
   const isDev = env.mode === "development";
 
   return {
     mode: env.mode ?? "development",
+
     entry: {
       app: path.resolve(__dirname, "src/index.js"),
       /* animation: path.resolve(__dirname, "src/animation.js"), */
     },
+
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "[name].[contenthash].js",
       clean: true,
     },
+
     devtool: isDev ? "inline-source-map" : false,
     devServer: isDev
       ? {
@@ -37,8 +52,26 @@ module.exports = (env) => {
           historyApiFallback: true,
         }
       : undefined,
+
     module: {
       rules: [
+        {
+          test: /\.hbs$/i,
+          loader: "handlebars-loader",
+          options: {
+            /* helperDirs: [path.join(__dirname, "src", "helpers")], */
+            partialDirs: [
+              path.join(__dirname, "src", "components"),
+              ...PARTIALS.map((component) =>
+                path.join(__dirname, "src", "components", component)
+              ),
+              ...UI_PARTIALS.map((component) =>
+                path.join(__dirname, "src", "components", "_ui", component)
+              ),
+              path.join(__dirname, "src", "views", "layouts"),
+            ],
+          },
+        },
         {
           test: /\.(sa|sc|c)ss$/,
           use: [
@@ -51,6 +84,10 @@ module.exports = (env) => {
                   plugins: [
                     [
                       "autoprefixer",
+                      {
+                        // Options
+                      },
+                      "css-has-pseudo",
                       {
                         // Options
                       },
@@ -73,13 +110,6 @@ module.exports = (env) => {
           },
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
-          type: "asset",
-          generator: {
-            filename: "assets/images/[name][ext]",
-          },
-        },
-        {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
           type: "asset/resource",
           generator: {
@@ -87,18 +117,15 @@ module.exports = (env) => {
           },
         },
         {
-          test: /\.hbs$/i,
-          loader: "handlebars-loader",
-          options: {
-            /* helperDirs: [path.join(__dirname, "src", "helpers")], */
-            partialDirs: [
-              path.join(__dirname, "src", "components"),
-             /*  path.join(__dirname, "src", "components", "modals"), */
-            ],
+          test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+          type: "asset",
+          generator: {
+            filename: "assets/images/[name][ext]",
           },
         },
       ],
     },
+
     optimization: {
       minimizer: [
         "...",
@@ -110,7 +137,7 @@ module.exports = (env) => {
               // Feel free to experiment with options for better result for you
               plugins: [
                 ["gifsicle", { interlaced: true }],
-                ["mozjpeg", { quality: 85, progressive: true }],
+                ["mozjpeg", { quality: 80, progressive: true }],
                 ["pngquant", { quality: [0.65, 0.9] }],
               ],
             },
@@ -118,6 +145,16 @@ module.exports = (env) => {
         }),
         new ImageminWebpWebpackPlugin(),
       ],
+
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendors",
+            chunks: "all",
+          },
+        },
+      },
     },
 
     plugins: [

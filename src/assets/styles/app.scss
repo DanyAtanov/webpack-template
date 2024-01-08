@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@import "../../components/_ui/skeletons/skeleton";
+
 // SETTINGS
 @import "settings";
 
@@ -9,7 +11,7 @@
 @import "helpers/keyframes";
 
 // GLOBAL
-@import "normalize.css";
+@import "global/normalize";
 @import "global/fonts";
 @import "global/base";
 @import "global/page";
@@ -17,11 +19,14 @@
 // LAYOUTS
 @import "layouts/default";
 
+// UI
+
+
 // COMPONENTS
 @import "../../components/hero/hero";
-@import "../../components/header";
-@import "../../components/footer";
+@import "../../components/header/header";
+@import "../../components/footer/footer";
+@import "../../components/test/test";
 
 // PAGES
 // @import "pages/index-page";
-

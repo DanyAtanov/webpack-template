@@ -2,7 +2,7 @@
 .DS_Store
 .cache
 .idea
-/node_modules/
+node_modules
 /npm-debug.log
 /yarn-error.log
 /dist

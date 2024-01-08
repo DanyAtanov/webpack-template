@@ -1,0 +1,29 @@
+{{#if secondary}}
+<html lang="ru">
+{{> head}}
+  <body class="preload" style="background: red">
+    <div class="layout">
+      <div class="layout__header">{{>header}}</div>
+      <div class="layout__content">
+        <h1>Secondaty layout</h1>
+        {{> @partial-block}}
+      </div>
+      <div class="layout__footer">{{>footer}}</div>
+    </div>
+  </body>
+</html>
+
+{{else}}
+<html lang="ru">
+{{> head}}
+  <body class="preload">
+    <div class="layout">
+      <div class="layout__header">{{>header}}</div>
+      <div class="layout__content">
+        {{> @partial-block}}
+      </div>
+      <div class="layout__footer">{{>footer}}</div>
+    </div>
+  </body>
+</html>
+{{/if}}

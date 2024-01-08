@@ -1,0 +1,68 @@
+.skeleton {
+  $that: &;
+  $accent-color: #f9f9f9;
+  $accent-color-dark: #e3e3e3;
+  $color-picure: #cccccc;
+
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    animation: skeleton-animation 1s infinite linear reverse;
+  }
+
+  &:has(img) {
+    &:after {
+      background: linear-gradient(
+        90deg,
+        $color-picure,
+        $accent-color-dark,
+        $color-picure
+      );
+      background-size: 200%;
+    }
+  }
+
+  &:not(:has(img)) {
+    &:after {
+      border-radius: 2px;
+      background: linear-gradient(
+        90deg,
+        $accent-color,
+        $accent-color-dark,
+        $accent-color
+      );
+      background-size: 200%;
+    }
+  }
+
+  @keyframes skeleton-animation {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+
+  @keyframes skeleton-is-loaded {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+      opacity: 0;
+    }
+  }
+
+  &.--is-loaded {
+    &::after {
+      animation: skeleton-is-loaded 0.25s linear forwards;
+    }
+  }
+}
