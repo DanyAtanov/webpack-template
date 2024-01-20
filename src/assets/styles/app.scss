@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+// Core
 @import "../../components/_ui/skeletons/skeleton";
 
 // SETTINGS
@@ -17,10 +18,11 @@
 @import "global/page";
 
 // LAYOUTS
-@import "layouts/default";
+@import "../../components/_layouts/layout";
 
 // UI
-
+@import "../../components/_ui/modal/modal";
+@import "../../components/_ui/title-section//title-section";
 
 // COMPONENTS
 @import "../../components/hero/hero";
@@ -29,4 +31,4 @@
 @import "../../components/test/test";
 
 // PAGES
-// @import "pages/index-page";
+@import "../styles/pages/generic-page";

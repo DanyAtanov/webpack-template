@@ -117,11 +117,15 @@ module.exports = (env) => {
           },
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+          test: /\.(png|jpg|jpeg|gif|webp)$/i,
           type: "asset",
           generator: {
             filename: "assets/images/[name][ext]",
           },
+        },
+        {
+          test: /\.svg$/,
+          use: "svg-sprite-loader",
         },
       ],
     },
@@ -138,7 +142,7 @@ module.exports = (env) => {
               plugins: [
                 ["gifsicle", { interlaced: true }],
                 ["mozjpeg", { quality: 80, progressive: true }],
-                ["pngquant", { quality: [0.65, 0.9] }],
+                ["pngquant", { quality: [0.65, 0.8] }],
               ],
             },
           },

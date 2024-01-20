@@ -1,3 +1,6 @@
+//UI
+import "../../components/_ui/modal/modal";
+
 // COMPONENTS
 import "../../components/test/test";
 

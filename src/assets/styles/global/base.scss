@@ -148,6 +148,12 @@ button,
 
 /* OPTIONAL */
 
+body {
+  &.scroll-lock {
+    overflow: hidden;
+  }
+}
+
 .disable-hover {
   pointer-events: none;
 }
