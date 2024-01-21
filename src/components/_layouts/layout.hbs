@@ -1,6 +1,6 @@
 {{#if secondary}}
 <html lang="ru">
-{{> head}}
+  {{> head}}
   <body class="preload" style="background: red">
     <div class="layout">
       <div class="layout__header">{{>header}}</div>
@@ -15,13 +15,13 @@
 
 {{else}}
 <html lang="ru">
-{{> head}}
+  {{> head}}
   <body class="preload">
     <div class="layout">
       <div class="layout__header">{{>header}}</div>
       <div class="layout__content">
         <main class="generic-page">
-        {{> @partial-block}}
+          {{> @partial-block}}
         </main>
       </div>
       <div class="layout__footer">{{>footer}}</div>

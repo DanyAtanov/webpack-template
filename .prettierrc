@@ -1,0 +1,17 @@
+{
+  "tabWidth": 2,
+  "useTabs": true,
+  "semi": true,
+  "singleQuote": true,
+  "endOfLine": "lf",
+  "trailingComma": "es5",
+  "plugins": ["prettier-plugin-css-order"],
+  "overrides": [
+    {
+      "files": "**/*.hbs",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
+}

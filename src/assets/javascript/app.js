@@ -12,5 +12,3 @@ let loading = () => {
 if (window.addEventListener) window.addEventListener("load", loading, false);
 else if (window.attachEvent) window.attachEvent("onload", loading);
 else window.onload = loading;
-
-console.log("APP.js");

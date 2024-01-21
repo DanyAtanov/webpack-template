@@ -1,68 +1,40 @@
 .skeleton {
-  $that: &;
-  $accent-color: #f9f9f9;
-  $accent-color-dark: #e3e3e3;
-  $color-picure: #cccccc;
+	$that: &;
 
-  position: relative;
+	$accent-color: #ffffff;
+	$secondary-color: #eff7ff;
 
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    animation: skeleton-animation 1s infinite linear reverse;
-  }
+	position: relative;
+	overflow: hidden;
 
-  &:has(img) {
-    &:after {
-      background: linear-gradient(
-        90deg,
-        $color-picure,
-        $accent-color-dark,
-        $color-picure
-      );
-      background-size: 200%;
-    }
-  }
+	* {
+		opacity: 0 !important;
+	}
 
-  &:not(:has(img)) {
-    &:after {
-      border-radius: 2px;
-      background: linear-gradient(
-        90deg,
-        $accent-color,
-        $accent-color-dark,
-        $accent-color
-      );
-      background-size: 200%;
-    }
-  }
+	&::after {
+		position: absolute;
+		z-index: 10;
+		animation: skeleton-animation 1s infinite linear reverse;
+		inset: 0;
+		border-radius: 2px;
+		background: linear-gradient(
+			90deg,
+			$accent-color,
+			$secondary-color,
+			$accent-color
+		);
+		background-size: 200%;
+		width: 100%;
+		height: 100%;
+		content: '';
+	}
 
-  @keyframes skeleton-animation {
-    0% {
-      background-position: -100% 0;
-    }
-    100% {
-      background-position: 100% 0;
-    }
-  }
-
-  @keyframes skeleton-is-loaded {
-    0% {
-      background-position: -100% 0;
-    }
-    100% {
-      background-position: 100% 0;
-      opacity: 0;
-    }
-  }
-
-  &.--is-loaded {
-    &::after {
-      animation: skeleton-is-loaded 0.25s linear forwards;
-    }
-  }
+	@keyframes skeleton-animation {
+		0% {
+			background-position: -100% 0;
+		}
+		100% {
+			background-position: 100% 0;
+		}
+	}
 }
