@@ -43,7 +43,7 @@ module.exports = (env) => {
     devServer: isDev
       ? {
           static: {
-            directory: path.resolve(__dirname, "dist"),
+            directory: path.join(__dirname, "src"),
           },
           port: 3000,
           open: true,
