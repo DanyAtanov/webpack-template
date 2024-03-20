@@ -1,0 +1,35 @@
+.hover-fill {
+	position: relative;
+	overflow: hidden;
+
+	@keyframes rippleAnimation {
+		0% {
+			width: 0px;
+			height: 0px;
+		}
+		100% {
+			width: 900px;
+			height: 900px;
+		}
+	}
+
+	.--ripple {
+		position: absolute;
+		z-index: 1;
+		background: $light-blue;
+		transform: translate(-50%, -50%);
+		pointer-events: none;
+		border-radius: 50%;
+		animation: rippleAnimation 0.4s ease-in 1 forwards;
+	}
+
+	.--ripple-back {
+		opacity: 0;
+	}
+
+	&--2 {
+		.--ripple {
+			background: $blue-2;
+		}
+	}
+}

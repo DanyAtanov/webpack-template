@@ -1,34 +1,32 @@
 @charset "utf-8";
 
-// Core
-@import "../../components/_ui/skeletons/skeleton";
-
 // SETTINGS
-@import "settings";
+@import 'settings';
 
 // HELPERS
-@import "helpers/mixins";
-@import "helpers/placeholders";
-@import "helpers/keyframes";
+@import 'helpers/mixins';
+@import 'helpers/placeholders';
+@import 'helpers/keyframes';
 
 // GLOBAL
-@import "global/normalize";
-@import "global/fonts";
-@import "global/base";
-@import "global/page";
-
-// LAYOUTS
-@import "../../components/_layouts/layout";
+@import 'global/normalize';
+@import 'global/fonts';
+@import 'global/base';
+@import 'global/page';
 
 // UI
-@import "../../components/_ui/modal/modal";
-@import "../../components/_ui/title-section//title-section";
+@import '../../components/_ui/skeletons/skeleton';
+@import '../../components/_ui/modal/modal';
+@import '../../components/_ui/title-section//title-section';
+
+// LAYOUTS
+@import '../../components/_layouts/layout';
 
 // COMPONENTS
-@import "../../components/hero/hero";
-@import "../../components/header/header";
-@import "../../components/footer/footer";
-@import "../../components/test/test";
+@import '../../components/hero/hero';
+@import '../../components/header/header';
+@import '../../components/footer/footer';
+@import '../../components/test/test';
 
 // PAGES
-@import "../styles/pages/generic-page";
+@import '../styles/pages/generic-page';

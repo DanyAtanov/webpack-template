@@ -1,0 +1,84 @@
+.cookie-alert {
+	$that: &;
+
+	//display: none;
+	display: flex;
+	position: fixed;
+	bottom: 22px;
+	justify-content: center;
+	transform: translate3d(0, 100%, 0);
+	opacity: 0;
+	z-index: 999;
+	transition: opacity 0.25s linear;
+	width: 100%;
+	pointer-events: none;
+
+	@include tablet {
+		bottom: 52px;
+		transform: translate3d(100%, 0, 0);
+	}
+
+	&.--is-active {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+		transition:
+			transform 0.5s ease-out,
+			opacity 0.25s linear;
+		pointer-events: all;
+	}
+
+	&__inner {
+		@extend %container;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__message {
+		position: relative;
+		box-shadow: 0px 23px 62px 0px rgba(21, 26, 32, 0.11);
+		border-radius: 20px;
+		background: #fff;
+		padding: 30px;
+		width: 306px;
+
+		a {
+			color: $blue;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 22px;
+
+			&:hover {
+				color: $blue-dark;
+			}
+		}
+
+		@include phone {
+			padding: 20px 16px;
+			width: 100%;
+		}
+	}
+
+	&__title {
+		margin-bottom: 15px;
+		color: $black;
+		font-weight: 600;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 22px; /* 137.5% */
+	}
+
+	&__accept {
+		margin-top: 15px;
+
+		button {
+			height: 40px;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		color: $gray-2;
+	}
+}
