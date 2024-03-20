@@ -2,7 +2,7 @@ const modal = (() => {
 	const buttons = document.querySelectorAll('[data-open-modal]');
 	const modals = document.querySelectorAll('[data-modal]');
 
-	let init = () => {
+	const init = () => {
 		if (buttons.length === 0) return;
 
 		let theModal;
@@ -23,19 +23,9 @@ const modal = (() => {
 
 				theModal?.showModal();
 
-				closeButton.addEventListener(
-					'click',
-					() => {
-						theModal.close();
-					},
-					{ once: true }
-				);
-
 				theModal.addEventListener('click', handleModalClick);
 			});
 		});
-
-		_setupListeners();
 	};
 
 	const handleModalClick = ({ currentTarget, target }) => {
@@ -45,8 +35,6 @@ const modal = (() => {
 			currentTarget.close();
 		}
 	};
-
-	let _setupListeners = () => {};
 
 	init();
 })();

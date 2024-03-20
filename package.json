@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "alpinejs": "^3.13.3",
-    "core-js": "^3.35.0"
+    "core-js": "^3.35.0",
+    "xwiper": "^2.2.1"
   }
 }

@@ -6215,6 +6215,11 @@ xtend@^4.0.0:
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
+xwiper@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/xwiper/-/xwiper-2.2.1.tgz#f04b1bf1b05bea98e30ae7255dd1f7c042523dfa"
+  integrity sha512-TjzPhnMMTe8Ok+ZHyQ/wQn8MOEBOQ7Fz1Elkg0Qlrr2IvZJ4jh1D+ZMlcfdhduhFiB3rrW+EwU0xDiHGl5gTqQ==
+
 yallist@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"

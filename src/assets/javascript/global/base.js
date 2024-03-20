@@ -89,5 +89,3 @@ window.addEventListener('scroll', () => {
 		document.body.classList.remove('disable-hover');
 	}, 350);
 });
-
-console.log('BASE.js');
