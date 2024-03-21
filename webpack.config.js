@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
@@ -155,6 +156,7 @@ module.exports = (env) => {
 					},
 				}),
 				new ImageminWebpWebpackPlugin(),
+				new CssMinimizerPlugin(),
 			],
 
 			splitChunks: {
