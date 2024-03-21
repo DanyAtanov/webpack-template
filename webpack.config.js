@@ -1,11 +1,17 @@
 const path = require('path');
+const glob = require('glob');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
+
+const PATHS = {
+	src: path.join(__dirname, 'src'),
+};
 
 const PAGES = fs
 	.readdirSync(path.resolve(__dirname, './src/views/'))
@@ -186,6 +192,13 @@ module.exports = (env) => {
 				: new MiniCssExtractPlugin({
 						filename: 'assets/styles/[name].[contenthash].css',
 					}),
+
+			new PurgeCSSPlugin({
+				paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+				keyframes: true,
+				fontFace: true,
+				variables: true,
+			}),
 
 			...PAGES.map(
 				(page) =>
