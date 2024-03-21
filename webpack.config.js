@@ -36,9 +36,8 @@ module.exports = (env) => {
 		mode: env.mode ?? 'development',
 
 		entry: {
-			app: path.resolve(__dirname, 'src/index.js'),
 			sprite: path.resolve(__dirname, 'src/assets/javascript/global/sprite.js'),
-
+			app: path.resolve(__dirname, 'src/index.js'),
 			/* animation: path.resolve(__dirname, "src/animation.js"), */
 		},
 
@@ -49,6 +48,7 @@ module.exports = (env) => {
 		},
 
 		devtool: isDev ? 'inline-source-map' : false,
+
 		devServer: isDev
 			? {
 					static: {
@@ -145,8 +145,8 @@ module.exports = (env) => {
 		},
 
 		optimization: {
+			minimize: isDev ? false : true,
 			minimizer: [
-				'...',
 				new ImageMinimizerPlugin({
 					minimizer: {
 						implementation: ImageMinimizerPlugin.imageminMinify,
