@@ -1,5 +1,5 @@
 import "./global/base";
-import "./global/sprite";
+//import "./global/sprite";
 
 let loading = () => {
   import("./components").then(() => {

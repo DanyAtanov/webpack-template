@@ -1,0 +1,36 @@
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	width="17"
+	height="17"
+	viewBox="0 0 17 17"
+	fill="none"
+>
+	<rect
+		width="7.79167"
+		height="7.79167"
+		rx="1"
+		fill="currentColor"
+	/>
+	<rect
+		x="9.20825"
+		width="7.79167"
+		height="7.79167"
+		rx="1"
+		fill="currentColor"
+	/>
+	<rect
+		x="9.20825"
+		y="9.20834"
+		width="7.79167"
+		height="7.79167"
+		rx="1"
+		fill="currentColor"
+	/>
+	<rect
+		y="9.20834"
+		width="7.79167"
+		height="7.79167"
+		rx="1"
+		fill="currentColor"
+	/>
+</svg>
