@@ -36,6 +36,10 @@ video {
 	vertical-align: middle;
 }
 
+picture {
+	display: inline-block;
+}
+
 svg:not([fill]) {
 	fill: currentColor;
 }

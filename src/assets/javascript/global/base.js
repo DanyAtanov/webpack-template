@@ -1,5 +1,3 @@
-// Самая приоритетная загрузка
-import '../../styles/app.scss';
 import 'core-js/stable';
 import Alpine from 'alpinejs';
 

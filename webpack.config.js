@@ -38,7 +38,7 @@ module.exports = (env) => {
 
 		output: {
 			path: path.resolve(__dirname, 'dist'),
-			filename: '[name].[contenthash].js',
+			filename: './assets/javascript/[name].[contenthash].js',
 			clean: true,
 		},
 

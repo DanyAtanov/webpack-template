@@ -49,9 +49,14 @@
 		</template>
 	</ul>
 
-	<div class="test__picture skeleton">
+{{!-- 	<div class="test__picture skeleton">
 		<img loading="lazy" class="lazy" src="./assets/images/02.png" alt="" />
-	</div>
+	</div> --}}
+
+	<picture class="test__picture skeleton">
+		<source srcet="./assets/images/hero/01.webp" />
+		<img loading="lazy" src="./assets/images/hero/01.jpg" alt="" />
+	</picture>
 
 	<ul class="test__card-list">
 		<li class="test__card-item">

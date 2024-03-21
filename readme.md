@@ -30,16 +30,21 @@ yarn prod
 
 ### SVG Sprite
 
-Все SVG-файлы, расположенные в папке `src/assets/images/_svg` собираются в спрайт.
-
-Чтобы обратиться к нужной иконке из спрайта необходимо прописать `id` иконки, например `#name`, который соответствует имени файла в папке `src/assets/images/_svg`.
+SVG-файлы должны располагаться в папке `src/assets/images/svg`.
 
 ```bash
 <svg>
-     <use xlink:href="#icon_name"></use>
+     <use xlink:href="#имя_файла"></use>
 </svg>
   ```
 
 ### Picture Tag
 
 Эта сборка конвертирует для каждого изображения webp-файл, поэтому желательно помещать все картинки в тег `picture` (source: webp, img: jpg)
+
+```bash
+<picture>
+   <source srcet="./assets/images/hero/01.webp" />
+   <img loading="lazy" src="./assets/images/hero/01.jpg" alt="" />
+</picture>
+  ```
