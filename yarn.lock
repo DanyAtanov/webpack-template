@@ -6419,7 +6419,14 @@ svg-sprite-loader@^6.0.11:
     svg-baker-runtime "^1.4.7"
     url-slug "2.0.0"
 
-svgo@^3.2.0:
+svgo-loader@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/svgo-loader/-/svgo-loader-4.0.0.tgz#52edeeb47bcae492b867540fad320722ab95ad08"
+  integrity sha512-bdk2H73AHP8Vo9zgMuA8piEzi5pjFzllK4EwfebDF3hDjmHQpmmqXMoDd6abDtVFrlKTJuveepmnc2kuTdt/WA==
+  dependencies:
+    svgo "^3.0.0"
+
+svgo@^3.0.0, svgo@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-3.2.0.tgz#7a5dff2938d8c6096e00295c2390e8e652fa805d"
   integrity sha512-4PP6CMW/V7l/GmKRKzsLR8xxjdHTV4IMvhTnpuHwwBazSIlw5W/5SmPjN8Dwyt7lKbSJrRDgp4t9ph0HgChFBQ==
