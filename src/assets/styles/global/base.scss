@@ -166,15 +166,6 @@ body {
 	will-change: transform;
 }
 
-.lazy {
-	opacity: 0;
-	transition: opacity 0.25s 1s linear;
-
-	&.--is-loaded {
-		opacity: 1;
-	}
-}
-
 /* [data-magnetic] {
   will-change: transform;
   transform: translateZ(0);

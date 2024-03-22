@@ -1,32 +1,16 @@
 import 'core-js/stable';
 import Alpine from 'alpinejs';
 
+const allSkeletons = document.querySelectorAll('.skeleton');
+let disableHoverTimer;
+let throttlePause;
+let windowScroll = 0;
+let windowLastScroll = 0;
+
 window.Alpine = Alpine;
 Alpine.start();
 document.body.classList.add('page_loaded');
 
-let disableHoverTimer;
-let windowScroll = 0;
-let windowLastScroll = 0;
-
-const allSkeletons = document.querySelectorAll('.skeleton');
-const lazyImages = document.querySelectorAll('.lazy');
-
-lazyImages.forEach((image) => {
-	if (image.complete) {
-		image.classList.add('--is-loaded');
-	} else {
-		image.addEventListener(
-			'load',
-			() => {
-				image.classList.add('--is-loaded');
-			},
-			{ once: true }
-		);
-	}
-});
-
-let throttlePause;
 const _throttle = (callback, time) => {
 	if (throttlePause) return;
 	throttlePause = true;

@@ -4,10 +4,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "yarn && webpack serve --env mode=development",
-		"serve": "yarn && webpack serve --env mode=development",
-		"prod": "yarn && webpack --env mode=production",
-		"build": "yarn && webpack --env mode=production"
+		"dev": "yarn && webpack serve --env mode=development --config webpack.dev.js",
+		"serve": "yarn && webpack serve --env mode=development --config webpack.dev.js",
+		"prod": "yarn && webpack --env mode=production --config webpack.prod.js",
+		"build": "yarn && webpack --env mode=production --config webpack.prod.js"
 	},
 	"keywords": [],
 	"author": "danyatanov",
@@ -40,9 +40,11 @@
 		"sass-loader": "^13.3.3",
 		"style-loader": "^3.3.3",
 		"svg-sprite-loader": "^6.0.11",
+		"terser-webpack-plugin": "^5.3.10",
 		"webpack": "^5.89.0",
 		"webpack-cli": "^5.1.4",
-		"webpack-dev-server": "^4.15.1"
+		"webpack-dev-server": "^4.15.1",
+		"webpack-merge": "^5.10.0"
 	},
 	"dependencies": {
 		"alpinejs": "^3.13.3",
