@@ -11,7 +11,7 @@ module.exports = merge(common, {
 		static: {
 			directory: path.join(__dirname, 'src'),
 		},
-		port: 3000,
+		port: 'auto',
 		open: true,
 		hot: true,
 		compress: true,

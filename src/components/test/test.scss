@@ -59,6 +59,8 @@
 		display: block;
 		background: white;
 		padding: 10px;
+
+		@include click-area;
 	}
 
 	&__card-picture {
