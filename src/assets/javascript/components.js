@@ -1,7 +1,7 @@
 //UI
-import "../../components/_ui/modal/modal";
+import '../../components/_ui/modal/modal';
 
 // COMPONENTS
-import "../../components/test/test";
+import '../../components/test/test';
 
-console.log("Components are loaded 😎");
+console.log('%cComponents are loaded 😎', 'color: #90EE90');

@@ -33,7 +33,13 @@ module.exports = merge(common, {
 			}),
 			new ImageminWebpWebpackPlugin(),
 			new CssMinimizerPlugin(),
-			new TerserPlugin(),
+			new TerserPlugin({
+				terserOptions: {
+					compress: {
+						drop_console: true,
+					}
+				}
+			}),
 		],
 
 		splitChunks: {

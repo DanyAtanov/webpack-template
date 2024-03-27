@@ -5,6 +5,10 @@ const path = require('path');
 module.exports = merge(common, {
 	mode: 'development',
 
+	entry: {
+		dev: path.resolve(__dirname, 'src/assets/javascript/utils/dev.js'),
+	},
+
 	devtool: 'inline-source-map',
 
 	devServer: {

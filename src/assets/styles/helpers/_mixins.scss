@@ -1,93 +1,10 @@
-// Media
-@mixin phone-s {
-	@media (max-width: 430px) {
-		@content;
-	}
-}
-
-@mixin phone($only: false) {
-	@if $only {
-		@media (min-width: 431px) and (max-width: 768px) {
-			@content;
-		}
-	} @else {
-		@media (max-width: 768px) {
-			@content;
-		}
-	}
-}
-
-@mixin tablet($only: false) {
-	@if $only {
-		@media (min-width: 769px) and (max-width: 1023px) {
-			@content;
-		}
-	} @else {
-		@media (max-width: 1023px) {
-			@content;
-		}
-	}
-}
-
-@mixin laptop($only: false) {
-	@if $only {
-		@media (min-width: 1024px) and (max-width: 1279px) {
-			@content;
-		}
-	} @else {
-		@media (max-width: 1279px) {
-			@content;
-		}
-	}
-}
-
-@mixin desktop-s($only: false) {
-	@if $only {
-		@media (min-width: 1280px) and (max-width: 1439px) {
-			@content;
-		}
-	} @else {
-		@media (max-width: 1439px) {
-			@content;
-		}
-	}
-}
-
-@mixin desktop($only: false) {
-	@if $only {
-		@media (min-width: 1440px) and (max-width: 1920px) {
-			@content;
-		}
-	} @else {
-		@media (max-width: 1920px) {
-			@content;
-		}
-	}
-}
-
-// Color placeholders
-@mixin placeholder($color: #000) {
-	&::-webkit-input-placeholder {
-		color: $color;
-	}
-	&::-moz-placeholder {
-		color: $color;
-	}
-	&:-ms-input-placeholder {
-		color: $color;
-	}
-	&:-moz-placeholder {
-		color: $color;
-	}
-}
-
 // Visually hidden
 @mixin visually-hidden() {
-	position: absolute;
-	clip: rect(0 0 0 0);
-	margin: -1px;
-	width: 1px;
-	height: 1px;
+	position: absolute !important;
+	clip-path: inset(100%) !important;
+	margin: -1px !important;
+	width: 1px !important;
+	height: 1px !important;
 }
 
 // GPU
@@ -96,13 +13,6 @@
 	will-change: $change;
 }
 
-// Object-fit
-/*
-  This mixin can be used to set the object-fit:
-  @include object-fit(contain);
-  or object-fit and object-position:
-  @include object-fit(cover, top);
-*/
 @mixin object-fit($fit: fill, $position: null) {
 	-o-object-fit: $fit;
 	object-fit: $fit;
@@ -200,6 +110,36 @@
 	-webkit-line-clamp: $max-lines;
 }
 
+@mixin overflow-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@mixin svg-path-origin {
+	transform-box: fill-box;
+	transform-origin: 50% 50%;
+}
+
+@mixin grayscale-hover {
+	opacity: 0.3;
+	filter: grayscale(1);
+	transition: opacity 0.3s linear;
+
+	&:hover {
+		opacity: 1;
+		filter: grayscale(0);
+	}
+}
+
+@mixin hide-scrollbar {
+	&::-webkit-scrollbar,
+	&::-webkit-scrollbar-track,
+	&::-webkit-scrollbar-thumb {
+		display: none !important;
+	}
+}
+
 @mixin click-area($width: 16px, $height: 16px) {
 	position: relative;
 
@@ -211,5 +151,15 @@
 		width: calc(100% + $width);
 		height: calc(100% + $height);
 		content: '';
+	}
+}
+
+@mixin font-size($font-size, $font-size-phone: null) {
+	font-size: $font-size;
+
+	@if $font-size-phone {
+		@include phone {
+			font-size: $font-size-phone;
+		}
 	}
 }

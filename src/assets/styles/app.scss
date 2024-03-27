@@ -4,13 +4,14 @@
 @import 'settings';
 
 // HELPERS
+@import 'helpers/media';
 @import 'helpers/mixins';
 @import 'helpers/placeholders';
 @import 'helpers/keyframes';
 
 // GLOBAL
-@import 'global/normalize';
 @import 'global/fonts';
+@import 'global/normalize';
 @import 'global/base';
 @import 'global/page';
 

@@ -59,8 +59,35 @@
 		display: block;
 		background: white;
 		padding: 10px;
+		@include visually-hidden();
 
 		@include click-area;
+
+		h2 {
+			@include font-size(30px, 14px);
+
+			@include ultra-wide {
+				color: $black;
+			}
+			@include desktop {
+				color: red;
+			}
+			@include laptop {
+				color: $black;
+			}
+			@include laptop-s {
+				color: red;
+			}
+			@include tablet {
+				color: $black;
+			}
+			@include phone($only: true) {
+				color: red;
+			}
+			/* 	@include phone-s {
+				color: green;
+			} */
+		}
 	}
 
 	&__card-picture {
