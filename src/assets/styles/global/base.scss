@@ -156,6 +156,10 @@ body {
 	&.scroll-lock {
 		overflow: hidden;
 	}
+
+	&:has(dialog[open]) {
+		overflow: hidden;
+	}
 }
 
 .disable-hover {
