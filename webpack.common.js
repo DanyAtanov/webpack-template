@@ -21,8 +21,8 @@ const UI_PARTIALS = fs
 
 module.exports = {
 	entry: {
-		sprite: path.resolve(__dirname, 'src/assets/javascript/global/sprite.js'),
 		app: path.resolve(__dirname, 'src/index.js'),
+		sprite: path.resolve(__dirname, 'src/assets/javascript/global/sprite.js'),
 		/* animation: path.resolve(__dirname, "src/animation.js"), */
 	},
 
@@ -119,7 +119,7 @@ module.exports = {
 		...PAGES.map(
 			(page) =>
 				new HtmlWebpackPlugin({
-					inject: 'body',
+					inject: 'head',
 					minify: false,
 					template: path.resolve(__dirname, `./src/views/${page}`),
 					filename: `${page.replace(/\.hbs/, '.html')}`,

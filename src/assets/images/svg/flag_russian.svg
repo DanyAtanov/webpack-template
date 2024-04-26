@@ -1,0 +1,17 @@
+<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g clip-path="url(#clip0)">
+<rect y="0.5" width="16" height="11" fill="url(#pattern0)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0.5H16V11.5H0V0.5Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 4.16675H16V11.5001H0V4.16675Z" fill="#0039A6"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.83325H16V11.4999H0V7.83325Z" fill="#D52B1E"/>
+</g>
+<defs>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0" transform="translate(-0.00989583) scale(0.0114583 0.0166667)"/>
+</pattern>
+<clipPath id="clip0">
+<rect width="16" height="11" fill="white" transform="translate(0 0.5)"/>
+</clipPath>
+<image id="image0" width="89" height="60" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAAA8CAYAAAANMhZGAAAA/klEQVR4Ae3WwQkCMRQE0HjdYjwuWIc9WLLgRaxkYwsflj9IfIecF97OTDLGGNNpN2j/gJ8oxZGQRT7y72mGHGgzZMhrvH4kWZIlWQuKLQBVhDrzDIUM2SZrQbEFoIpQNjkABRnyGpeXJP90kvfLNp1eg/HcrtPpNYAcCBlkyL01Ts2kJEuyJHuVFFtgLopQZ/YbMmSbbJOLLTAXRSibHICCDHmNy0uSJVmSvS4CLYCcQP7c9un0GozjdZ9OrwHkQMggQ+6tcWomJVmSJdmrpNgCc1GEOrPfkCHbZJtcbIG5KELZ5AAUZMhrXF6SLMmS7HURaAHkCPL7MQ+n1eAL7jNglAKRDGQAAAAASUVORK5CYII="/>
+</defs>
+</svg>
