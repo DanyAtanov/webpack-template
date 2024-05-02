@@ -43,6 +43,7 @@
 		flex: 0 0 30%;
 		padding: 20px;
 		color: black;
+		//@include visually-hidden;
 
 		h2 {
 			margin: 20px 0;
@@ -59,13 +60,10 @@
 		display: block;
 		background: white;
 		padding: 10px;
-		@include visually-hidden();
 
 		@include click-area;
 
 		h2 {
-			@include font-size(30px, 14px);
-
 			@include ultra-wide {
 				color: $black;
 			}
@@ -98,5 +96,10 @@
 			height: 100%;
 			@include object-fit(cover, center);
 		}
+	}
+
+	.triangle {
+		@include triangle(down, red, 14px, 1.5);
+		// @include circle(red, 20px);
 	}
 }

@@ -1,17 +1,12 @@
-// Visually hidden
 @mixin visually-hidden() {
+	position: absolute;
 	opacity: 0;
-	clip-path: inset(100%) !important;
-	margin: -1px !important;
-	padding: 0 !important;
-	width: 1px !important;
-	height: 1px !important;
-}
-
-// GPU
-@mixin gpu($change: transform) {
-	transform: translateZ(0);
-	will-change: $change;
+	clip-path: inset(100%);
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	width: 1px;
+	height: 1px;
 }
 
 @mixin object-fit($fit: fill, $position: null) {
@@ -20,9 +15,6 @@
 	@if $position {
 		-o-object-position: $position;
 		object-position: $position;
-		font-family: 'object-fit: #{$fit}; object-position: #{$position}';
-	} @else {
-		font-family: 'object-fit: #{$fit}';
 	}
 }
 
@@ -35,54 +27,17 @@
 	height: 100%;
 }
 
-// Yandex Map filter
-@mixin ymaps-filter {
-	[class*='-ground-pane'] {
-		position: relative;
-		@content;
-	}
-}
-
-// Flex center (to parent)
 @mixin flex-center() {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-// Absolute center (to child)
 @mixin absolute-center() {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate3d(-50%, -50%, 0);
-}
-
-@mixin lazy-loaded {
-	opacity: 0;
-	transition: opacity 0.45s ease-in-out;
-
-	&._is-loaded {
-		opacity: 1;
-	}
-}
-
-// fancybox костыль для min()-max()
-@function max($numbers...) {
-	@return m#{a}x(#{$numbers});
-}
-@function min($numbers...) {
-	@return m#{i}n(#{$numbers});
-}
-
-// Full-widht container
-@mixin full-width() {
-	position: relative;
-	right: 50%;
-	left: 50%;
-	margin-right: -50vw;
-	margin-left: -50vw;
-	width: 100vw;
 }
 
 @mixin absolute-fill {
@@ -94,14 +49,57 @@
 	height: 100%;
 }
 
-@mixin circle($size, $background, $color: null, $padding: null) {
+@mixin full-width() {
+	position: relative;
+	right: 50%;
+	left: 50%;
+	margin-right: -50vw;
+	margin-left: -50vw;
+	width: 100vw;
+}
+
+@mixin lazy-loaded {
+	opacity: 0;
+	transition: opacity 0.45s ease-in-out;
+
+	&._is-loaded {
+		opacity: 1;
+	}
+}
+
+// @include circle(red, 20px);
+@mixin circle($background, $size) {
+	display: inline-block;
 	border-radius: 50%;
 	background-color: $background;
-	padding: $padding;
 	width: $size;
 	height: $size;
 	overflow: hidden;
-	color: $color;
+}
+
+// @include triangle(red, down, 8px, 1.5);
+@mixin triangle($direction, $color, $size: 8px, $ratio: 1) {
+	display: block;
+	width: 0;
+	height: 0;
+
+	@if $direction == down {
+		border-top: $size solid $color;
+		border-right: ($size * $ratio) solid transparent;
+		border-left: ($size * $ratio) solid transparent;
+	} @else if $direction == up {
+		border-right: ($size * $ratio) solid transparent;
+		border-bottom: $size solid $color;
+		border-left: ($size * $ratio) solid transparent;
+	} @else if $direction == right {
+		border-top: ($size * $ratio) solid transparent;
+		border-bottom: ($size * $ratio) solid transparent;
+		border-left: $size solid $color;
+	} @else if $direction == left {
+		border-top: ($size * $ratio) solid transparent;
+		border-right: $size solid $color;
+		border-bottom: ($size * $ratio) solid transparent;
+	}
 }
 
 @mixin max-lines($max-lines: 3) {
@@ -117,6 +115,7 @@
 	white-space: nowrap;
 }
 
+// для корректной трансформации svg элементов
 @mixin svg-path-origin {
 	transform-box: fill-box;
 	transform-origin: 50% 50%;
@@ -152,15 +151,5 @@
 		width: calc(100% + $width);
 		height: calc(100% + $height);
 		content: '';
-	}
-}
-
-@mixin font-size($font-size, $font-size-phone: null) {
-	font-size: $font-size;
-
-	@if $font-size-phone {
-		@include phone {
-			font-size: $font-size-phone;
-		}
 	}
 }
