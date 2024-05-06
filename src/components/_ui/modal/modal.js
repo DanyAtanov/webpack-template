@@ -1,6 +1,6 @@
 const modal = (() => {
-	const buttons = document.querySelectorAll('[data-open-modal]');
-	const modals = document.querySelectorAll('[data-modal]');
+	const buttons = document.querySelectorAll('[data-modal]:not(dialog)');
+	const modals = document.querySelectorAll('dialog[data-modal]');
 
 	const init = () => {
 		if (buttons.length === 0) return;
@@ -13,7 +13,7 @@ const modal = (() => {
 				for (let index = 0; index < modals.length; index++) {
 					const el = modals[index];
 
-					if (el.dataset.modal === button.dataset.openModal) {
+					if (el.dataset.modal === button.dataset.modal) {
 						theModal = el;
 						closeButton = el.querySelector('.modal__close');
 

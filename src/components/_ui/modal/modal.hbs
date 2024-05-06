@@ -1,8 +1,8 @@
 <dialog
 	x-data
 	x-ref="modal"
-	class="modal {{#if class}}{{ class }}{{/if}}"
-	data-modal="{{ open }}"
+	class="modal {{ name }}"
+	data-modal="{{ name }}"
 >
 	<button
 		x-on:click="$refs.modal.close()"
