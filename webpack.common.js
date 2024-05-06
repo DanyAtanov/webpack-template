@@ -22,7 +22,7 @@ const UI_PARTIALS = fs
 module.exports = {
 	entry: {
 		app: path.resolve(__dirname, 'src/index.js'),
-		sprite: path.resolve(__dirname, 'src/assets/javascript/global/sprite.js'),
+		/* sprite: path.resolve(__dirname, 'src/assets/javascript/global/sprite.js'), */
 		/* animation: path.resolve(__dirname, "src/animation.js"), */
 	},
 
