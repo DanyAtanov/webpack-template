@@ -1,4 +1,7 @@
 <section class="test">
+	<div class="test__background">
+		<img loading="lazy" src="/assets/images/back.jpg" alt="">
+	</div>
 	{{#> title-section}}TEST-PAGE {{/title-section}}
 	<div x-data="{ open: false }">
 		<button
@@ -16,7 +19,11 @@
 		{{> test-modal}}
 		{{> test-modal-2}}
 
-		<div class="test__tab" x-show="open" x-transition.duration.350ms>
+		<div
+			class="test__tab"
+			x-show="open"
+			x-transition.duration.350ms
+		>
 			Далеко-далеко за словесными горами в стране гласных и согласных живут
 			рыбные тексты. Подпоясал, составитель дал назад текстов курсивных однажды,
 			прямо большой по всей великий грустный то одна не! Заглавных первую
@@ -24,14 +31,23 @@
 		</div>
 	</div>
 
-	<div x-data="{counter: 0}" class="test__counter">
+	<div
+		x-data="{counter: 0}"
+		class="test__counter"
+	>
 		<button x-on:click="counter++">+</button>
 		<span x-text="counter"></span>
 		<button x-on:click="counter !== 0 ? counter-- : counter = 0 ">-</button>
 	</div>
 
-	<div class="skeleton" x-data="{ search: '' }">
-		<input type="text" x-model="search" />
+	<div
+		class="skeleton"
+		x-data="{ search: '' }"
+	>
+		<input
+			type="text"
+			x-model="search"
+		/>
 
 		Searching for:
 		<span x-text="search"></span>
@@ -49,394 +65,53 @@
 		</template>
 	</ul>
 
-{{!-- 	<div class="test__picture skeleton">
-		<img loading="lazy" class="lazy" src="./assets/images/02.png" alt="" />
-	</div> --}}
-
 	<picture class="test__picture skeleton">
 		<source srcet="./assets/images/hero/01.webp" />
-		<img loading="lazy" src="./assets/images/hero/01.jpg" alt="" />
+		<img
+			loading="lazy"
+			src="./assets/images/hero/01.jpg"
+			alt=""
+		/>
 	</picture>
 
-	<ul class="test__card-list">
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg"
-						alt=""
-					/>
-				</div>
+	<ul
+		x-data="{cards: [{title: 'Заголовок'},
+		{title: 'Заголовок 2'}, 
+		{title: 'Заголовок 3'}]}"
+		class="test__card-list"
+	>
+		<template x-for="card in cards">
+			<li class="test__card-item">
+				<a
+					href="#"
+					class="test__card"
+				>
+					<div class="test__card-picture skeleton">
+						<picture>
+							<source srcet="./assets/images/hero/01.webp" />
+							<img
+								loading="lazy"
+								class="lazy"
+								src="./assets/images/hero/01.jpg"
+								alt=""
+							/>
+						</picture>
+					</div>
 
-				<h2 class="skeleton">Каккой-то заголовок</h2>
+					<h2
+						x-text="card.title"
+						class="skeleton"
+					></h2>
 
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?00"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?01"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?02"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?03"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?04"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?05"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?06"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?07"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?08"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?09"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?10"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?11"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/hero/01.jpg?12"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
-		<li class="test__card-item">
-			<a href="#" class="test__card">
-				<div class="test__card-picture skeleton">
-					<img
-						loading="lazy"
-						class="lazy"
-						src="./assets/images/04.webp"
-						alt=""
-					/>
-				</div>
-
-				<h2 class="skeleton">Каккой-то заголовок</h2>
-
-				<p class="skeleton">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-					consequatur illum unde voluptas laudantium, expedita placeat repellat
-					asperiores? Commodi facere eligendi vel fugiat error assumenda esse
-					quaerat, quasi blanditiis sed.
-				</p>
-			</a>
-		</li>
+					<p class="skeleton">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+						consequatur illum unde voluptas laudantium, expedita placeat
+						repellat asperiores? Commodi facere eligendi vel fugiat error
+						assumenda esse quaerat, quasi blanditiis sed.
+					</p>
+				</a>
+			</li>
+		</template>
 	</ul>
 
 	<p style="color: red">
@@ -454,4 +129,6 @@
 	<h2>йоу</h2>
 
 	<span class="triangle"></span>
+	<br/>
+	<div class="square"></div>
 </section>

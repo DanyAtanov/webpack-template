@@ -10,10 +10,8 @@
 }
 
 @mixin object-fit($fit: fill, $position: null) {
-	-o-object-fit: $fit;
 	object-fit: $fit;
 	@if $position {
-		-o-object-position: $position;
 		object-position: $position;
 	}
 }
@@ -151,5 +149,68 @@
 		width: calc(100% + $width);
 		height: calc(100% + $height);
 		content: '';
+	}
+}
+
+// @include background-gradient (red, blue, 90deg, 90%)
+@mixin background-gradient(
+	$start-color,
+	$end-color,
+	$angle: null,
+	$percentage: null
+) {
+	@if $angle {
+		background: linear-gradient($angle, $start-color $percentage, $end-color);
+	} @else {
+		background: radial-gradient(ellipse at center, $start-color, $end-color);
+	}
+}
+
+// @include scrollbar(black, red, pink)
+@mixin scrollbar(
+	$track-background-color: hsl(0deg 0% 0% / 5%),
+	$thumb-background-color: hsl(0deg 0% 0% / 15%),
+	$thumb-background-color-hover: hsl(0deg 0% 0% / 25%),
+	$size: 0.5rem,
+	$border-radius: 0.25rem
+) {
+	&::-webkit-scrollbar {
+		inline-size: $size;
+		block-size: $size;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: $border-radius;
+		background-color: $thumb-background-color;
+
+		&:hover {
+			background: $thumb-background-color-hover;
+		}
+	}
+
+	&::-webkit-scrollbar-track {
+		background: $track-background-color;
+	}
+}
+
+@mixin swiper-lazy-fix {
+	.swiper-slide:not(.swiper-slide-active) img {
+		display: none;
+	}
+}
+
+@mixin background($opacity: 1) {
+	position: absolute;
+	opacity: $opacity;
+	z-index: -1;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+
+	img,
+	video {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 }

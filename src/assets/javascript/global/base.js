@@ -1,15 +1,15 @@
 import 'core-js/stable';
 import Alpine from 'alpinejs';
 
+window.Alpine = Alpine;
+Alpine.start();
+document.body.classList.add('page_loaded');
+
 const allSkeletons = document.querySelectorAll('.skeleton');
 let disableHoverTimer;
 let throttlePause;
 let windowScroll = 0;
 let windowLastScroll = 0;
-
-window.Alpine = Alpine;
-Alpine.start();
-document.body.classList.add('page_loaded');
 
 const _throttle = (callback, time) => {
 	if (throttlePause) return;

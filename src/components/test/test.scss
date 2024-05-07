@@ -1,5 +1,6 @@
 .test {
 	$that: &;
+	position: relative;
 
 	button {
 		transition: background-color 0.35s ease-out;
@@ -60,6 +61,7 @@
 		display: block;
 		background: white;
 		padding: 10px;
+		//@include background-gradient(white, blue, 90deg, 50%);
 
 		@include click-area;
 
@@ -98,8 +100,17 @@
 		}
 	}
 
+	&__background {
+		@include background(0);
+	}
+
 	.triangle {
 		@include triangle(down, red, 14px, 1.5);
 		// @include circle(red, 20px);
+	}
+
+	.square {
+		width: 50px;
+		height: 50px;
 	}
 }
