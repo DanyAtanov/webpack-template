@@ -1,6 +1,10 @@
 <section class="test">
 	<div class="test__background">
-		<img loading="lazy" src="/assets/images/back.jpg" alt="">
+		<img
+			loading="lazy"
+			src="/assets/images/back.jpg"
+			alt=""
+		>
 	</div>
 	{{#> title-section}}TEST-PAGE {{/title-section}}
 	<div x-data="{ open: false }">
@@ -129,6 +133,20 @@
 	<h2>йоу</h2>
 
 	<span class="triangle"></span>
-	<br/>
+	<br />
 	<div class="square"></div>
+
+	<div class="test-contents">
+		<ul class="test-contents__list">
+			<li class="test-contents__item">Тест</li>
+			<li class="test-contents__item">Тест</li>
+			<li class="test-contents__item">Тест</li>
+			<li class="test-contents__item">Тест</li>
+		</ul>
+		<div class="test-contents__logo">
+			<svg>
+				<use xlink:href="#eye"></use>
+			</svg>
+		</div>
+	</div>
 </section>
