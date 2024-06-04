@@ -1,4 +1,4 @@
-import 'core-js/stable';
+// import 'core-js/stable';
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
