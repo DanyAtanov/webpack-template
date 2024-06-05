@@ -41,14 +41,3 @@ SVG-файлы должны располагаться в папке `src/assets
      <use xlink:href="#имя_файла"></use>
 </svg>
   ```
-
-### Picture Tag
-
-Для каждого изображения конвертируется webp-файл, поэтому желательно помещать все картинки в тег `picture` (source: webp, img: jpg)
-
-```bash
-<picture>
-   <source srcet="./assets/images/hero/01.webp" />
-   <img loading="lazy" src="./assets/images/hero/01.jpg" alt="" />
-</picture>
-  ```
