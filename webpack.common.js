@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 const PAGES = fs
 	.readdirSync(path.resolve(__dirname, './src/views/'))
@@ -24,8 +25,6 @@ module.exports = {
 		app: path.resolve(__dirname, 'src/index.js'),
 		'contacts-page': path.resolve(__dirname, 'src/assets/javascript/contacts-page.js'),
 		'about-page': path.resolve(__dirname, 'src/assets/javascript/about-page.js'),
-		/* sprite: path.resolve(__dirname, 'src/assets/javascript/global/sprite.js'), */
-		/* animation: path.resolve(__dirname, "src/animation.js"), */
 	},
 
 	output: {
@@ -109,7 +108,14 @@ module.exports = {
 			},
 			{
 				test: /\.svg$/,
-				use: ['svg-sprite-loader', 'svgo-loader'],
+				use: [{ loader: 'svg-sprite-loader',
+				options: {
+					extract: true,
+					plainSprite: true,
+					//publicPath: 'src/assets/images/svg',
+					//spriteFileName: 'sprite.svg'
+				}},
+				'svgo-loader'],
 			},
 		],
 	},
@@ -118,6 +124,7 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: 'assets/styles/[name].[contenthash].css',
 		}),
+		new SpriteLoaderPlugin(),
 		...PAGES.map(
 			(page) =>
 				new HtmlWebpackPlugin({
