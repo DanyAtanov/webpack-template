@@ -36,13 +36,13 @@ module.exports = merge(common, {
 			new TerserPlugin({
 				terserOptions: {
 					compress: {
-						drop_console: true,
+						drop_console: false,
 					}
 				} 
 			}),
 		],
 
-		splitChunks: {
+		/* splitChunks: {
 			cacheGroups: {
 				vendor: {
 					test: /[\\/]node_modules[\\/]/,
@@ -50,7 +50,7 @@ module.exports = merge(common, {
 					chunks: 'all',
 				},
 			},
-		},
+		}, */
 	},
 
 	plugins: [

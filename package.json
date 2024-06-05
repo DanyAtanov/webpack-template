@@ -4,10 +4,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "yarn && webpack serve --env mode=development --config webpack.dev.js",
-		"serve": "yarn && webpack serve --env mode=development --config webpack.dev.js",
-		"prod": "yarn && webpack --env mode=production --config webpack.prod.js",
-		"build": "yarn && webpack --env mode=production --config webpack.prod.js"
+		"dev": "yarn && webpack serve --config webpack.dev.js",
+		"serve": "yarn && webpack serve --config webpack.dev.js",
+		"prod": "yarn && webpack --config webpack.prod.js",
+		"build": "yarn && webpack --config webpack.prod.js"
 	},
 	"keywords": [],
 	"author": "danyatanov",

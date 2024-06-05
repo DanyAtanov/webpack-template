@@ -28,7 +28,7 @@ const totalAmount = bankAccounts.reduce((total, amount) => {
 
 console.log(totalAmount); */
 
-/* const totalAll = (...numbers) => {
+const totalAll = (...numbers) => {
 	const sum = numbers.reduce((result, numbers) => {
 		return result + numbers;
 	});
@@ -36,6 +36,6 @@ console.log(totalAmount); */
 	return sum**3
 };
 
-console.log(totalAll(1, 2, 3)); */
+console.log(totalAll(1, 2, 3)); 
 
 

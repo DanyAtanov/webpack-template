@@ -22,6 +22,8 @@ const UI_PARTIALS = fs
 module.exports = {
 	entry: {
 		app: path.resolve(__dirname, 'src/index.js'),
+		'contacts-page': path.resolve(__dirname, 'src/assets/javascript/contacts-page.js'),
+		'about-page': path.resolve(__dirname, 'src/assets/javascript/about-page.js'),
 		/* sprite: path.resolve(__dirname, 'src/assets/javascript/global/sprite.js'), */
 		/* animation: path.resolve(__dirname, "src/animation.js"), */
 	},
@@ -123,6 +125,7 @@ module.exports = {
 					minify: false,
 					template: path.resolve(__dirname, `./src/views/${page}`),
 					filename: `${page.replace(/\.hbs/, '.html')}`,
+					chunks: ['app', `${page.replace(/\.hbs/, '')}`],
 				})
 		),
 	],
