@@ -7,7 +7,9 @@
 		"dev": "yarn && webpack serve --config webpack.dev.js",
 		"serve": "yarn && webpack serve --config webpack.dev.js",
 		"prod": "yarn && webpack --config webpack.prod.js",
-		"build": "yarn && webpack --config webpack.prod.js"
+		"build": "yarn && webpack --config webpack.prod.js",
+		"prod:no-hash": "yarn && webpack --config webpack.prod.js --env noHash=true",
+		"build:no-hash": "yarn && webpack --config webpack.prod.js --env noHash=true"
 	},
 	"keywords": [],
 	"author": "danyatanov",

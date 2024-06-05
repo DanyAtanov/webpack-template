@@ -13,8 +13,14 @@ const PATHS = {
 	src: path.join(__dirname, 'src'),
 };
 
-module.exports = merge(common, {
+module.exports = (env) => merge(common, {
 	mode: 'production',
+
+	output: {
+		path: path.resolve(__dirname, 'dist'),
+		filename: env.noHash ? './assets/javascript/[name].js' : './assets/javascript/[name].[contenthash].js',
+		clean: true,
+	},
 
 	optimization: {
 		minimize: true,
