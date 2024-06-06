@@ -34,10 +34,8 @@ yarn prod:no-hash
 
 ### SVG Sprite
 
-SVG-файлы должны располагаться в папке `src/assets/images/svg`.
-
 ```bash
 <svg>
-     <use xlink:href="#имя_файла"></use>
+     <use xlink:href="sprite.svg#имя_файла"></use>
 </svg>
   ```
