@@ -2,9 +2,11 @@ html {
 	min-width: 320px;
 
 	@include scrollbar();
+	scrollbar-gutter: stable;
 }
 
 body {
+	scrollbar-gutter: stable;
 	background: $white;
 	color: $color_text;
 	font-weight: 500;
