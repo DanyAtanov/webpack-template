@@ -55,8 +55,8 @@
 		}
 	}
 
-	@include phone {
+/* 	@include phone {
 		min-width: calc($loader-size / 2.5);
 		max-width: calc($loader-size / 1.5);
-	}
+	} */
 }

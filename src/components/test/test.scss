@@ -52,9 +52,9 @@
 			font-size: 20px;
 		}
 
-		@include phone {
+	/* 	@include phone {
 			flex: 1 1 100%;
-		}
+		} */
 	}
 
 	&__card {
@@ -81,9 +81,9 @@
 			@include tablet {
 				color: $black;
 			}
-			@include phone($only: true) {
+			/* @include phone($only: true) {
 				color: red;
-			}
+			} */
 			/* 	@include phone-s {
 				color: green;
 			} */

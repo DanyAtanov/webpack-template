@@ -161,14 +161,10 @@ body {
 }
 
 section {
-	margin-bottom: 80px;
+	margin-bottom: 40px;
 
 	@include laptop {
 		margin-bottom: 50px;
-	}
-
-	@include phone {
-		margin-bottom: 40px;
 	}
 
 	@include phone-s {
