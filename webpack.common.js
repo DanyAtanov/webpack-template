@@ -129,7 +129,6 @@ module.exports = {
 			(page) =>
 				new HtmlWebpackPlugin({
 					inject: 'head',
-					minify: false,
 					template: path.resolve(__dirname, `./src/views/${page}`),
 					filename: `${page.replace(/\.hbs/, '.html')}`,
 					chunks: ['app', `${page.replace(/\.hbs/, '')}`],
