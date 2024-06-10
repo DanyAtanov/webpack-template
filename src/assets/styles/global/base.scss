@@ -157,6 +157,10 @@ body {
 
 	&:has(dialog[open]) {
 		overflow: hidden;
+
+		@include tablet {
+			padding-right: 0.5rem;
+		}
 	}
 }
 

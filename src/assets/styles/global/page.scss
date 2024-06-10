@@ -1,8 +1,10 @@
 html {
 	min-width: 320px;
-
-	@include scrollbar();
 	scrollbar-gutter: stable;
+
+	@include tablet {
+		@include scrollbar();
+	}
 }
 
 body {
