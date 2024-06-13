@@ -112,7 +112,7 @@ module.exports = {
 				options: {
 					extract: true,
 					plainSprite: true,
-					//publicPath: 'src/assets/images/svg',
+					publicPath: '/assets/images/',
 					//spriteFileName: 'sprite.svg'
 				}},
 				'svgo-loader'],

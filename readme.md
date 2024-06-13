@@ -36,6 +36,6 @@ yarn prod:no-hash
 
 ```bash
 <svg>
-     <use xlink:href="sprite.svg#имя_файла"></use>
+     <use xlink:href="./assets/images/sprite.svg#имя_файла"></use>
 </svg>
   ```
