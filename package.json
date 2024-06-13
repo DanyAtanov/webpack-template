@@ -4,12 +4,9 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "yarn && webpack serve --config webpack.dev.js",
-		"serve": "yarn && webpack serve --config webpack.dev.js",
-		"prod": "yarn && webpack --config webpack.prod.js",
-		"build": "yarn && webpack --config webpack.prod.js",
-		"prod:no-hash": "yarn && webpack --config webpack.prod.js --env noHash=true",
-		"build:no-hash": "yarn && webpack --config webpack.prod.js --env noHash=true"
+		"dev": "npm install && webpack serve --config webpack.dev.js",
+		"prod": "npm install && webpack --config webpack.prod.js",
+		"prod:nohash": "npm install && webpack --config webpack.prod.js --env noHash=true"
 	},
 	"keywords": [],
 	"author": "danyatanov",
