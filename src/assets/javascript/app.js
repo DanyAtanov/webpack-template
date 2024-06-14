@@ -9,3 +9,5 @@ import '../../assets/images/svg/eye.svg';
 
 //UI
 import '../../components/_ui/modal/modal';
+
+import './utils/jsPDF/jsPDF';
