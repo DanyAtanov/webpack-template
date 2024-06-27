@@ -1,5 +1,6 @@
 // import 'core-js/stable';
 import Alpine from 'alpinejs';
+import { Throttle } from '../utils/throttle';
 
 window.Alpine = Alpine;
 Alpine.start();
@@ -7,19 +8,8 @@ document.body.classList.add('page_loaded');
 
 const allSkeletons = document.querySelectorAll('.skeleton');
 let disableHoverTimer;
-let throttlePause;
 let windowScroll = 0;
 let windowLastScroll = 0;
-
-const _throttle = (callback, time) => {
-	if (throttlePause) return;
-	throttlePause = true;
-	setTimeout(() => {
-		callback();
-		throttlePause = false;
-	}, time);
-};
-
 const updateScrollState = () => {
 	windowScroll = window.scrollY;
 
@@ -43,6 +33,7 @@ const updateScrollState = () => {
 		windowLastScroll = windowScroll;
 	}, 0);
 };
+const winScroll = new Throttle(updateScrollState, 150);
 
 window.addEventListener(
 	'load',
@@ -60,7 +51,7 @@ window.addEventListener(
 );
 
 window.addEventListener('scroll', () => {
-	_throttle(updateScrollState, 150);
+	winScroll.throttle();
 
 	clearTimeout(disableHoverTimer);
 	if (!document.body.classList.contains('disable-hover')) {
