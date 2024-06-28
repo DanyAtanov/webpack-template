@@ -4,7 +4,7 @@
 * [Handlebars](https://handlebarsjs.com/guide/)
 * [Alpine.js](https://alpinejs.dev/)
 
-Сборка фронта. SCSS. Handlebars. Alpine.js. SVG sprite. Конвертация изображений в webp.
+Сборка фронта. SCSS. Handlebars. Alpine.js. 
 
 ## Начало работы
 
