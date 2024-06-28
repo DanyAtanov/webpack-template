@@ -1,4 +1,4 @@
-const showMore = (() => {
+const hoverFill = (() => {
 	let hoverElements = document.querySelectorAll('.hover-fill');
 
 	let init = () => {

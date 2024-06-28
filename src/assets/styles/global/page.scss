@@ -72,17 +72,9 @@ section {
 
 	opacity: 0;
 	transition: opacity 0.25s ease-out;
-	overflow: visible;
 
 	&._is-loaded {
 		opacity: 1;
-	}
-
-	.swiper-slide {
-		opacity: 0;
-		transition: opacity 0.4s ease-out;
-		box-sizing: border-box;
-		height: auto;
 	}
 }
 

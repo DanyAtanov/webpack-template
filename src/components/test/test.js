@@ -23,3 +23,12 @@ if (document.querySelectorAll('.countdown').length) {
 		countdown('.countdown', 2000, 1000);
 	});
 }
+
+//test Slider
+import { Slider } from '../../assets/javascript/utils/slider';
+
+let testSlider = new Slider('.test-slider', true);
+testSlider.init();
+
+// test
+

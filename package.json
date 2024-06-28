@@ -49,6 +49,7 @@
 	"dependencies": {
 		"alpinejs": "^3.14.0",
 		"js-cookie": "^3.0.5",
+		"swiper": "^11.1.4",
 		"xwiper": "^2.2.1"
 	}
 }

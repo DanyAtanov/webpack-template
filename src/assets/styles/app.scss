@@ -15,6 +15,9 @@
 @import 'global/base';
 @import 'global/page';
 
+// VENDORS
+@import '../../../node_modules/swiper/swiper-bundle.min.css';
+
 // UI
 @import '../../components/_ui/skeletons/skeleton';
 @import '../../components/_ui/modal/modal';
@@ -33,4 +36,4 @@
 @import '../styles/pages/generic-page';
 
 // MODAL
-@import '../../components/_modals/test-modal-2'
+@import '../../components/_modals/test-modal-2';
