@@ -1,31 +1,42 @@
-{{#if secondary}}
+<!DOCTYPE html>
 <html lang="ru">
-  {{> head}}
-  <body class="preload" style="background: red">
-    <div class="layout">
-      <div class="layout__header">{{>header}}</div>
-      <div class="layout__content">
-        <h1>Secondaty layout</h1>
-        {{> @partial-block}}
-      </div>
-      <div class="layout__footer">{{>footer}}</div>
-    </div>
-  </body>
-</html>
-
+{{#if map}}
+{{> head yandexMap="true"}}
 {{else}}
-<html lang="ru">
-  {{> head}}
-  <body class="preload">
-    <div class="layout">
-      <div class="layout__header">{{>header}}</div>
-      <div class="layout__content">
-        <main class="generic-page">
-          {{> @partial-block}}
-        </main>
-      </div>
-      <div class="layout__footer">{{>footer}}</div>
-    </div>
-  </body>
-</html>
+{{> head}}
 {{/if}}
+
+<body class="preload">
+  <div
+    class="layout {{#if layoutClass}}{{layoutClass}}{{/if}}"
+    style="	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+  min-height: 100dvh; 
+	overflow: clip;"
+  >
+    <div
+      class="layout__header"
+      style="position: fixed;
+		top: 0;
+		left: 0;
+		flex: none;
+		z-index: 100;
+		width: 100%;"
+    >{{>header}}</div>
+    <div
+      class="layout__content"
+      style="flex: 1 0 auto;"
+    >
+      <main class="generic-page">
+        {{> @partial-block}}
+      </main>
+    </div>
+    <div class="layout__footer">{{>footer}}</div>
+  </div>
+  <div class="modals-content">
+    {{!-- Компоненты модалок --}}
+  </div>
+</body>
+
+</html>

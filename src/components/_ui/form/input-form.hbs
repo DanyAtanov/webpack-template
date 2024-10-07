@@ -1,0 +1,22 @@
+<label data-placeholder="{{>@partial-block}}" class="input-form {{#if class}} {{class}} {{/if}}">
+	<input
+		{{#if
+		required}}
+		required
+		{{/if}}
+		{{#if
+		name}}
+		id="{{name}}"
+		name="{{name}}"
+		{{/if}}
+		type="{{#if type}}{{type}}{{else}}text{{/if}}"
+		{{#if
+		phoneMask
+		}}
+		data-mask
+		{{/if}}
+		placeholder=" "
+
+		{{#if ariaLabel}}aria-label="{{ariaLabel}}"{{/if}}
+	/>
+</label>

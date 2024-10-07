@@ -1,0 +1,72 @@
+[data-popup-content] {
+	display: none;
+}
+
+.tippy-box {
+	//box-shadow: $box-shadow_desktop;
+
+	&:has(.tippy-arrow) {
+		box-shadow: -1px 4px 11.6px rgba(0, 0, 0, 0.18);
+	}
+
+	&:has(.import-callback-popup):has(.tippy-arrow) {
+		&[data-placement^='top'] > .tippy-arrow::before {
+			border-top-color: $gray_4;
+		}
+		&[data-placement^='bottom'] > .tippy-arrow::before {
+			border-bottom-color: $gray_4;
+		}
+		&[data-placement^='left'] > .tippy-arrow::before {
+			border-left-color: $gray_4;
+		}
+		&[data-placement^='right'] > .tippy-arrow::before {
+			border-right-color: $gray_4;
+		}
+	}
+}
+
+.tippy-content {
+	background-color: $white;
+	padding: 40px 20px;
+	min-width: 330px;
+	color: $black;
+
+	&:has(+ .tippy-arrow) {
+		padding: 30px;
+		max-width: 276px;
+
+		.popup__close {
+			display: none;
+		}
+	}
+
+	.modal__title,
+	.popup__title {
+		margin-bottom: 20px;
+		color: $black;
+		font-size: 28px;
+		line-height: 110%;
+		font-family: $font_title;
+		letter-spacing: 1.12px;
+		text-align: center;
+	}
+
+	@include tablet {
+		padding: 50px;
+	}
+}
+
+.popup {
+	&__close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		cursor: pointer;
+		color: $gray;
+
+		svg {
+			width: 12px;
+			height: 12px;
+		}
+	}
+}

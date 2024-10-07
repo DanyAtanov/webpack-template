@@ -1,0 +1,48 @@
+.swiper-navigation {
+	$that: &;
+
+	--swiper-navigation-color: #222;
+	--swiper-navigation-sides-offset: 0;
+
+	transition:
+		color 0.25s ease-out,
+		transform 0.25s ease-out;
+	width: auto;
+	user-select: none;
+
+	&.swiper-button-prev,
+	&.swiper-button-next {
+		color: $gray;
+
+		&::after {
+			content: none;
+		}
+
+		svg {
+			max-width: 16px;
+			max-height: 16px;
+
+			@include desktop {
+				max-width: 22px;
+				max-height: 22px;
+			}
+		}
+	}
+
+	&.swiper-button-prev {
+		rotate: 180deg;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			transform: scale(1.4);
+			color: $black;
+
+			.gallery-section & {
+				@include laptop {
+					transform: translate3d(50%, 0, 0) scale(1.4) rotate(90deg);
+				}
+			}
+		}
+	}
+}

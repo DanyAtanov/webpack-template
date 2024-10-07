@@ -1,0 +1,87 @@
+.checkbox-form {
+	$that: &;
+
+	display: inline-flex;
+	position: relative;
+	justify-content: flex-start;
+	align-items: flex-start;
+	cursor: pointer;
+	padding-left: 28px;
+	min-height: 18px;
+	color: $black;
+	user-select: none;
+
+	@include laptop-s {
+		&:hover {
+			#{$that}__text {
+				color: $color_primary;
+			}
+
+			#{$that}__box {
+				&::before,
+				&::after {
+					opacity: 0.2;
+				}
+			}
+		}
+	}
+
+	&__input {
+		@include visually-hidden();
+	}
+
+	&__box {
+		display: flex;
+		position: absolute;
+		top: 2px;
+		left: 0;
+		justify-content: center;
+		align-items: center;
+		background-color: $gray;
+		width: 15px;
+		height: 15px;
+
+		#{$that}__input:checked + & {
+			background-color: $color_primary;
+
+			&::before,
+			&::after {
+				opacity: 1;
+			}
+		}
+
+		&::before {
+			position: absolute;
+			top: 6px;
+			left: 4px;
+			transform: rotate(-40deg);
+			opacity: 0;
+			transition: opacity 0.25s ease-out;
+			background-color: $black;
+			width: 2px;
+			height: 5px;
+			content: '';
+		}
+
+		&::after {
+			position: absolute;
+			top: 3px;
+			right: 5px;
+			transform: rotate(40deg);
+			opacity: 0;
+			transition: opacity 0.25s ease-out;
+			background-color: $black;
+			width: 2px;
+			height: 9px;
+			content: '';
+		}
+	}
+
+	&__text {
+		line-height: 150%;
+
+		@include laptop-s {
+			transition: color 0.25s ease-out;
+		}
+	}
+}

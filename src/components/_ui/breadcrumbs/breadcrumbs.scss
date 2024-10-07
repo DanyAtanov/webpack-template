@@ -1,0 +1,72 @@
+.breadcrumbs {
+	$that: &;
+
+	display: flex;
+	margin: 15px auto;
+	font-size: 12px;
+	@extend %container;
+	color: #b0b3b7;
+	user-select: none;
+
+	@include laptop-s {
+		margin: 15px auto 30px;
+		color: $color_text;
+		font-size: 14px;
+		line-height: 150%;
+	}
+
+	&__item {
+		display: none;
+		flex: none;
+
+		&:first-child {
+			display: block;
+		}
+
+		@include laptop-s {
+			display: block;
+
+			&:last-child {
+				pointer-events: none;
+				color: $color_text;
+			}
+		}
+	}
+
+	&__link {
+		&:before {
+			content: '';
+			--svg: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgOCA4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTYgMC45Nzk4N0wyLjk2NzY2IDRMNiA3LjAyMDEzTDUuMDE2MTcgOEwxIDRMNS4wMTYxNyAtNC4zMDA0NmUtMDhMNiAwLjk3OTg3WiIgZmlsbD0iI0JGQzVDQyIvPgo8L3N2Zz4K');
+			display: inline-block;
+			mask: var(--svg);
+			-webkit-mask: var(--svg);
+			margin-right: 5px;
+			background-color: $gray;
+			padding-right: 10px;
+			width: 8px;
+			height: 8px;
+
+			@include laptop-s {
+				transform: rotate(180deg);
+
+				#{$that}__item:first-child & {
+					content: none;
+				}
+			}
+		}
+
+		span {
+			@include laptop-s {
+				margin-right: 10px;
+			}
+		}
+
+		@include laptop-s {
+			transition: color 0.25s ease-out;
+
+			&:hover {
+				color: $color_text;
+			}
+		}
+	}
+}

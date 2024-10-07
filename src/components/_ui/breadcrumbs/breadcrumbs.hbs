@@ -1,0 +1,109 @@
+{{#if justGoBack}}
+<div class="breadcrumbs breadcrumbs--back">
+	<div class="breadcrumbs__item">
+		<a
+			href="#"
+			class="breadcrumbs__link"
+		>
+			<span> {{@partial-block}} </span>
+		</a>
+	</div>
+</div>
+{{else}}
+<ul
+	itemscope
+	itemtype="https://schema.org/BreadcrumbList"
+	class="breadcrumbs"
+>
+	<li
+		itemprop="itemListElement"
+		itemscope
+		itemtype="https://schema.org/ListItem"
+		class="breadcrumbs__item"
+	>
+		<a
+			itemprop="item"
+			href="#"
+			class="breadcrumbs__link"
+		>
+			<span itemprop="name"> {{link0}}</span>
+			<meta
+				itemprop="position"
+				content="1"
+			/>
+		</a>
+	</li>
+
+	{{#if link1}}
+	<li
+		itemprop="itemListElement"
+		itemscope
+		itemtype="https://schema.org/ListItem"
+		class="breadcrumbs__item"
+	>
+		<a
+			itemprop="item"
+			href="#"
+			class="breadcrumbs__link"
+		>
+			<span itemprop="name"> {{link1}} </span>
+			<meta
+				itemprop="position"
+				content="2"
+			/>
+		</a>
+	</li>
+	{{/if}} {{#if link2}}
+	<li
+		itemprop="itemListElement"
+		itemscope
+		itemtype="https://schema.org/ListItem"
+		class="breadcrumbs__item"
+	>
+		<a
+			itemprop="item"
+			href="#"
+			class="breadcrumbs__link"
+		>
+			<span itemprop="name"> {{link2}}</span>
+			<meta
+				itemprop="position"
+				content="3"
+			/>
+		</a>
+	</li>
+	{{/if}}
+
+	<li
+		itemprop="itemListElement"
+		itemscope
+		itemtype="https://schema.org/ListItem"
+		class="breadcrumbs__item"
+	>
+		<a
+			itemprop="item"
+			href="/"
+			class="breadcrumbs__link"
+		>
+			<span itemprop="name"> {{@partial-block}} </span>
+
+			{{#if link2}}
+			<meta
+				itemprop="position"
+				content="4"
+			/>
+			{{else if link1}}
+			<meta
+				itemprop="position"
+				content="3"
+			/>
+			{{else}}
+			<meta
+				itemprop="position"
+				content="2"
+			/>
+			{{/if}}
+		</a>
+	</li>
+</ul>
+{{/if}}

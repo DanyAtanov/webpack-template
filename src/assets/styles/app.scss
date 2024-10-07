@@ -6,28 +6,35 @@
 @use 'helpers/mixins' as *;
 @import 'helpers/placeholders';
 
+// LAYOUT
+@import '../../components/_layouts/layout';
+@import '../../components/header/header';
+
 // GLOBAL
 @import 'global/fonts';
 @import 'global/normalize';
 @import 'global/base';
 @import 'global/page';
 
-// VENDORS
-// @import '../../../node_modules/swiper/swiper-bundle.min.css';
-
 // UI
 @import '../../components/_ui/skeletons/skeleton';
-@import '../../components/_ui/modal/modal';
 @import '../../components/_ui/title-section/title-section';
 
-// LAYOUTS
-@import '../../components/_layouts/layout';
-
 // COMPONENTS
-@import '../../components/header/header';
 @import '../../components/footer/footer';
+
+// VENDORS
+//@import '/node_modules/swiper/swiper.min.css';
+//@import '/node_modules/swiper/modules/effect-fade.min.css';
+//@import '/node_modules/swiper/modules/navigation.min.css';
+//@import '/node_modules/swiper/modules/pagination.min.css';
+//@import '/node_modules/swiper/modules/free-mode.min.css';
+//@import '/node_modules/tippy.js/dist/tippy';
+//@import '/node_modules/tippy.js/dist/svg-arrow';
+//@import 'toastify-js/src/toastify.css';
 
 // PAGES
 @import '../styles/pages/generic-page';
 
-// MODAL
+// MODAL layout
+@import '../../components/_ui/modal/modal';

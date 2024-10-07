@@ -1,6 +1,5 @@
 # Webpack Template
 
-* [Yarn](https://yarnpkg.com/)
 * [Handlebars](https://handlebarsjs.com/guide/)
 * [Alpine.js](https://alpinejs.dev/)
 

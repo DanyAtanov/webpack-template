@@ -1,0 +1,42 @@
+dl.table-content {
+	$that: &;
+
+	div {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		margin-bottom: 15px;
+		line-height: 150%;
+
+		dt {
+			display: flex;
+			flex: 0 0 50%;
+			align-items: flex-end;
+			color: $gray;
+			text-wrap: balance;
+			word-break: keep-all;
+
+			&::after {
+				display: inline-block;
+				flex: 1 1 auto;
+				transform: translate3d(0, -4px, 0);
+				margin: 0 5px;
+				background-color: $gray;
+				width: 100%;
+				height: 1px;
+				content: '';
+			}
+		}
+
+		dd {
+			flex: 0 0 50%;
+			color: $color_text;
+			text-wrap: balance;
+		}
+	}
+
+	@include laptop-s {
+		gap: 30px;
+		column-count: 2;
+	}
+}

@@ -1,0 +1,63 @@
+.tag-list {
+	$that: &;
+
+	display: inline-flex;
+	gap: 5px;
+	overflow: auto;
+	@include hide-scrollbar;
+	margin: 0 -16px;
+	padding: 0 16px;
+
+	@include tablet {
+		margin: 0 -40px;
+		padding: 0 40px;
+	}
+
+	@include laptop-s {
+		flex-wrap: wrap;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__item {
+		flex: none;
+	}
+
+	&__clear-item {
+		flex: none;
+
+		button {
+			padding-right: 12px;
+			padding-left: 12px;
+			height: 25px;
+		}
+	}
+
+	&__tag {
+		display: inline-block;
+		transition:
+			background-color 0.25s ease-out,
+			color 0.25s ease-out;
+		cursor: pointer;
+		background-color: $gray;
+		padding: 5px 11px;
+		color: $color_text;
+		font-size: 12px;
+
+		&:hover {
+			color: $black;
+		}
+
+		&:active,
+		&.--is-active {
+			background-color: $gray;
+			color: $color_primary;
+		}
+
+		@include laptop-s {
+			padding: 7px 18px;
+			font-size: 14px;
+			line-height: 150%;
+		}
+	}
+}

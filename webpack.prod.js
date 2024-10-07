@@ -6,7 +6,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 //const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
+// const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const PATHS = {
@@ -40,7 +40,7 @@ module.exports = (env) =>
 						},
 					},
 				}),
-				new ImageminWebpWebpackPlugin(),
+				// new ImageminWebpWebpackPlugin(),
 				new CssMinimizerPlugin(),
 				new TerserPlugin({
 					terserOptions: {

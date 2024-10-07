@@ -1,24 +1,23 @@
 .layout {
-  $that: &;
+	$that: &;
 
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow: clip;
+	&__header {
+		.page_scrolled & {
+			@include laptop-s {
+				//transform: translate3d(0, -40px, 0);
+			}
+		}
 
-  &__header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    flex: none;
-  }
+		@include laptop-s {
+			//transition: transform 0.4s 0.1s ease-out;
+		}
+	}
 
-  &__content {
-    flex: 1 0 auto;
-  }
+	&__content {
+		padding-top: 52px;
 
-  &__footer {
-  }
+		@include laptop-s {
+			padding-top: 107px;
+		}
+	}
 }

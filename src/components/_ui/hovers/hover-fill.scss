@@ -16,7 +16,7 @@
 	.--ripple {
 		position: absolute;
 		z-index: 1;
-		background: $light-blue;
+		background: $color_primary;
 		transform: translate(-50%, -50%);
 		pointer-events: none;
 		border-radius: 50%;
@@ -25,11 +25,5 @@
 
 	.--ripple-back {
 		opacity: 0;
-	}
-
-	&--2 {
-		.--ripple {
-			background: $blue-2;
-		}
 	}
 }

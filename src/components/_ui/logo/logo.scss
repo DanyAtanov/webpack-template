@@ -3,53 +3,23 @@
 
 	display: inline-block;
 	vertical-align: middle;
-	color: $blue;
 
-	svg {
-		width: 129px;
-		height: 55px;
-
-		@include desktop-s {
-			min-width: 86px;
-			min-height: 37px;
-			width: calc(128 / 1440 * 100vw);
-			height: calc(55 / 1440 * 100vw);
+	@keyframes bounce-in {
+		0% {
+			transform: scale(1) translate3d(0, 0, 0);
 		}
-
-	/* 	@include phone {
-			width: 82px;
-			height: 34px;
-		} */
-
-		@include phone-s {
-			min-width: 53px;
-			min-height: 22px;
-			width: calc(82 / 420 * 100vw);
-			height: calc(34 / 420 * 100vw);
+		40% {
+			transform: scale(1.1);
 		}
-	}
-
-	&.--small {
-		svg {
-			width: 88px;
-			height: 38px;
+		60% {
+			transform: scale(0.95);
 		}
-
-		@include laptop {
-			svg {
-				width: 104px;
-				height: 45px;
-			}
+		80% {
+			transform: scale(1.05);
 		}
-
-	/* 	@include phone {
-			svg {
-				width: calc(104 / 768 * 100vw);
-				height: calc(45 / 768 * 100vw);
-				min-width: 71px;
-				min-height: 31px;
-			}
-		} */
+		100% {
+			transform: scale(1) translate3d(0, 0, 0);
+		}
 	}
 
 	&:hover {
