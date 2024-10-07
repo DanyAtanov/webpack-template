@@ -6,7 +6,7 @@
 	/>
 	<meta
 		name="viewport"
-		content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
 	/>
 	<meta
 		name="format-detection"
@@ -32,32 +32,10 @@
 		rel="preload"
 		as="font"
 	>
-	<link
-		rel="preload"
-		href="assets/fonts/ProximaNova-Regular.woff2"
-		as="font"
-		type="font/woff2"
-		crossorigin
-	>
-	<link
-		rel="preload"
-		href="assets/fonts/ProximaNova-Semibold.woff2"
-		as="font"
-		type="font/woff2"
-		crossorigin
-	>
-	<link
-		rel="preload"
-		href="assets/fonts/ProximaNova-Bold.woff2"
-		as="font"
-		type="font/woff2"
-		crossorigin
-	>
-	<link
-		rel="preload"
-		href="assets/fonts/Stengazeta.woff2"
-		as="font"
-		type="font/woff2"
-		crossorigin
-	>
+	{{#if yandexMap}}
+	<script
+		src="https://api-maps.yandex.ru/2.1/?apikey=55930e2b-c598-4ddf-8a0d-22064a3d1d6e&lang=ru_RU"
+		type="text/javascript"
+	></script>
+	{{/if}}
 </head>
