@@ -1,7 +1,7 @@
 import './global/base';
-
-// SVG
+import { phoneMask } from '../javascript/utils/phoneMask';
+//import { animateIn } from './utils/animateIn';
 import '../images/svg/_sprite';
-
-// UI
 import '../../components/_ui/modal/modal';
+
+phoneMask();

@@ -10,16 +10,12 @@ const allSkeletons = document.querySelectorAll('.skeleton');
 let disableHoverTimer;
 let windowScroll = 0;
 let windowLastScroll = 0;
-const updateScrollState = () => {
+let updateScrollState = () => {
 	windowScroll = window.scrollY;
 
 	if (windowScroll > 30) {
 		document.body.classList.add('page_scrolled');
-	} else {
-		document.body.classList.remove('page_scrolled');
-	}
 
-	if (windowScroll > 30) {
 		if (windowScroll > windowLastScroll) {
 			document.body.classList.add('page_scrolled-down');
 			document.body.classList.remove('page_scrolled-up');
@@ -27,13 +23,16 @@ const updateScrollState = () => {
 			document.body.classList.add('page_scrolled-up');
 			document.body.classList.remove('page_scrolled-down');
 		}
+	} else {
+		document.body.classList.remove('page_scrolled');
 	}
 
 	setTimeout(() => {
 		windowLastScroll = windowScroll;
 	}, 0);
 };
-const winScroll = new Throttle(updateScrollState, 150);
+
+let winScroll = new Throttle(updateScrollState, 150);
 
 window.addEventListener(
 	'load',

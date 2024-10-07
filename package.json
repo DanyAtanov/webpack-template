@@ -47,8 +47,6 @@
 	},
 	"dependencies": {
 		"alpinejs": "^3.14.1",
-		"js-cookie": "^3.0.5",
-		"swiper": "^11.1.4",
-		"xwiper": "^2.2.1"
+		"imask": "^7.6.1"
 	}
 }
