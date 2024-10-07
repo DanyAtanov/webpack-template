@@ -1,8 +1,8 @@
-const modal = (() => {
+let modal = (() => {
 	const buttons = document.querySelectorAll('[data-modal]:not(dialog)');
 	const modals = document.querySelectorAll('dialog[data-modal]');
 
-	const init = () => {
+	let init = () => {
 		if (buttons.length === 0) return;
 
 		let theModal;
@@ -22,18 +22,8 @@ const modal = (() => {
 				}
 
 				theModal?.showModal();
-
-				theModal.addEventListener('click', handleModalClick);
 			});
 		});
-	};
-
-	const handleModalClick = ({ currentTarget, target }) => {
-		const isClickedOnBackdrop = target === currentTarget;
-
-		if (isClickedOnBackdrop) {
-			currentTarget.close();
-		}
 	};
 
 	init();

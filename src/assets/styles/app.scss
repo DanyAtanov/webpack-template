@@ -1,13 +1,10 @@
 @charset "utf-8";
 
-// SETTINGS
-@import 'settings';
-
 // HELPERS
-@import 'helpers/media';
-@import 'helpers/mixins';
+@use 'helpers/settings' as *;
+@use 'helpers/media' as *;
+@use 'helpers/mixins' as *;
 @import 'helpers/placeholders';
-@import 'helpers/keyframes';
 
 // GLOBAL
 @import 'global/fonts';
@@ -34,4 +31,3 @@
 @import '../styles/pages/generic-page';
 
 // MODAL
-@import '../../components/_modals/test-modal-2';

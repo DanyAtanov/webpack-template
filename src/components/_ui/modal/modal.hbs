@@ -3,18 +3,24 @@
 	x-ref="modal"
 	class="modal {{ name }}"
 	data-modal="{{ name }}"
+	@click="event.target.closest('.modal__inner') ? '' : $el.close()"
 >
-	<button
-		x-on:click="$refs.modal.close()"
-		aria-label="Закрыть диалогово окно"
-		class="modal__close"
-	>
-		<svg width="14" height="14">
-			<use xlink:href="#close"></use>
-		</svg>
-	</button>
+	<div class="modal__inner">
+		<button
+			x-on:click="$refs.modal.close()"
+			aria-label="Закрыть диалогово окно"
+			class="modal__close"
+		>
+			<svg
+				width="14"
+				height="14"
+			>
+				<use xlink:href="./assets/images/sprite.svg#close"></use>
+			</svg>
+		</button>
 
-	<div class="modal__content">
-		{{> @partial-block}}
+		<div class="modal__content">
+			{{> @partial-block}}
+		</div>
 	</div>
 </dialog>

@@ -75,7 +75,7 @@
 	overflow: hidden;
 }
 
-// @include triangle(red, down, 8px, 1.5);
+// @include triangle(down, red, 8px, 1.5);
 @mixin triangle($direction, $color, $size: 8px, $ratio: 1) {
 	display: block;
 	width: 0;
@@ -120,9 +120,11 @@
 }
 
 @mixin grayscale-hover {
-	opacity: 0.3;
+	opacity: 0.4;
 	filter: grayscale(1);
-	transition: opacity 0.3s linear;
+	transition:
+		opacity 0.3s ease-out,
+		filter 0.3s ease-out;
 
 	&:hover {
 		opacity: 1;
@@ -194,8 +196,10 @@
 }
 
 @mixin swiper-lazy-fix {
-	.swiper-slide:not(.swiper-slide-active) img {
-		display: none;
+	.swiper-slide:not(.swiper-slide-active):not(:first-child) {
+		img {
+			display: none;
+		}
 	}
 }
 
@@ -207,6 +211,7 @@
 	width: 100%;
 	height: 100%;
 
+	picture,
 	img,
 	video {
 		width: 100%;

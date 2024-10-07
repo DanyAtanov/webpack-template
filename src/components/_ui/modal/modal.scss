@@ -1,18 +1,14 @@
 .modal {
 	$that: &;
+
 	$backdrop-color: hsla(240, 3%, 6%, 0.25);
 	transform: translate3d(0, -80px, 0);
 	outline: 0;
-	box-shadow: 0px 4px 68px 0px rgba(0, 0, 0, 0.15);
 	border: 0;
-	border-radius: 40px 0px;
-	border-radius: 0;
 	background: $white;
-
 	padding: 0;
-	padding: 40px 30px;
 	min-width: 100vw;
-	min-height: 100%;
+	min-height: auto;
 
 	@keyframes backdrop-animation {
 		0% {
@@ -36,11 +32,29 @@
 		}
 	}
 
+	@keyframes modal-animation-mobile {
+		0% {
+			transform: translate3d(0, 100%, 0);
+			opacity: 0;
+		}
+
+		100% {
+			transform: translate3d(0, 0, 0);
+			opacity: 1;
+		}
+	}
+
 	&[open] {
-		animation: modal-animation 0.25s ease-out forwards;
+		animation: modal-animation-mobile 0.25s ease-out forwards;
+		margin-bottom: 0;
 
 		&::backdrop {
 			animation: backdrop-animation 0.35s ease-out forwards;
+		}
+
+		@include tablet {
+			animation: modal-animation 0.25s ease-out forwards;
+			margin-bottom: auto;
 		}
 	}
 
@@ -48,42 +62,53 @@
 		background: $backdrop-color;
 	}
 
-	@include laptop-s {
-		padding: 40px 50px;
+	@include tablet {
 		width: 100%;
 		min-width: auto;
 		max-width: 854px;
-		min-height: auto;
+
+		&.success-modal {
+			max-width: 473px;
+		}
 	}
 
-	@include phone-s {
-		padding: 40px 16px;
+	&__inner {
+		position: relative;
+		padding: 20px 16px 30px;
+
+		@include tablet {
+			padding: 50px;
+		}
 	}
 
 	&__close {
+		@include click-area(30px);
 		position: absolute;
-		top: 20px;
-		right: 20px;
+		top: 10px;
+		right: 10px;
+		opacity: 0;
+		transition: color 0.25s ease-out;
 		cursor: pointer;
-		color: #e9e9e9;
+		color: $gray_2 !important;
 
 		svg {
-			max-width: 14px;
-			max-height: 14px;
+			max-width: 12px;
+			max-height: 12px;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				color: $black !important;
+			}
+		}
+
+		@include tablet {
+			top: 20px;
+			right: 20px;
+			opacity: 1;
 		}
 	}
 
-	h2 {
-		padding-bottom: 30px;
-		font-weight: 700;
-		font-size: 20px;
-		line-height: 28px;
-		text-align: center;
-
-		@include laptop-s {
-			font-weight: 700;
-			font-size: 26px;
-			line-height: 35px;
-		}
+	&__title {
 	}
 }
