@@ -23,8 +23,7 @@ const UI_PARTIALS = fs
 module.exports = {
 	entry: {
 		app: path.resolve(__dirname, 'src/index.js'),
-		'contacts-page': path.resolve(__dirname, 'src/assets/javascript/contacts-page.js'),
-		'about-page': path.resolve(__dirname, 'src/assets/javascript/about-page.js'),
+		'main-page': path.resolve(__dirname, 'src/assets/javascript/main-page.js'),
 	},
 
 	output: {
@@ -79,12 +78,21 @@ module.exports = {
 							},
 						},
 					},
-					'sass-loader',
+					{
+						loader: 'resolve-url-loader',
+						options: { removeCR: true },
+					},
+					{
+						loader: 'sass-loader',
+						options: {
+							sourceMap: true, // <-- !!IMPORTANT!!
+						},
+					},
 				],
 			},
 			{
 				test: /\.m?js$/,
-				type: "javascript/esm",
+				type: 'javascript/esm',
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
@@ -97,7 +105,7 @@ module.exports = {
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: 'assets/fonts/[name][ext]',
+					filename: './assets/fonts/[name][ext]',
 				},
 			},
 			{
@@ -109,21 +117,25 @@ module.exports = {
 			},
 			{
 				test: /\.svg$/,
-				use: [{ loader: 'svg-sprite-loader',
-				options: {
-					extract: true,
-					plainSprite: true,
-					publicPath: '/assets/images/',
-					//spriteFileName: 'sprite.svg'
-				}},
-				'svgo-loader'],
+				use: [
+					{
+						loader: 'svg-sprite-loader',
+						options: {
+							extract: true,
+							plainSprite: true,
+							publicPath: '/assets/images/',
+							//spriteFileName: 'sprite.svg'
+						},
+					},
+					'svgo-loader',
+				],
 			},
 		],
 	},
 
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: 'assets/styles/[name].[contenthash].css',
+			filename: './assets/styles/[name].[contenthash].css',
 		}),
 		new SpriteLoaderPlugin(),
 		...PAGES.map(
