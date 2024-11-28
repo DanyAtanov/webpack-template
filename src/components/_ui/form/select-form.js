@@ -29,7 +29,7 @@ let selectInit = (() => {
 				},
 			});
 
-			select?.select?.select.classList.add('_is-loaded');
+			select?.select?.select.classList.add('--is-loaded');
 		});
 	};
 

@@ -1,20 +1,22 @@
 $white: #fff;
-$black: #000;
+$black: #010101;
 $red: red;
 
-$color_text: #161719;
+$color_text: #000;
 $color_primary: #cd163f;
-$color_secondary: #64686e;
+$color_primary_hover: #e30b3c;
 
-$gray: #494950;
-$gray_2: #858c9a;
-$gray_3: #d2d8e2;
-$gray_4: #f3f3f4;
+$gray: #efefef;
+$gray_text: #4d5154;
+$gray_2: #91939a;
+$gray_3: #d7d9de;
+$gray_4: #f4f4f5;
 
-$hyperlink: #003bdf;
-$hyperlink_hover: #002ba2;
+$hyperlink: #cd163f;
+$hyperlink_hover: #e30b3c;
 
-$box_shadow: 8px 8px 40px rgba(155, 163, 172, 0.15);
+$box_shadow: 0px 11px 33px 0px rgba(0, 0, 0, 0.08);
+$box_shadow_mini: 3px 6px 19.6px 0px rgba(0, 0, 0, 0.08);
 
-$font_text: 'Inter', sans-serif;
-$font_title: 'Inter', serif;
+$font_text: 'Cera Pro', sans-serif;
+$font_title: 'Cera Pro', sans-serif;

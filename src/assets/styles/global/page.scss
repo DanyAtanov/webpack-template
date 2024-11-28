@@ -1,8 +1,8 @@
 html {
 	min-width: 320px;
 	scroll-behavior: smooth;
-	scroll-padding-top: 82px;
-	scrollbar-gutter: stable;
+	scroll-padding-top: 80px;
+	//scrollbar-gutter: stable;
 
 	::selection {
 		background: rgba($color_primary, 0.99);
@@ -14,26 +14,21 @@ html {
 		color: white;
 	}
 
-	@include laptop-s {
-		@include scrollbar();
+	@include laptop {
+		@include scrollbar(gray, pink);
 	}
 }
 
 body {
 	background: $white;
-	scrollbar-gutter: stable;
 	color: $color_text;
 	font-weight: 400;
 	font-size: 14px;
-	line-height: 120%;
+	line-height: 140%;
 	font-family: $font_text;
 	text-size-adjust: none;
 	-webkit-font-smoothing: antialiased;
 	-webkit-overflow-scrolling: touch;
-
-	@include desktop {
-		line-height: 150%;
-	}
 
 	&:has(dialog[open]),
 	&:has(.fslightbox-full-dimension) {
@@ -68,20 +63,36 @@ section {
 		margin: 0 auto 30px;
 
 		@include tablet {
-			margin: 0 auto 60px;
+			margin: 0 auto 50px;
 		}
 
-		@include laptop-s {
-			margin: 0 auto 90px;
+		@include laptop {
+			margin: 0 auto 80px;
+		}
+
+		@include desktop {
+			margin: 0 auto 100px;
 		}
 	}
 
 	@include tablet {
-		margin: 60px 0;
+		margin: 50px 0;
 	}
 
-	@include laptop-s {
-		margin: 90px 0;
+	@include laptop {
+		margin: 80px auto;
+	}
+
+	@include desktop {
+		margin: 100px 0;
+	}
+}
+
+.fslightbox-container {
+	//background: $white !important;
+
+	.fslightbox-slide-number-container {
+		display: none !important;
 	}
 }
 
@@ -99,12 +110,12 @@ section {
 }
 
 .swiper {
-	--swiper-theme-color: #ffc94f;
+	--swiper-theme-color: #cd163f;
 
 	opacity: 0;
 	transition: opacity 0.25s ease-out;
 
-	&._is-loaded {
+	&.--is-loaded {
 		opacity: 1;
 	}
 }
