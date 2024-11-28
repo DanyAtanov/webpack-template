@@ -1,87 +1,18 @@
-// Media
-$phone-small: 375px;
-$phone: 640px;
-$tablet: 1024px;
-$laptop-small: 1280px;
-$laptop: 1440px;
-$desktop: 1920px;
+// Media (Mobile First)
+$phone-xl: 431px;
+$tablet: 768px;
+$tablet-xl: 1024px;
+$laptop: 1280px;
+$desktop: 1440px;
+$desktop-xl: 1921px;
 
-// Mobile first
-@mixin phone-s {
-	@media (max-width: $phone-small) {
-		@content;
-	}
-}
-
-@mixin tablet($only: false) {
+@mixin phone-xl($only: false) {
 	@if $only {
-		@media (min-width: calc($phone + 1px)) and (max-width: $tablet) {
+		@media (min-width: $phone-xl) and (max-width: calc($tablet - 1px )) {
 			@content;
 		}
 	} @else {
-		@media (min-width: calc($phone + 1px)) {
-			@content;
-		}
-	}
-}
-
-@mixin laptop-s($only: false) {
-	@if $only {
-		@media (min-width: calc($tablet + 1px)) and (max-width: $laptop-small) {
-			@content;
-		}
-	} @else {
-		@media (min-width: calc($tablet + 1px)) {
-			@content;
-		}
-	}
-}
-
-@mixin laptop($only: false) {
-	@if $only {
-		@media (min-width: calc($laptop-small + 1px)) and (max-width: $laptop) {
-			@content;
-		}
-	} @else {
-		@media (min-width: calc($laptop-small + 1px)) {
-			@content;
-		}
-	}
-}
-
-@mixin desktop($only: false) {
-	@if $only {
-		@media (min-width: calc($laptop + 1px)) and (max-width: $desktop) {
-			@content;
-		}
-	} @else {
-		@media (min-width: calc($laptop + 1px)) {
-			@content;
-		}
-	}
-}
-
-@mixin ultra-wide {
-	@media (min-width: calc($desktop + 1px)) {
-		@content;
-	}
-}
-
-// Desktop fitst
-
-/* @mixin phone-s {
-	@media (max-width: $phone-small) {
-		@content;
-	}
-}
-
-@mixin phone($only: false) {
-	@if $only {
-		@media (min-width: calc($phone-small + 1px)) and (max-width: $phone) {
-			@content;
-		}
-	} @else {
-		@media (max-width: $phone) {
+		@media (min-width: $phone-xl) {
 			@content;
 		}
 	}
@@ -89,23 +20,23 @@ $desktop: 1920px;
 
 @mixin tablet($only: false) {
 	@if $only {
-		@media (min-width: calc($phone + 1px)) and (max-width: $tablet) {
+		@media (min-width: $tablet) and (max-width: calc($tablet-xl - 1px)) {
 			@content;
 		}
 	} @else {
-		@media (max-width: $tablet) {
+		@media (min-width: $tablet) {
 			@content;
 		}
 	}
 }
 
-@mixin laptop-s($only: false) {
+@mixin tablet-xl($only: false) {
 	@if $only {
-		@media (min-width: calc($tablet + 1px)) and (max-width: $laptop-small) {
+		@media (min-width: $tablet-xl) and (max-width: calc($laptop - 1px)) {
 			@content;
 		}
 	} @else {
-		@media (max-width: $laptop-small) {
+		@media (min-width: $tablet-xl) {
 			@content;
 		}
 	}
@@ -113,11 +44,11 @@ $desktop: 1920px;
 
 @mixin laptop($only: false) {
 	@if $only {
-		@media (min-width: calc($laptop-small + 1px)) and (max-width: $laptop) {
+		@media (min-width: $laptop) and (max-width: calc($desktop - 1px)) {
 			@content;
 		}
 	} @else {
-		@media (max-width: $laptop) {
+		@media (min-width: $laptop) {
 			@content;
 		}
 	}
@@ -125,19 +56,18 @@ $desktop: 1920px;
 
 @mixin desktop($only: false) {
 	@if $only {
-		@media (min-width: calc($laptop + 1px)) and (max-width: $desktop) {
+		@media (min-width: $desktop) and (max-width: calc($desktop-xl - 1px)) {
 			@content;
 		}
 	} @else {
-		@media (max-width: $desktop) {
+		@media (min-width: $desktop) {
 			@content;
 		}
 	}
 }
 
-@mixin ultra-wide {
-	@media (min-width: calc($desktop + 1px)) {
+@mixin desktop-xl {
+	@media (min-width: $desktop-xl) {
 		@content;
 	}
-} */
-
+}

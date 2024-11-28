@@ -34,7 +34,7 @@ body {
 	&:has(.fslightbox-full-dimension) {
 		overflow: hidden;
 
-		@include laptop-s {
+		@include tablet-xl {
 			padding-right: 0.5rem;
 
 			header {

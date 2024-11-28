@@ -3,12 +3,12 @@
 
 	&__header {
 		.page_scrolled & {
-			@include laptop-s {
+			@include tablet-xl {
 				//transform: translate3d(0, -40px, 0);
 			}
 		}
 
-		@include laptop-s {
+		@include tablet-xl {
 			//transition: transform 0.4s 0.1s ease-out;
 		}
 	}
@@ -16,7 +16,7 @@
 	&__content {
 		padding-top: 52px;
 
-		@include laptop-s {
+		@include tablet-xl {
 			padding-top: 107px;
 		}
 	}

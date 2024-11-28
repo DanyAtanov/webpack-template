@@ -35,7 +35,7 @@ dl.table-content {
 		}
 	}
 
-	@include laptop-s {
+	@include tablet-xl {
 		gap: 30px;
 		column-count: 2;
 	}
