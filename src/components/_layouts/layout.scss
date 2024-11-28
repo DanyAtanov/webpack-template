@@ -1,23 +1,9 @@
 .layout {
 	$that: &;
 
-	&__header {
-		.page_scrolled & {
-			@include tablet-xl {
-				//transform: translate3d(0, -40px, 0);
-			}
-		}
-
-		@include tablet-xl {
-			//transition: transform 0.4s 0.1s ease-out;
-		}
-	}
+	&__header {}
 
 	&__content {
 		padding-top: 52px;
-
-		@include tablet-xl {
-			padding-top: 107px;
-		}
 	}
 }
