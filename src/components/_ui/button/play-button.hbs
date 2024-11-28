@@ -1,0 +1,15 @@
+{{#if noText}}
+<button
+	aria-label="Старт/Пауза"
+	class="play-button play-button--no-text {{#if buttonClass}}{{buttonClass}}{{/if}}"
+>
+	<span class="play-button__content"></span>
+</button>
+{{else}}
+<button
+	aria-label="Старт/Пауза"
+	class="play-button {{#if buttonClass}}{{buttonClass}}{{/if}}"
+>
+	<span class="play-button__content">{{#if noText}}<span>Пауза</span>{{/if}}</span>
+</button>
+{{/if}}

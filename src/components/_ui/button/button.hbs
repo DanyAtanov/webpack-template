@@ -1,0 +1,18 @@
+{{#if href}}
+<a
+	href="{{href}}"
+	{{#if
+	download}}download{{/if}}
+	class="button {{#if buttonClass}}{{buttonClass}}{{/if}}"
+> <span class="button__inner">{{> @partial-block}}</span></a>
+{{else}}
+<button
+	{{#if
+	dataModal}}
+	data-modal="{{dataModal}}"
+	{{/if}}
+	class="button {{#if buttonClass}}{{buttonClass}}{{/if}}"
+>
+	<span class="button__inner">{{> @partial-block}}</span>
+</button>
+{{/if}}

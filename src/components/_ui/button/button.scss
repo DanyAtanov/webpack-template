@@ -1,0 +1,28 @@
+.button {
+	$that: &;
+	display: inline-block;
+
+	position: relative;
+	background-color: gray;
+	min-width: 120px;
+	height: 40px;
+	color: $white;
+	font-weight: 500;
+	user-select: none;
+
+	&.--disabled,
+	&[disabled] {
+		opacity: 0.4;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	&:hover,
+	&:focus {
+		transform: scale(1.04);
+	}
+
+	&:active {
+		transform: scale(0.98);
+	}
+}
