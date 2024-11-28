@@ -8,5 +8,8 @@ npm-debug.log
 yarn-error.log
 dist
 
+*.env
+!sample.env
+
 
 
