@@ -1,5 +1,12 @@
 {{#>layout}}
 <div style="display: flex; justify-content: center; align-items: center; height:80dvh;">
-	<h1 style="text-align:center">Webpack Template 2024 😎</h1>
+	<div>
+		<h1 style="text-align:center">Webpack Template 2024 😎</h1>
+
+		<br />
+					{{> input-form required="true" name="name" placeholder="ФИО"}}
+		{{> input-form required="true" dynamicMask="true" name="phoneEmail"
+		placeholder="Email или Телефон"}}
+	</div>
 </div>
 {{/layout}}

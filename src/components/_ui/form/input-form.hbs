@@ -1,5 +1,5 @@
-<label data-placeholder="{{>@partial-block}}" class="input-form {{#if class}} {{class}} {{/if}}">
-	<input
+<label class="input-form {{#if inputClass}} {{inputClass}} {{/if}}">
+	<input autocomplete="off"
 		{{#if
 		required}}
 		required
@@ -13,10 +13,19 @@
 		{{#if
 		phoneMask
 		}}
-		data-mask
+		x-data="mask"
+		x-mask="+7 (999) 999-99-99"
 		{{/if}}
-		placeholder=" "
-
-		{{#if ariaLabel}}aria-label="{{ariaLabel}}"{{/if}}
+		{{#if
+		dynamicMask
+		}}
+		x-data="mask"
+		x-mask:dynamic="
+    /^[0-9+\s()\-]+$/.test($input)
+        ? '+7 (999) 999-99-99' : false
+"
+		{{/if}}
+		placeholder="{{placeholder}}"
+		aria-label="{{placeholder}}"
 	/>
 </label>
