@@ -1,7 +1,36 @@
 /* @font-face {
-  font-family: 'Bebas';
-  src: url('../fonts/bebasneue_bold.woff2') format('woff2'),
-    url('../fonts/bebasneue_bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-} */
+	font-style: normal;
+	font-weight: 400;
+	src:
+		url('../fonts/CeraPro-Regular.woff2') format('woff2'),
+		url('../fonts/CeraPro-Regular.woff') format('woff');
+	font-family: 'Cera Pro';
+}
+
+@font-face {
+	font-style: normal;
+	font-weight: 500;
+	src:
+		url('../fonts/CeraPro-Medium.woff2') format('woff2'),
+		url('../fonts/CeraPro-Medium.woff') format('woff');
+	font-family: 'Cera Pro';
+}
+
+@font-face {
+	font-style: normal;
+	font-weight: 700;
+	src:
+		url('../fonts/CeraPro-Bold.woff2') format('woff2'),
+		url('../fonts/CeraPro-Bold.woff') format('woff');
+	font-family: 'Cera Pro';
+}
+
+@font-face {
+	font-style: normal;
+	font-weight: 900;
+	src:
+		url('../fonts/CeraPro-Black.woff2') format('woff2'),
+		url('../fonts/CeraPro-Black.woff') format('woff');
+	font-family: 'Cera Pro';
+}
+ */
