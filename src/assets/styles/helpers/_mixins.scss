@@ -56,6 +56,15 @@
 	width: 100vw;
 }
 
+@mixin lazy-loaded {
+	opacity: 0;
+	transition: opacity 0.45s ease-in-out;
+
+	&._is-loaded {
+		opacity: 1;
+	}
+}
+
 // @include circle(red, 20px);
 @mixin circle($background, $size) {
 	display: inline-block;
@@ -209,4 +218,10 @@
 		height: 100%;
 		object-fit: cover;
 	}
+}
+
+@mixin ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
