@@ -1,0 +1,22 @@
+<a
+	href="#"
+	download
+	class="doc {{#if docClass}}{{docClass}}{{/if}}"
+>
+	<div
+		data-type="{{#if docType}}{{docType}}{{else}}pdf{{/if}}"
+		class="doc__icon"
+	>
+		<svg
+			width="38"
+			height="38"
+		>
+			<use xlink:href='./assets/images/sprite.svg#file'></use>
+		</svg>
+	</div>
+	<div class="doc__name"> {{> @partial-block}}</div>
+	<div
+		data-size="12.3 мб"
+		class="doc__type"
+	>{{#if docType}}{{docType}}{{else}} PDF{{/if}}</div>
+</a>

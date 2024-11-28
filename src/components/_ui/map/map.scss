@@ -1,20 +1,15 @@
 #yandex-map {
 	height: 100%;
 	min-height: 278px;
-	min-height: clamp(278px, calc(490 / 640 * 100vw), 490px);
+	height: clamp(278px, calc(626 / 740 * 100vw), 626px);
 	overflow: hidden;
 
 	@include tablet {
-		min-height: 490px;
+		min-height: 626px;
 	}
 
 	@include laptop {
-		min-height: 700px;
-		min-height: clamp(490px, calc(700 / 1440 * 100vw), 700px);
-	}
-
-	@include desktop {
-		min-height: 700px;
+		min-height: 704px;
 	}
 
 	/* .ymaps-2-1-79-map-copyrights-promo, .ymaps-2-1-79-copyright__wrap {

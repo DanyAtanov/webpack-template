@@ -1,24 +1,32 @@
 .content {
-	color: $color_text;
-	
+	color: $gray_text;
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
 	h1:not([class]) {
 		color: $black;
-		font-size: 24px;
-		line-height: 110%;
-		font-family: $font_title;
-		letter-spacing: 0.96px;
+		font-style: normal;
+		font-weight: 700;
+		font-size: 22px;
+		line-height: 105%;
 
 		@include laptop {
-			font-size: 36px;
-			letter-spacing: 1.44px;
+			font-size: 28px;
+		}
+
+		@include desktop {
+			font-size: 34px;
 		}
 	}
 
 	h2:not([class]),
 	h3:not([class]) {
 		margin: 10px 0 5px;
-		color: $black;
-		font-weight: 600;
+		color: #000;
+		font-weight: 700;
+		font-size: 16px;
 		line-height: 150%;
 
 		&:has(+ p) {
@@ -31,6 +39,10 @@
 			}
 		}
 
+		&:first-child {
+			margin-top: 0;
+		}
+
 		@include tablet {
 			margin: 15px 0 10px;
 			font-weight: 700;
@@ -40,6 +52,20 @@
 		@include laptop {
 			margin: 20px 0 10px;
 		}
+
+		@include desktop {
+			font-size: 24px;
+			line-height: 130%;
+		}
+	}
+
+	h3:not([class]) {
+		font-size: 14px;
+
+		@include laptop {
+			font-size: 16px;
+			line-height: 130%;
+		}
 	}
 
 	p {
@@ -48,10 +74,6 @@
 
 		&:first-child {
 			margin-top: 0;
-		}
-
-		&:last-child {
-			margin-bottom: 0;
 		}
 
 		@include tablet {
@@ -80,5 +102,28 @@
 	img:not([class]) {
 		display: block;
 		margin: 20px auto;
+
+		@include desktop {
+			margin: 40px auto;
+		}
+	}
+
+	b {
+		color: $black;
+	}
+
+	.mark {
+		display: block;
+		margin: 20px auto;
+		background: $gray_4;
+		padding: 15px 20px;
+
+		@include tablet {
+			padding: 20px 40px;
+		}
+
+		@include desktop {
+			margin: 40px auto;
+		}
 	}
 }

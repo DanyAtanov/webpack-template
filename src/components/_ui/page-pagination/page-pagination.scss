@@ -1,0 +1,81 @@
+.page-pagination {
+	$that: &;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@include laptop-s {
+		margin-right: -10px;
+		margin-left: -10px;
+	}
+
+	&__nav {
+		opacity: 0.8;
+		transition:
+			transform 0.25s ease-out,
+			opacity 0.25s ease-out;
+		cursor: pointer;
+
+		&:hover {
+			transform: scale(1.2);
+			opacity: 1;
+		}
+
+		&--prev {
+			transform: rotate(180deg);
+			margin-left: 0;
+
+			&:hover {
+				transform: rotate(180deg) scale(0.8);
+				opacity: 0.6;
+			}
+		}
+	}
+
+	&__list {
+		display: flex;
+		align-items: center;
+	}
+
+	&__list-item {
+		flex: none;
+		padding: 0 1px;
+		@include flex-center;
+	}
+
+	&__go {
+		display: block;
+		position: relative;
+		width: 32px;
+		height: 32px;
+		color: $gray_2;
+		font-weight: 500;
+		@include flex-center;
+		background-color: transparent;
+
+		span {
+			transform: translate3d(0, 2px, 0);
+		}
+
+		&.--is-active {
+			cursor: auto;
+			color: $black;
+		}
+
+		@include laptop-s {
+			transition: background-color 0.25s ease-out;
+			width: 38px;
+			height: 38px;
+			font-size: 18px;
+
+			&:hover {
+				background-color: $gray_4;
+
+				#{$that}__nav & {
+					background-color: transparent;
+				}
+			}
+		}
+	}
+}
