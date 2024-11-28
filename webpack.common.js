@@ -3,6 +3,7 @@ const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const PAGES = fs
 	.readdirSync(path.resolve(__dirname, './src/views/'))
@@ -134,6 +135,9 @@ module.exports = {
 	},
 
 	plugins: [
+		new CopyPlugin({
+			patterns: [{ from: 'src/assets/images', to: 'assets/images' }, {from: 'robots.txt'}],
+		}),
 		new MiniCssExtractPlugin({
 			filename: './assets/styles/[name].[contenthash].css',
 		}),

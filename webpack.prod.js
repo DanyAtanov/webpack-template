@@ -8,6 +8,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 // const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const PATHS = {
 	src: path.join(__dirname, 'src'),
@@ -63,10 +64,11 @@ module.exports = (env) =>
 		},
 
 		plugins: [
-			new CopyPlugin({
-				patterns: [{ from: 'src/assets/images', to: 'assets/images' }],
+			new MiniCssExtractPlugin({
+				filename: env.noHash
+					? './assets/styles/[name].css'
+					: './assets/styles/[name].[contenthash].css',
 			}),
-
 			//new PurgeCSSPlugin({
 			//paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
 			//keyframes: true,
