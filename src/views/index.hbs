@@ -1,8 +1,15 @@
 {{#>layout}}
 {{#> breadcrumbs link0="Новости и Акции"}} Особенности оборудования {{/breadcrumbs}}
-<div style="display: flex; justify-content: center; align-items: center; height:80dvh;">
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 80vh;">
 	<div style="display: flex; flex-direction: column;">
-		<h1 style="text-align:center">Webpack Template 2024 😎</h1>
+		<h1 style="text-align:center; display: flex; align-items: center;">Webpack Template
+			<svg
+				width="10"
+				height="10"
+			>
+				<use xlink:href='./assets/images/sprite.svg#close'></use>
+			</svg>
+		</h1>
 
 		<br />
 		{{> input-form required="true" name="name" placeholder="ФИО"}}
@@ -11,5 +18,11 @@
 		<br />
 		{{#> button buttonClass="--some-class"}} Назад в будущее{{/button}}
 	</div>
+
+	<img
+		style="flex: none; max-height: 400px; margin-top: 60px;"
+		src="./assets/images/example.png"
+		alt=""
+	>
 </div>
 {{/layout}}
