@@ -3,22 +3,22 @@ const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-const CopyPlugin = require("copy-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 
 const PAGES = fs
 	.readdirSync(path.resolve(__dirname, './src/views/'))
-	.filter((fileName) => fileName.endsWith('.hbs'));
+	.filter((fileName) => fileName.endsWith('.html'));
 
 const PARTIALS = fs
 	.readdirSync(path.resolve(__dirname, './src/components/'))
 	.filter(
-		(fileName) => !fileName.endsWith('.hbs') && !fileName.endsWith('.scss')
+		(fileName) => !fileName.endsWith('.html') && !fileName.endsWith('.scss')
 	);
 
 const UI_PARTIALS = fs
 	.readdirSync(path.resolve(__dirname, './src/components/_ui'))
 	.filter(
-		(fileName) => !fileName.endsWith('.hbs') && !fileName.endsWith('.scss')
+		(fileName) => !fileName.endsWith('.html') && !fileName.endsWith('.scss')
 	);
 
 module.exports = {
@@ -36,9 +36,10 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.hbs$/i,
+				test: /\.html$/i,
 				loader: 'handlebars-loader',
 				options: {
+					extensions: '.html',
 					/* helperDirs: [path.join(__dirname, "src", "helpers")], */
 					partialDirs: [
 						path.join(__dirname, 'src', 'components'),
@@ -136,7 +137,10 @@ module.exports = {
 
 	plugins: [
 		new CopyPlugin({
-			patterns: [{ from: 'src/assets/images', to: 'assets/images' }, {from: 'robots.txt'}],
+			patterns: [
+				{ from: 'src/assets/images', to: 'assets/images' },
+				{ from: 'robots.txt' },
+			],
 		}),
 		new MiniCssExtractPlugin({
 			filename: './assets/styles/[name].[contenthash].css',
@@ -146,9 +150,10 @@ module.exports = {
 			(page) =>
 				new HtmlWebpackPlugin({
 					inject: 'head',
+					title: `${page.replace(/\.html/, '')}`,
 					template: path.resolve(__dirname, `./src/views/${page}`),
-					filename: `${page.replace(/\.hbs/, '.html')}`,
-					chunks: ['app', `${page.replace(/\.hbs/, '')}`],
+					filename: `${page}`,
+					chunks: ['app', `${page.replace(/\.html/, '')}`],
 				})
 		),
 	],
