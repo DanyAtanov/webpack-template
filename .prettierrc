@@ -8,7 +8,7 @@
   "plugins": ["prettier-plugin-css-order"],
   "overrides": [
     {
-      "files": "**/*.hbs",
+      "files": "*.html",
       "options": {
         "parser": "angular"
       }
