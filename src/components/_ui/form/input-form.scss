@@ -4,7 +4,7 @@
 	display: inline-block;
 	position: relative;
 	transition: border-color 0.25s ease-out;
-	border-bottom: 1px solid $gray_3;
+	border-bottom: 1px solid #E9EBEE;
 	padding: 10px 5px;
 	width: 100%;
 
@@ -33,7 +33,7 @@
 		line-height: 150%;
 
 		&::placeholder {
-			color: $gray_2;
+			color: #B0B3B7;
 
 			#{$that}:hover & {
 				color: red;

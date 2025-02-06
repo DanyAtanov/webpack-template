@@ -5,7 +5,7 @@
 	margin: 10px auto;
 	font-size: 12px;
 	@extend %container;
-	color: $gray_2;
+	color: #B0B3B7;
 	user-select: none;
 
 	@include tablet-xl {
@@ -39,7 +39,7 @@
 			display: inline-block;
 			mask: var(--svg);
 			margin-right: 5px;
-			background-color: $gray_2;
+			background-color: #B0B3B7;
 			padding-right: 10px;
 			width: 7px;
 			height: 8px;
