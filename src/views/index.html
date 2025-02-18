@@ -11,10 +11,19 @@
 			</svg>
 		</h1>
 
+		{{> input-form placeholder="Имя*" minLength="3" name="name"
+		required="true"
+		inputClass="form-section__field" }}
 		<br />
-		{{> input-form required="true" name="name" placeholder="ФИО"}}
-		{{> input-form required="true" dynamicMask="true" name="phoneEmail"
-		placeholder="Email или Телефон"}}
+		{{> input-form placeholder="Пароль*" pattern="^[A-Za-z\x20-\x7E]+$" minLength="5" eye="true" type="password"
+		name="password" required="true"
+		inputClass="auth-modal__field" }}
+		<br />
+		{{> input-form placeholder="Телефон*" phoneMask="true" required="true" type="phone" name="phone"
+		required="true"
+		inputClass="auth-modal__field" }}
+		<br />
+		{{> input-form textArea="true" placeholder="Сообщение"}}
 		<br />
 		{{#> button buttonClass="--some-class"}} Назад в будущее{{/button}}
 	</div>

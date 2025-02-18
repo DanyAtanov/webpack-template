@@ -1,0 +1,10 @@
+{{!-- {{>toggle textLeft="Текст слева" textRight="Текст справа" }} --}}
+<label class="toggle {{#if toggleClass}} {{toggleClass}} {{/if}}">
+	{{#if textLeft}} <span class="toggle__label">{{textLeft}}</span> {{/if}}
+	<input
+		type="checkbox"
+		name=""
+		class="toggle__input"
+	/>
+	{{#if textRight}} <span class="toggle__label">{{textRight}}</span> {{/if}}
+</label>

@@ -1,0 +1,7 @@
+{{!-- {{#> social socialClass="--vk" socialLabel="Наша страница в ВК"}}#url{{/social}} --}}
+<a
+	aria-label="{{#if socialLabel}}{{socialLabel}}{{/if}}"
+	href="{{> @partial-block}}"
+	class="social {{#if socialClass}}{{socialClass}}{{/if}}{{#if vk}}--vk{{/if}}{{#if telegram}}--telegram{{/if}}{{#if whatsapp}}--whatsapp{{/if}}"
+>
+</a>

@@ -1,5 +1,59 @@
-<label class="input-form {{#if inputClass}} {{inputClass}} {{/if}}">
-	<input autocomplete="off"
+{{!-- {{> input-form placeholder="Имя*" minLength="3" name="name"
+required="true"
+inputClass="form-section__field" }} --}}
+
+{{!--
+{{> input-form placeholder="Пароль*" pattern="^[A-Za-z\x20-\x7E]+$" minLength="5" eye="true" type="password"
+name="password" required="true"
+inputClass="auth-modal__field" }}
+--}}
+
+{{!--
+{{> input-form placeholder="Телефон*" phoneMask="true" required="true" type="phone" name="phone"
+required="true"
+inputClass="auth-modal__field" }} --}}
+
+{{!-- {{> input-form textArea="true" placeholder="Сообщение"}} --}}
+
+{{#if textArea}}
+<label
+	data-placeholder="{{placeholder}}"
+	class="input-form {{#if inputClass}} {{inputClass}} {{/if}}"
+>
+	<textarea
+		class="input-form__text"
+		placeholder=""
+		{{#if
+		name}}
+		id="{{name}}"
+		name="{{name}}"
+		{{/if}}
+		{{#if
+		required}}
+		required
+		{{/if}}
+	></textarea></label>
+{{else}}
+<label
+	{{#if
+	eye
+	}}
+	x-data="{showPassword: false, value: ''}"
+	{{/if}}
+	data-placeholder="{{placeholder}}"
+	class="input-form {{#if inputClass}} {{inputClass}} {{/if}}"
+>
+	<input
+		placeholder=""
+		autocomplete="off"
+		{{#if
+		pattern}}
+		pattern={{pattern}}
+		{{/if}}
+		{{#if
+		minLength}}
+		minlength="{{minLength}}"
+		{{/if}}
 		{{#if
 		required}}
 		required
@@ -17,15 +71,51 @@
 		x-mask="+7 (999) 999-99-99"
 		{{/if}}
 		{{#if
-		dynamicMask
+		eye
 		}}
-		x-data="mask"
-		x-mask:dynamic="
-    /^[0-9+\s()\-]+$/.test($input)
-        ? '+7 (999) 999-99-99' : false
-"
+		x-ref="input"
+		x-model="value"
 		{{/if}}
-		placeholder="{{placeholder}}"
 		aria-label="{{placeholder}}"
+		class="input-form__input"
 	/>
+
+	{{#if eye }}
+	<span
+		:class="showPassword ? '--show-password' : ''"
+		x-show="value"
+		class="input-form__toggle-view"
+		@click="showPassword = !showPassword, showPassword ? $refs.input.type = 'text' : $refs.input.type = 'password'"
+	>
+		<svg
+			width="20"
+			height="18"
+			viewBox="0 0 20 18"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				fill-rule="evenodd"
+				clip-rule="evenodd"
+				d="M10 16C14.9706 16 19 10.2857 19 9C19 7.71429 14.9706 2 10 2C5.02944 2 1 7.71429 1 9C1 10.2857 5.02944 16 10 16ZM10 13.2001C12.3196 13.2001 14.2 11.3197 14.2 9.0001C14.2 6.6805 12.3196 4.8001 10 4.8001C7.6804 4.8001 5.8 6.6805 5.8 9.0001C5.8 11.3197 7.6804 13.2001 10 13.2001Z"
+				fill="currentColor"
+			/>
+			<circle
+				cx="9.99995"
+				cy="9.00044"
+				r="2.45454"
+				fill="currentColor"
+			/>
+			<line
+				x1="0.536875"
+				y1="3.15634"
+				x2="19.0974"
+				y2="14.9676"
+				stroke="currentColor"
+				stroke-width="2"
+			/>
+		</svg>
+	</span>
+	{{/if}}
 </label>
+{{/if}}

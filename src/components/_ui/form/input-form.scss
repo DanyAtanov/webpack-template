@@ -3,18 +3,53 @@
 
 	display: inline-block;
 	position: relative;
-	transition: border-color 0.25s ease-out;
-	border-bottom: 1px solid #E9EBEE;
-	padding: 10px 5px;
+	transition: background-color 0.25s ease-out;
+	border: 1px solid $gray;
+	border-radius: 30px;
+	background-color: $gray;
+	padding: 15px 20px;
 	width: 100%;
+	height: 55px;
+	font-weight: 500;
+	font-size: 12px;
+	font-family: $font_title;
+
+	&::before {
+		position: absolute;
+		transform-origin: left;
+		transition: transform 0.2s ease-out;
+		pointer-events: none;
+		content: attr(data-placeholder);
+		color: $black;
+		user-select: none;
+	}
+
+	&:has(input:not(:placeholder-shown)),
+	&:has(textarea:not(:placeholder-shown)) {
+		&::before {
+			transform: scale(0.8) translate3d(0, -80%, 0);
+			font-weight: 600;
+		}
+	}
 
 	&.--error,
 	&:has(input:user-invalid) {
-		border-color: $red;
-		color: $red;
+		background-color: rgba(243, 0, 73, 0.1);
+	}
 
-		input::placeholder {
-			color: red;
+	&:has(input:user-valid):not(:has(svg)) {
+		background-color: rgba(10, 178, 46, 0.1);
+
+		&::after {
+			position: absolute;
+			right: 20px;
+			mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxMyAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkZyYW1lIDIyMzUiPgo8cGF0aCBpZD0iVmVjdG9yIDM0IChTdHJva2UpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEyLjE0MTEgMi40ODQyOUMxMi41NjQyIDIuOTA3MzYgMTIuNTY0MiAzLjU5MzI5IDEyLjE0MTEgNC4wMTYzNkw0Ljg3NTA4IDExLjI4MjRMMC44NTkwNDkgNy4yNjYzNkMwLjQzNTk4MSA2Ljg0MzI5IDAuNDM1OTgxIDYuMTU3MzYgMC44NTkwNDkgNS43MzQyOUMxLjI4MjEyIDUuMzExMjIgMS45NjgwNSA1LjMxMTIyIDIuMzkxMTEgNS43MzQyOUw0Ljg3NTA4IDguMjE4MjZMMTAuNjA5IDIuNDg0MjlDMTEuMDMyMSAyLjA2MTIzIDExLjcxOCAyLjA2MTIzIDEyLjE0MTEgMi40ODQyOVoiIGZpbGw9IiMwQUIyMkUiLz4KPC9nPgo8L3N2Zz4K');
+			mask-position: center;
+			mask-repeat: no-repeat;
+			background-color: $green;
+			width: 13px;
+			height: 23px;
+			content: '';
 		}
 	}
 
@@ -23,25 +58,54 @@
 		pointer-events: none;
 	}
 
-	input {
+	&:has(textarea) {
+		height: auto;
+
+		textarea {
+			width: 100%;
+			min-height: 80px;
+			field-sizing: content;
+			resize: none;
+
+			@include desktop {
+				min-height: 125px;
+			}
+		}
+	}
+
+	&:hover {
+		background-color: rgba($gray, 0.5);
+	}
+
+	&__input {
 		transition: border-color 0.25s ease-out;
 		border: none;
 		background-color: transparent;
 		width: 100%;
-		height: 18px;
-		font-size: 14px;
-		line-height: 150%;
-
-		&::placeholder {
-			color: #B0B3B7;
-
-			#{$that}:hover & {
-				color: red;
-			}
-		}
+		height: 100%;
 
 		@include desktop {
 			height: 20px;
+		}
+	}
+
+	&__toggle-view {
+		position: absolute;
+		right: 20px;
+		z-index: 1;
+		cursor: pointer;
+		width: 18px;
+		height: 18px;
+		color: $black;
+
+		line {
+			opacity: 0;
+		}
+
+		&.--show-password {
+			line {
+				opacity: 1;
+			}
 		}
 	}
 }

@@ -1,0 +1,110 @@
+.toggle-tabs {
+	$that: &;
+	$toggle-padding: 4px;
+	$toggle-padding-desktop: 5px;
+
+	display: flex;
+	position: relative;
+	clip-path: circle(0);
+	transition: clip-path 1.2s ease-out;
+	border: 1px solid $gray;
+	border-radius: 40px;
+	padding: $toggle-padding;
+	overflow: hidden;
+
+	&.--is-loading {
+		clip-path: circle(150%);
+	}
+
+	&:has(.--animating, .--animating-reverse) {
+		pointer-events: none;
+	}
+
+	@include phone-xl {
+		width: fit-content;
+	}
+
+	@include desktop {
+		padding: $toggle-padding-desktop;
+	}
+
+	&__label {
+		position: relative;
+		flex: 1;
+		z-index: 2;
+		transition: color 0.3s;
+		cursor: pointer;
+		padding: 8px;
+		color: $gray_3;
+		font-weight: 500;
+		font-family: $font_title;
+		user-select: none;
+		text-align: center;
+		white-space: nowrap;
+
+		&:has(input:checked) {
+			pointer-events: none;
+			color: $black;
+		}
+
+		@include phone-xl {
+			padding: 8px calc(32 / 768 * 100vw);
+		}
+
+		@include tablet {
+			padding: 8px 32px;
+		}
+
+		@include desktop {
+			padding: 10px 36px;
+			min-width: 174px;
+			font-size: 16px;
+			line-height: 150%;
+
+			&:hover {
+				color: $black;
+			}
+		}
+	}
+
+	&__indicator {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translate3d(0, 0, 0);
+		translate: 0 -50%;
+		z-index: 1;
+		transition:
+			transform 0.35s ease-out,
+			left 0.5s 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.075),
+			width 0.5s cubic-bezier(0.885, 0.885, 0.32, 1.275),
+			border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		box-shadow: $shadows_mini;
+		border-radius: 30px;
+		background: white;
+		height: calc(100% - $toggle-padding * 2);
+
+		&.--animating,
+		&.--animating-reverse {
+			transform: translate3d(0, 0, 0) scaleX(1.4);
+		}
+
+		&.--animating {
+			transform-origin: left center;
+			border-radius: 50% 30px 30px 50%;
+		}
+
+		&.--animating-reverse {
+			transform-origin: right center;
+			border-radius: 30px 50% 50% 30px;
+		}
+
+		#{$that}:hover & {
+			will-change: left, width, border-radius;
+		}
+	}
+
+	&__input {
+		@include visually-hidden;
+	}
+}

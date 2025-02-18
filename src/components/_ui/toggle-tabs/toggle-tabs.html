@@ -1,0 +1,40 @@
+	<div
+		@resize.window.trottle="changeShape($el.querySelector('label:has(input:checked)'))"
+		x-data="{
+		changeShape($el) {
+			$refs.indicator.style.width = $el.offsetWidth + 'px'; $refs.indicator.style.left = $el.offsetLeft + 'px';
+		},
+		tabs: [
+			{ label: 'Каталоги' },
+			{ label: 'Сертификаты' },
+			],
+		}"
+		class="download-section__toggle toggle-tabs"
+		x-init="$el.classList.add('--is-loading'); $nextTick(() => {$refs.indicator.style.width = $el.querySelector('label').offsetWidth + 'px'; $refs.indicator.style.left = $el.querySelector('label').offsetLeft + 'px'})"
+	>
+		<div
+			x-ref="indicator"
+			class="toggle-tabs__indicator"
+		></div>
+		<template
+			x-for="(tab, index) in tabs"
+			:key="index"
+		>
+			<label
+				@click="changeShape($el); $el.offsetLeft > $refs.indicator.offsetLeft ? $refs.indicator.classList.add('--animating') : $refs.indicator.classList.add('--animating-reverse')"
+				@transitionend="$refs.indicator.classList.remove('--animating', '--animating-reverse')"
+				class="toggle-tabs__label"
+			>
+				<div
+					x-text="tab.label"
+					class="toggle-tabs__text"
+				></div>
+				<input
+					:checked="index === 0 ? true : false"
+					type="radio"
+					class="toggle-tabs__input"
+					name="tab-control"
+				>
+			</label>
+		</template>
+	</div>

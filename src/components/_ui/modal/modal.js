@@ -9,7 +9,8 @@ let modal = (() => {
 		let closeButton;
 
 		buttons.forEach((button) => {
-			button.addEventListener('click', () => {
+			button.addEventListener('click', (event) => {
+				event.preventDefault();
 				for (let index = 0; index < modals.length; index++) {
 					const el = modals[index];
 

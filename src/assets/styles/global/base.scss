@@ -1,3 +1,7 @@
+@view-transition {
+	navigation: auto;
+}
+
 *,
 ::before,
 ::after {
@@ -47,6 +51,26 @@ svg:not([fill]) {
 
 table {
 	border-collapse: collapse;
+}
+
+input[type='text'],
+textarea {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	outline: none;
+	border: none;
+	border-radius: 0;
+	background: none;
+	width: 100%;
+	resize: vertical;
+
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus {
+		-webkit-text-fill-color: $black;
+		-webkit-box-shadow: 0 0 0px 1000px $white inset;
+	}
 }
 
 textarea {

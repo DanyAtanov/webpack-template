@@ -1,48 +1,75 @@
 .swiper-navigation {
 	$that: &;
+	$size: 40px;
+	$offset: -20px;
+	$mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxMyAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzQ3Nl8zMTk4NSkiPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNTMyODMgMTIuNzI4QzMuMTU1NzIgMTIuMzY1NCAzLjE1NTcyIDExLjc3NzUgMy41MzI4MyAxMS40MTQ4TDguNjQzNzkgNi41TDMuNTMyODMgMS41ODUxN0MzLjE1NTcyIDEuMjIyNTQgMy4xNTU3MiAwLjYzNDYwMyAzLjUzMjgzIDAuMjcxOTcyQzMuOTA5OTMgLTAuMDkwNjU3MyA0LjUyMTMzIC0wLjA5MDY1NzMgNC44OTg0MyAwLjI3MTk3MkwxMS4zNzUgNi41TDQuODk4NDMgMTIuNzI4QzQuNTIxMzMgMTMuMDkwNyAzLjkwOTkzIDEzLjA5MDcgMy41MzI4MyAxMi43MjhaIiBmaWxsPSIjNTI1MzU4Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfNDc2XzMxOTg1Ij4KPHJlY3Qgd2lkdGg9IjEzIiBoZWlnaHQ9IjEzIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxMykgcm90YXRlKC05MCkiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K');
 
-	--swiper-navigation-color: #222;
-	--swiper-navigation-sides-offset: 0;
-
+	position: absolute;
+	top: 50%;
+	right: $offset;
+	z-index: 10;
+	cursor: pointer;
+	margin-top: calc($size/2 - $size);
+	box-shadow: 4px 16px 43.4px 0px rgba(4, 10, 32, 0.08);
+	border-radius: 50%;
+	background-color: $white;
+	width: $size;
+	height: $size;
+	@include flex-center;
 	transition:
-		color 0.25s ease-out,
-		transform 0.25s ease-out;
-	width: auto;
-	user-select: none;
+		background-color 0.2s ease-out,
+		opacity 0.2s ease-out;
+	overflow: clip;
 
-	&.swiper-button-prev,
-	&.swiper-button-next {
-		color: $gray;
+	&::before {
+		content: '';
+		@include absolute-fill;
+		clip-path: circle(0%);
+		transition: clip-path 0.8s cubic-bezier(0.25, 1, 0.25, 1);
+		background-color: $red;
+	}
 
-		&::after {
-			content: none;
-		}
-
-		svg {
-			max-width: 16px;
-			max-height: 16px;
-
-			@include desktop {
-				max-width: 22px;
-				max-height: 22px;
-			}
-		}
+	&::after {
+		display: inline-block;
+		flex: none;
+		z-index: 1;
+		mask: $mask;
+		mask-position: center;
+		mask-repeat: no-repeat;
+		transition: background-color 0.25s 0.25s ease-out;
+		background-color: #525358;
+		width: 40px;
+		height: 40px;
+		content: '';
 	}
 
 	&.swiper-button-prev {
-		rotate: 180deg;
+		right: auto;
+		left: $offset;
+		transform: rotate(180deg);
 	}
 
-	@media (hover: hover) {
-		&:hover {
-			transform: scale(1.4);
-			color: $black;
+	&.swiper-button-disabled {
+		opacity: 0;
+		pointer-events: none;
 
-			.gallery-section & {
-				@include laptop {
-					transform: translate3d(50%, 0, 0) scale(1.4) rotate(90deg);
-				}
-			}
+		&:before {
+			opacity: 0;
 		}
+	}
+
+	&:hover {
+		&::before {
+			clip-path: circle(125%);
+		}
+
+		&::after {
+			transition: background-color 0.25s ease-out;
+			background-color: $white;
+		}
+	}
+
+	&:active {
+		transform: scale(0.75);
 	}
 }

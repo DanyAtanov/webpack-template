@@ -1,0 +1,83 @@
+.toggle-view {
+	$that: &;
+
+	position: relative;
+	flex: none;
+	overflow: hidden;
+
+	&::before,
+	&::after {
+		position: absolute;
+		top: 50%;
+		left: 13px;
+		transform: translate3d(0, -50%, 0);
+		z-index: 3;
+		mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMiIGhlaWdodD0iMyIgcng9IjEiIGZpbGw9IiNBMUE0QjAiLz4KPHJlY3QgeT0iNS41IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIiByeD0iMSIgZmlsbD0iI0ExQTRCMCIvPgo8cmVjdCB5PSIxMSIgd2lkdGg9IjMiIGhlaWdodD0iMyIgcng9IjEiIGZpbGw9IiNBMUE0QjAiLz4KPHJlY3QgeD0iNSIgd2lkdGg9IjkiIGhlaWdodD0iMyIgcng9IjEiIGZpbGw9IiNBMUE0QjAiLz4KPHJlY3QgeD0iNSIgeT0iNS41IiB3aWR0aD0iOSIgaGVpZ2h0PSIzIiByeD0iMSIgZmlsbD0iI0ExQTRCMCIvPgo8cmVjdCB4PSI1IiB5PSIxMSIgd2lkdGg9IjkiIGhlaWdodD0iMyIgcng9IjEiIGZpbGw9IiNBMUE0QjAiLz4KPC9zdmc+Cg==');
+		mask-repeat: no-repeat;
+		transition: background-color 0.25s ease-out;
+		background-color: $black;
+		width: 14px;
+		height: 14px;
+		content: '';
+	}
+
+	&::after {
+		right: 13px;
+		left: auto;
+		mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjYiIGhlaWdodD0iNiIgcng9IjEiIGZpbGw9IiNBMUE0QjAiLz4KPHJlY3QgeT0iOCIgd2lkdGg9IjYiIGhlaWdodD0iNiIgcng9IjEiIGZpbGw9IiNBMUE0QjAiLz4KPHJlY3QgeD0iOCIgd2lkdGg9IjYiIGhlaWdodD0iNiIgcng9IjEiIGZpbGw9IiNBMUE0QjAiLz4KPHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjYiIGhlaWdodD0iNiIgcng9IjEiIGZpbGw9IiNBMUE0QjAiLz4KPC9zdmc+Cg==');
+		background-color: $gray_3;
+	}
+
+	&:has(input:checked) {
+		&::before {
+			background-color: $gray_3;
+		}
+		&::after {
+			background-color: $black;
+		}
+	}
+
+	.toggle__input[type='checkbox'] {
+		cursor: pointer;
+		border-radius: 20px;
+		background-color: $gray_1;
+		width: 77px;
+		height: 40px;
+
+		&:after {
+			transition:
+				left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.175),
+				padding 0.3s ease,
+				margin 0.3s ease;
+			border-radius: 50%;
+			width: 48%;
+			height: 100%;
+		}
+
+		&:active {
+			&::after {
+				border-radius: 42% 50% 50% 42%;
+				padding-right: 12px;
+			}
+		}
+
+		&:checked {
+			background-color: $gray_1;
+
+			&::after {
+				left: 52%;
+			}
+
+			&:active {
+				&::after {
+					margin-left: -12px;
+					border-radius: 50% 42% 42% 50%;
+				}
+			}
+		}
+
+		&:hover {
+			background-color: $gray_1;
+		}
+	}
+}

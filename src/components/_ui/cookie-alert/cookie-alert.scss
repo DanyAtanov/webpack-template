@@ -1,67 +1,40 @@
 .cookie-alert {
-	$that: &;
-
-	display: flex;
-	position: fixed;
-	bottom: 22px;
-	justify-content: center;
-	transform: translate3d(0, 100%, 0);
-	opacity: 0;
-	z-index: 999;
-	transition: opacity 0.25s linear;
+	inset: unset;
+	right: 60px;
+	bottom: 20px;
+	box-shadow: 4px 16px 43px 0px rgba(4, 10, 32, 0.08);
+	border: unset;
+	background: #fff;
+	padding: 25px 30px;
 	width: 100%;
-	pointer-events: none;
+	max-width: 338px;
+	color: #000;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 150%;
 
-	@include tablet {
-		bottom: 52px;
-		transform: translate3d(100%, 0, 0);
+	@include media-large-mobile {
+		right: 20px;
+		bottom: 76px;
+		padding: 25px 30px 25px 15px;
+		max-width: calc(100% - 40px);
 	}
 
-	&.--is-active {
-		transform: translate3d(0, 0, 0);
-		opacity: 1;
-		transition:
-			transform 0.5s ease-out,
-			opacity 0.25s linear;
-		pointer-events: all;
-	}
-
-	&__inner {
-		@extend %container;
-		display: flex;
-		justify-content: flex-end;
-	}
-
-	&__message {
-		position: relative;
-		box-shadow: 0px 23px 62px 0px rgba(21, 26, 32, 0.11);
-		border-radius: 20px;
-		background: #fff;
-		padding: 30px;
-		width: 306px;
-	}
-
-	&__title {
-		margin-bottom: 15px;
-		color: $black;
-		font-weight: 600;
-		font-weight: 700;
-		font-size: 16px;
-		line-height: 22px;
-	}
-
-	&__accept {
-		margin-top: 15px;
-
-		button {
-			height: 40px;
-		}
-	}
-
-	&__close {
+	&__button-close {
 		position: absolute;
-		top: 15px;
-		right: 15px;
-		color: #efefef;
+		top: 10px;
+		right: 10px;
 	}
+
+	&__go {
+		display: block;
+		margin-top: 5px;
+		color: #828282;
+		font-weight: 700;
+		font-size: 13px;
+	}
+}
+
+#cookies-trigger {
+	@include visually-hidden;
 }
