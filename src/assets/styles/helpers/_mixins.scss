@@ -226,3 +226,17 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+
+@mixin flex-items($count: 2, $column-gap: 10px, $row-gap: null) {
+	column-gap: $column-gap;
+
+	@if $row-gap == null {
+		row-gap: $column-gap;
+	} @else {
+		row-gap: $row-gap;
+	}
+
+	& > * {
+		flex: 0 0 calc((100% / $count) - ($column-gap/ $count * ($count - 1)));
+	}
+}
