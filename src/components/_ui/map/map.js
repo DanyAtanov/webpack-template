@@ -1,14 +1,38 @@
 const initMap = (() => {
-	const map = document.querySelector('#yandex-map');
-	let myMap;
-	let myPlacemark;
+	const mapContainer = document.querySelector('#yandex-map');
+	let locations = [
+		{
+			coodrs: [59.988001, 30.276773],
+			hintContent: 'Центральный офис Санкт-Петербург',
+		},
+		{
+			coodrs: [55.913777, 37.763351],
+			hintContent: 'Филиал Москва',
+		},
+		{
+			coodrs: [54.738375, 55.898127],
+			hintContent: 'Филиал Уфа (Өфө филиалы)',
+		},
+		{
+			coodrs: [45.024883, 39.010231],
+			hintContent: 'Филиал Краснодар',
+		},
+	];
 
 	let init = () => {
-		if (!map) return;
+		if (!mapContainer) return;
 
+		console.log('map');
+
+		initMap();
+
+		_setupListeners();
+	};
+
+	let initMap = () => {
 		ymaps.ready(function () {
-			myMap = new ymaps.Map(
-				map,
+			let map = new ymaps.Map(
+				mapContainer,
 				{
 					center: [59.987878, 30.273834],
 					zoom: 16,
@@ -19,33 +43,26 @@ const initMap = (() => {
 			} */
 			);
 
-			myPlacemark = new ymaps.Placemark(
-				[59.988379, 30.276091],
-				{
-					hintContent: 'Jeta Industry',
-				},
-				{
-					// Необходимо указать данный тип макета.
-					iconLayout: 'default#image',
-					// Своё изображение иконки метки.
-					iconImageHref: './assets/images/map-marker.svg',
-					// Размеры метки.
-					iconImageSize: [74, 80],
-					// Смещение левого верхнего угла иконки относительно
-					// её "ножки" (точки привязки).
-					iconImageOffset: [-24, -36],
-				}
-			);
+			locations.forEach((location) => {
+				let placemark = new ymaps.Placemark(
+					location.coodrs,
+					{
+						hintContent: location.hint,
+					},
+					{
+						iconLayout: 'default#image',
+						iconImageHref: './assets/images/placemark.svg',
+						iconImageSize: [41, 41],
+						iconImageOffset: [-24, -36],
+					}
+				);
 
-			myMap.geoObjects.add(myPlacemark);
+				map.geoObjects.add(placemark);
+			});
 		});
-
-		_setupListeners();
 	};
 
 	let _setupListeners = () => {};
-
-	// Доступные методы
 
 	init();
 })();
