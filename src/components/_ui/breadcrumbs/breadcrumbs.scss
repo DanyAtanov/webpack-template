@@ -5,11 +5,11 @@
 	margin: 10px auto;
 	font-size: 12px;
 	@extend %container;
-	color: #B0B3B7;
+	color: #525358;
 	user-select: none;
 
 	@include tablet-xl {
-		margin: 15px auto 30px;
+		margin: 20px auto;
 		font-size: 14px;
 		line-height: 150%;
 	}
@@ -18,7 +18,7 @@
 		display: none;
 		flex: none;
 
-		&:first-child {
+		&:nth-last-of-type(2) {
 			display: block;
 		}
 
@@ -27,7 +27,7 @@
 
 			&:last-child {
 				pointer-events: none;
-				color: $color_text;
+				color: $black;
 			}
 		}
 	}
@@ -37,17 +37,22 @@
 			content: '';
 			--svg: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgOCA4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTYgMC45Nzk4N0wyLjk2NzY2IDRMNiA3LjAyMDEzTDUuMDE2MTcgOEwxIDRMNS4wMTYxNyAtNC4zMDA0NmUtMDhMNiAwLjk3OTg3WiIgZmlsbD0iI0JGQzVDQyIvPgo8L3N2Zz4K');
 			display: inline-block;
-			mask: var(--svg);
-			margin-right: 5px;
-			background-color: #B0B3B7;
-			padding-right: 10px;
-			width: 7px;
-			height: 8px;
-			mask-repeat: no-repeat;
 			flex: none;
+			mask: var(--svg);
+			mask-repeat: no-repeat;
+			margin-right: 5px;
+			background-color: #a1a4b0;
+			padding-right: 10px;
+			width: 5px;
+			height: 8px;
 
 			@include tablet-xl {
-				transform: rotate(180deg);
+				mask: unset;
+				margin-right: 10px;
+				border-radius: 50%;
+				padding-right: 0;
+				width: 4px;
+				height: 4px;
 
 				#{$that}__item:first-child & {
 					content: none;
@@ -62,10 +67,12 @@
 		}
 
 		@include tablet-xl {
+			display: flex;
+			align-items: center;
 			transition: color 0.25s ease-out;
 
 			&:hover {
-				color: $color_text;
+				color: $red;
 			}
 		}
 	}

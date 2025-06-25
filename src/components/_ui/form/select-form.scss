@@ -1,26 +1,26 @@
 :root {
 	--ss-primary-color: #ffffff;
-	--ss-hover-color: #002ba2;
+	--ss-hover-color: #ff3347;
 	--ss-bg-color: #ffffff;
-	--ss-font-color: #5f626b;
-	--ss-selected-font-color: #003bdf;
+	--ss-font-color: #1a1b21;
+	--ss-selected-font-color: #ff3347;
 	--ss-selected-bg-color: #ffffff;
 	--ss-font-placeholder-color: #8d8d8d;
 	--ss-disabled-color: #dcdee2;
-	--ss-border-color: #e9ebee;
+	--ss-border-color: unset;
 	--ss-marker-color: #222;
 	--ss-highlight-color: red;
 	--ss-success-color: #00b755;
 	--ss-error-color: #dc3545;
 	--ss-focus-color: transparent;
-	--ss-main-height: 40px;
+	--ss-main-height: 22px;
 	--ss-content-height: 300px;
 	//select padding
 	//--ss-spacing-s: 10px 10px 10px 20px;
 	//option left-right-padding
 	--ss-spacing-l: 0;
 	//option top-bottom-padding
-	--ss-spacing-m: 10px;
+	--ss-spacing-m: 6px;
 	--ss-animation-timing: 0.25s;
 	//--ss-border-radius: 25px;
 }
@@ -67,10 +67,22 @@
 	color: var(--ss-font-color);
 	user-select: none;
 
+	&.--transparent {
+		background-color: transparent;
+	}
+
 	/* 	@include tablet {
 		padding: 4px 8px 4px 18px;
 		min-height: 36px;
 	} */
+
+	&:hover {
+		color: (var(--ss-hover-color));
+
+		&::after {
+			background-color: $red;
+		}
+	}
 }
 .ss-main:focus {
 	box-shadow: 0 0 5px var(--ss-focus-color);
@@ -127,11 +139,8 @@
 .ss-main .ss-values .ss-single {
 	display: flex;
 	align-items: center;
+	transition: color 0.25s ease-out;
 	margin: auto 0 auto var(--ss-spacing-s);
-
-	&:hover {
-		color: (var(--ss-hover-color));
-	}
 }
 .ss-main .ss-values .ss-value {
 	display: flex;
@@ -197,24 +206,31 @@
 	stroke-linecap: round;
 	stroke-linejoin: round;
 }
-.ss-main .ss-arrow {
+
+.ss-main {
 	display: flex;
-	flex: 0 1 auto;
-	justify-content: flex-end;
 	align-items: center;
-	margin: auto var(--ss-spacing-m) auto var(--ss-spacing-m);
-	width: 12px;
-	height: 12px;
+	gap: 10px;
+
+	.ss-arrow {
+		display: none;
+	}
+
+	&:after {
+		display: inline-block;
+		flex: none;
+		mask-repeat: no-repeat !important;
+		mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDggMTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF80MDAxXzUwNzI5KSI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMC4xNjczNjggNS44MjU5NUMwLjM5MDUyNCA2LjA1ODAyIDAuNzUyMzMzIDYuMDU4MDIgMC45NzU0OSA1LjgyNTk1TDQgMi42ODA3NEw3LjAyNDUxIDUuODI1OTVDNy4yNDc2NyA2LjA1ODAyIDcuNjA5NDggNi4wNTgwMiA3LjgzMjYzIDUuODI1OTVDOC4wNTU3OSA1LjU5Mzg5IDguMDU1NzkgNS4yMTc2NCA3LjgzMjYzIDQuOTg1NThMNCAxTDAuMTY3MzY4IDQuOTg1NThDLTAuMDU1Nzg5MiA1LjIxNzY0IC0wLjA1NTc4OTIgNS41OTM4OSAwLjE2NzM2OCA1LjgyNTk1WiIgZmlsbD0iIzFBMUIyMSIvPgo8L2c+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMV80MDAxXzUwNzI5KSI+CjxwYXRoIGQ9Ik0zLjYzOTYgMTMuNjY1OEw0IDE0LjA0MDZMNC4zNjA0IDEzLjY2NThMNy4zODQ5MSAxMC41MjA2QzcuNDAwNTIgMTAuNTA0NCA3LjQxNTg1IDEwLjUgNy40Mjg1NyAxMC41QzcuNDQxMjkgMTAuNSA3LjQ1NjYzIDEwLjUwNDQgNy40NzIyMyAxMC41MjA2QzcuNDg4NzkgMTAuNTM3OCA3LjUgMTAuNTYzMyA3LjUgMTAuNTk0MkM3LjUgMTAuNjI1MiA3LjQ4ODc5IDEwLjY1MDYgNy40NzIyMyAxMC42Njc4TDQgMTQuMjc4NkwwLjUyNzc2OSAxMC42Njc4QzAuNTExMjE0IDEwLjY1MDYgMC41IDEwLjYyNTIgMC41IDEwLjU5NDJDMC41IDEwLjU2MzMgMC41MTEyMTQgMTAuNTM3OCAwLjUyNzc2OSAxMC41MjA2QzAuNTQzMzc1IDEwLjUwNDQgMC41NTg3MDkgMTAuNSAwLjU3MTQyOSAxMC41QzAuNTg0MTQ4IDEwLjUgMC41OTk0ODIgMTAuNTA0NCAwLjYxNTA4OCAxMC41MjA2TDMuNjM5NiAxMy42NjU4WiIgZmlsbD0iIzFBMUIyMSIgc3Ryb2tlPSIjMUExQjIxIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF80MDAxXzUwNzI5Ij4KPHJlY3Qgd2lkdGg9IjgiIGhlaWdodD0iOCIgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDAgOCkiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwMV80MDAxXzUwNzI5Ij4KPHJlY3Qgd2lkdGg9IjgiIGhlaWdodD0iOCIgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgOCkiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K');
+		mask-position: center;
+		transition: background-color 0.25s ease-out;
+		margin-left: auto;
+		background-color: $black;
+		width: 10px;
+		height: 20px;
+		content: '';
+	}
 }
-.ss-main .ss-arrow path {
-	fill: none;
-	stroke: var(--ss-marker-color);
-	stroke-width: 18;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	transition-timing-function: ease-out;
-	transition: var(--ss-animation-timing);
-}
+
 .ss-content {
 	display: flex;
 	position: absolute;
@@ -227,10 +243,12 @@
 		transform var(--ss-animation-timing),
 		opacity var(--ss-animation-timing);
 	box-sizing: border-box;
-	margin-top: 3px;
+	margin-top: 10px;
 	//border: solid 1px var(--ss-border-color);
 	background-color: var(--ss-bg-color);
-	width: auto;
+	width: 100%;
+	min-width: fit-content;
+	max-width: 264px;
 	height: auto;
 	max-height: var(--ss-content-height);
 	overflow: hidden;
@@ -251,10 +269,12 @@
 	transform: scaleY(1) translate3d(0, 4px, 0);
 	transform-origin: center top;
 	opacity: 1;
+	box-shadow: $shadows;
 	border-top-right-radius: var(--ss-border-radius);
 	border-top-left-radius: var(--ss-border-radius);
 	border-bottom-right-radius: var(--ss-border-radius);
 	border-bottom-left-radius: var(--ss-border-radius);
+	border-radius: 20px;
 }
 .ss-content .ss-search {
 	display: flex;
@@ -315,10 +335,15 @@
 }
 .ss-content .ss-list {
 	flex: 1 1 auto;
-	padding: 25px 30px;
+	padding: 10px 12px;
 	height: auto;
-	overflow-x: hidden;
+	overflow-x: clip;
 	overflow-y: auto;
+	@include hide-scrollbar;
+
+	@include phone-xl {
+		padding: 10px 20px;
+	}
 }
 .ss-content .ss-list .ss-error {
 	padding: var(--ss-spacing-l);
@@ -485,7 +510,7 @@
 }
 .ss-content .ss-list .ss-option {
 	display: flex;
-	transition: color 0.25s ease-out;
+	transition: $transition_color;
 	cursor: pointer;
 	cursor: pointer;
 	padding: var(--ss-spacing-m) var(--ss-spacing-l) var(--ss-spacing-m)
@@ -516,34 +541,14 @@
 .select-form {
 	opacity: 0;
 	transition: opacity 0.25s ease-out;
-	width: 224px;
+	width: fit-content;
 	max-width: 264px;
 
 	&.--is-loaded {
 		opacity: 1;
 	}
 
-	&.--secondary {
-		border: none;
-		//--ss-border-radius: 10px;
-
-		.ss-values {
-			justify-content: flex-end;
-			padding-right: 6px;
-		}
-
-		.ss-single {
-			color: #222;
-			//font-weight: 700;
-		}
+	@include tablet-xl {
+		flex: none;
 	}
-
-	/* 	@include tablet {
-		min-width: 162px;
-		max-width: 214px;
-		font-style: normal;
-		font-weight: 400;
-		font-size: 13px;
-		line-height: 19px;
-	} */
 }

@@ -1,0 +1,190 @@
+<button
+	x-data="{isFavourite: false}"
+	x-init="$el.closest('.--is-favourite') ? isFavourite = true : isFavourite = false"
+	@click="isFavourite = !isFavourite"
+	:aria-label="isFavourite ? 'Удалить из избранного' : 'Добавить в избранное'"
+	:class="isFavourite ? '--is-active' : ''"
+	type="button"
+	class="like-button {{#if likeClass}} {{likeClass}} {{/if}}"
+>
+	<svg
+		width="28"
+		height="26"
+		viewBox="0 0 24 22"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path
+			class="heart"
+			fill-rule="evenodd"
+			clip-rule="evenodd"
+			d="M11.7233 20.8375C9.20993 19.3532 6.87181 17.6063 4.75076 15.628C3.25956 14.2033 2.12432 12.4664 1.43201 10.5504C0.186166 6.83367 1.64139 2.5787 5.71393 1.31947C7.85429 0.658261 10.1919 1.03617 11.9955 2.33497C13.7998 1.03775 16.1365 0.659975 18.277 1.31947C22.3496 2.5787 23.8153 6.83367 22.5694 10.5504C21.8771 12.4664 20.7419 14.2033 19.2507 15.628C17.1296 17.6063 14.7915 19.3532 12.2781 20.8375L12.0059 21L11.7233 20.8375Z"
+			stroke="currentColor"
+			stroke-linecap="round"
+			fill="transparent"
+			stroke-linejoin="round"
+		/>
+
+		<g
+			class="group"
+			fill="none"
+			fill-rule="evenodd"
+			transform="translate(0 0)"
+		>
+			<circle
+				class="main-circ"
+				fill="#F30049"
+				opacity="0"
+				cx="29.5"
+				cy="29.5"
+				r="1.5"
+			/>
+			<g
+				class="particle_7"
+				opacity="0"
+				transform="translate(7 6)"
+			>
+				<circle
+					class="oval_1"
+					fill="#9CD8C3"
+					cx="2"
+					cy="6"
+					r="2"
+				/>
+				<circle
+					class="oval_2"
+					fill="#8CE8C3"
+					cx="5"
+					cy="2"
+					r="2"
+				/>
+			</g>
+
+			<g
+				class="particle_6"
+				opacity="0"
+				transform="translate(0 28)"
+			>
+				<circle
+					class="oval_1"
+					fill="#AED60C"
+					cx="2"
+					cy="7"
+					r="2"
+				/>
+				<circle
+					class="oval_2"
+					fill="#91D2FA"
+					cx="3"
+					cy="2"
+					r="2"
+				/>
+			</g>
+
+			<g
+				class="particle_3"
+				opacity="0"
+				transform="translate(52 28)"
+			>
+				<circle
+					class="oval_2"
+					fill="#9CD8C3"
+					cx="2"
+					cy="7"
+					r="2"
+				/>
+				<circle
+					class="oval_1"
+					fill="#8CE8C3"
+					cx="4"
+					cy="2"
+					r="2"
+				/>
+			</g>
+
+			<g
+				class="particle_2"
+				opacity="0"
+				transform="translate(44 6)"
+			>
+				<circle
+					class="oval_2"
+					fill="#AED60C"
+					cx="5"
+					cy="6"
+					r="2"
+				/>
+				<circle
+					class="oval_1"
+					fill="#AED60C"
+					cx="2"
+					cy="2"
+					r="2"
+				/>
+			</g>
+
+			<g
+				class="particle_5"
+				opacity="0"
+				transform="translate(14 50)"
+			>
+				<circle
+					class="oval_1"
+					fill="#1567FF"
+					cx="6"
+					cy="5"
+					r="2"
+				/>
+				<circle
+					class="oval_2"
+					fill="#1567FF"
+					cx="2"
+					cy="2"
+					r="2"
+				/>
+			</g>
+
+			<g
+				class="particle_4"
+				opacity="0"
+				transform="translate(35 50)"
+			>
+				<circle
+					class="oval_1"
+					fill="#FF5278"
+					cx="6"
+					cy="5"
+					r="2"
+				/>
+				<circle
+					class="oval_2"
+					fill="#FF5278"
+					cx="2"
+					cy="2"
+					r="2"
+				/>
+			</g>
+
+			<g
+				class="particle_1"
+				opacity="0"
+				transform="translate(24)"
+			>
+				<circle
+					class="oval_1"
+					fill="#9B1750"
+					cx="2.5"
+					cy="3"
+					r="2"
+				/>
+				<circle
+					class="oval_2"
+					fill="#9B1750"
+					cx="7.5"
+					cy="2"
+					r="2"
+				/>
+			</g>
+		</g>
+	</svg>
+</button>

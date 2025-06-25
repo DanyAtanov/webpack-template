@@ -1,22 +1,22 @@
 import Cookies from 'js-cookie';
 let cookiesHandler = (() => {
-	const cookieName = 'somename_userIsBack';
+	const cookieName='new-awsome-site_userIsBack';
 
 	let init = () => {
-		if (Cookies.get(cookieName)) return;
+			if (Cookies.get(cookieName)) return;
 
-		const $buttonShow = document.querySelector('#cookies-trigger');
-		const $buttonHide = document.querySelector('.cookie-alert__button-close');
+			const $buttonShow = document.querySelector('#cookies-trigger');
+			const $buttonHide = document.querySelector('.cookie-alert__button-close');
 
-		$buttonShow.click();
+			$buttonShow.click();
 
-		$buttonHide.addEventListener(
-			'click',
-			() => {
-				Cookies.set(cookieName, true, { expires: 30 });
-			},
-			{ once: true }
-		);
+			$buttonHide.addEventListener(
+					'click',
+					() => {
+							Cookies.set(cookieName, true, { expires: 30 });
+					},
+					{ once: true }
+			);
 	};
 
 	init();

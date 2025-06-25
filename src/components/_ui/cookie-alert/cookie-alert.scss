@@ -1,40 +1,44 @@
 .cookie-alert {
-	inset: unset;
-	right: 60px;
-	bottom: 20px;
-	box-shadow: 4px 16px 43px 0px rgba(4, 10, 32, 0.08);
-	border: unset;
-	background: #fff;
-	padding: 25px 30px;
-	width: 100%;
-	max-width: 338px;
+	inset: unset !important;
+	bottom: 58px !important;
+	left: 50% !important;
+	transform: translate3d(-50%, 0, 0) !important;
+	box-shadow: 4px 16px 43px 0px rgba(4, 10, 32, 0.18) !important;
+	border: unset !important;
+	border-radius: 20px !important;
+	padding: 20px !important;
+	width: calc(100% - 40px) !important;
 	color: #000;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 150%;
+	text-wrap: balance;
+	text-wrap: pretty;
 
-	@include media-large-mobile {
-		right: 20px;
-		bottom: 76px;
-		padding: 25px 30px 25px 15px;
-		max-width: calc(100% - 40px);
+	@include tablet {
+		left: auto !important;
+    right: 50px !important;
+		transform: translate3d(0, 0, 0) !important;
+		max-width: 358px;
+	}
+
+	&::backdrop {
+		display: none !important;
 	}
 
 	&__button-close {
-		position: absolute;
-		top: 10px;
-		right: 10px;
+		width: 100%;
 	}
 
 	&__go {
-		display: block;
-		margin-top: 5px;
-		color: #828282;
-		font-weight: 700;
-		font-size: 13px;
-	}
-}
+		display: inline;
+		transition: color 0.25s ease-out;
+		color: $hyperlink;
+		font-size: inherit;
+		text-decoration: none;
 
-#cookies-trigger {
-	@include visually-hidden;
+		&:hover {
+			color: $hyperlink_hover;
+		}
+	}
 }

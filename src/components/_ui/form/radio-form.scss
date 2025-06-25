@@ -1,0 +1,72 @@
+.radio-form {
+	$that: &;
+
+	display: flex;
+	position: relative;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	min-height: 18px;
+	color: $black;
+	user-select: none;
+
+	@include laptop {
+		&:hover {
+			#{$that}__text {
+				color: $hyperlink_hover;
+			}
+
+			#{$that}__box {
+				&::after {
+					transform: scale(0.6);
+					opacity: 0.5;
+				}
+			}
+		}
+	}
+
+	&__input {
+		@include visually-hidden();
+	}
+
+	&__box {
+		display: flex;
+		flex: none;
+		justify-content: center;
+		align-items: center;
+		border: 2px solid $gray;
+		border-radius: 5px;
+		border-radius: 50%;
+		width: 15px;
+		height: 15px;
+
+		#{$that}__input:checked + & {
+			&::after {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+
+		&::after {
+			transform: scale(0);
+			opacity: 0;
+			transition:
+				opacity 0.25s ease-out,
+				transform 0.25s ease-out;
+			border-radius: 50%;
+			background-color: $green;
+			width: 7px;
+			height: 7px;
+			content: '';
+		}
+	}
+
+	&__text {
+		line-height: 150%;
+
+		@include tablet-xl {
+			transition: $transition_color;
+		}
+	}
+}

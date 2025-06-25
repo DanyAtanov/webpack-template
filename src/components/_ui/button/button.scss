@@ -17,6 +17,21 @@
 		user-select: none;
 	}
 
+	&.--is-loading,
+	&.--loading {
+		opacity: 0.8;
+		pointer-events: none !important;
+		user-select: none;
+
+		&::after {
+			content: none !important;
+		}
+
+		#{$that}__inner {
+			opacity: 0;
+		}
+	}
+
 	&:hover,
 	&:focus {
 		transform: scale(1.04);

@@ -1,0 +1,61 @@
+{{!-- {{#> accordion accordionTitle="Как отменить заказ?" accordionClass="contact-section__accordion"}}
+Никак
+{{/accordion}} --}}
+
+<dl
+	x-data
+	class="accordion {{#if accordionClass}}{{accordionClass}}{{/if}}"
+>
+	<div class="accordion__item {{#if accordionClass}}{{accordionClass}}-item{{/if}}">
+		<dt
+			@click="$el.closest('.accordion__item').classList.toggle('--is-open')"
+			class="accordion__item-title {{#if accordionClass}}{{accordionClass}}-item-title{{/if}}"
+		>{{accordionTitle}}</dt>
+		<dd class="accordion__item-caption {{#if accordionClass}}{{accordionClass}}-item-caption{{/if}}">
+			<div class="accordion__item-caption-wrapper">
+				<div class="accordion__item-caption-inner">
+					{{> @partial-block}}
+				</div>
+			</div>
+		</dd>
+	</div>
+	<div class="accordion__item {{#if accordionClass}}{{accordionClass}}-item{{/if}}">
+		<dt
+			@click="$el.closest('.accordion__item').classList.toggle('--is-open')"
+			class="accordion__item-title {{#if accordionClass}}{{accordionClass}}-item-title{{/if}}"
+		>{{accordionTitle}}</dt>
+		<dd class="accordion__item-caption {{#if accordionClass}}{{accordionClass}}-item-caption{{/if}}">
+			<div class="accordion__item-caption-wrapper">
+				<div class="accordion__item-caption-inner">
+					{{> @partial-block}}
+				</div>
+			</div>
+		</dd>
+	</div>
+	<div class="accordion__item {{#if accordionClass}}{{accordionClass}}-item{{/if}}">
+		<dt
+			@click="$el.closest('.accordion__item').classList.toggle('--is-open')"
+			class="accordion__item-title {{#if accordionClass}}{{accordionClass}}-item-title{{/if}}"
+		>{{accordionTitle}}</dt>
+		<dd class="accordion__item-caption {{#if accordionClass}}{{accordionClass}}-item-caption{{/if}}">
+			<div class="accordion__item-caption-wrapper">
+				<div class="accordion__item-caption-inner">
+					{{> @partial-block}}
+				</div>
+			</div>
+		</dd>
+	</div>
+	<div class="accordion__item {{#if accordionClass}}{{accordionClass}}-item{{/if}}">
+		<dt
+			@click="$el.closest('.accordion__item').classList.toggle('--is-open')"
+			class="accordion__item-title {{#if accordionClass}}{{accordionClass}}-item-title{{/if}}"
+		>{{accordionTitle}}</dt>
+		<dd class="accordion__item-caption {{#if accordionClass}}{{accordionClass}}-item-caption{{/if}}">
+			<div class="accordion__item-caption-wrapper">
+				<div class="accordion__item-caption-inner">
+					{{> @partial-block}}
+				</div>
+			</div>
+		</dd>
+	</div>
+</dl>

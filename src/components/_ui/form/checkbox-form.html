@@ -1,4 +1,45 @@
+{{#if cart}}
 <label class="checkbox-form {{ checkboxClass }}">
+	<input
+		class="checkbox-form__input"
+		type="checkbox"
+		name="#"
+		id="#"
+		value="#"
+		checked
+	/>
+	<span class="checkbox-form__box">
+		{{!-- <svg class="checkbox-form__mark">
+			<use xlink:href="./assets/images/sprite.svg#check"></use>
+		</svg> --}}
+	</span>
+</label>
+
+{{else if set}}
+<label class="checkbox-form {{ checkboxClass }}">
+	<input
+		class="checkbox-form__input"
+		type="checkbox"
+		name="#"
+		id="#"
+		value="#"
+		checked
+	/>
+	<span class="checkbox-form__box">
+		{{!-- <svg class="checkbox-form__mark">
+			<use xlink:href="./assets/images/sprite.svg#check"></use>
+		</svg> --}}
+	</span>
+</label>
+{{else}}
+
+<label
+	{{#if
+	amount}}
+	data-amount="{{amount}}"
+	{{/if}}
+	class="checkbox-form {{ checkboxClass }}"
+>
 	<input
 		class="checkbox-form__input"
 		type="checkbox"
@@ -9,6 +50,10 @@
 		required}}
 		required
 		{{/if}}
+		{{#if
+		checked}}
+		checked
+		{{/if}}
 	/>
 	<span class="checkbox-form__box">
 		{{!-- <svg class="checkbox-form__mark">
@@ -17,3 +62,4 @@
 	</span>
 	<span class="checkbox-form__text">{{> @partial-block}}</span>
 </label>
+{{/if}}

@@ -1,31 +1,65 @@
 .content {
-	color: $gray_text;
+	color: #525358;
 
-	> *:last-child {
-		margin-bottom: 0;
+	&.landing-section {
+		p {
+			@include tablet-xl {
+				max-width: 608px;
+			}
+		}
 	}
 
-	h1:not([class]) {
-		color: $black;
-		font-style: normal;
-		font-weight: 700;
-		font-size: 22px;
-		line-height: 105%;
+	p,
+	ul:not([class]),
+	ol:not([class]),
+	img:not([class]),
+	blockquote:not([class]),
+	.content-image {
+		margin: 15px 0;
 
-		@include laptop {
-			font-size: 28px;
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
 		}
 
 		@include desktop {
-			font-size: 34px;
+			margin: 20px 0;
+		}
+	}
+
+	h1:not([class]),
+	h2:not([class]),
+	h3:not([class]),
+	h4:not([class]),
+	h5:not([class]),
+	h6:not([class]) {
+		color: $black;
+		font-style: normal;
+		font-family: $font_title;
+	}
+
+	h1:not([class]) {
+		font-weight: 600;
+		font-size: 22px;
+		line-height: 140%;
+		font-family: $font_title;
+
+		@include laptop {
+			font-size: 26px;
+		}
+
+		@include desktop {
+			font-size: 30px;
 		}
 	}
 
 	h2:not([class]),
 	h3:not([class]) {
-		margin: 10px 0 5px;
-		color: #000;
-		font-weight: 700;
+		margin: 12px 0 5px;
+		font-weight: 500;
 		font-size: 16px;
 		line-height: 150%;
 
@@ -68,19 +102,6 @@
 		}
 	}
 
-	p {
-		margin: 10px 0;
-		line-height: 150%;
-
-		&:first-child {
-			margin-top: 0;
-		}
-
-		@include tablet {
-			margin: 20px 0;
-		}
-	}
-
 	ul:not([class]) {
 		margin-left: 20px;
 		line-height: 150%;
@@ -89,6 +110,7 @@
 		li {
 			&::marker {
 				margin-right: 2px;
+				color: $red;
 			}
 		}
 	}
@@ -101,29 +123,60 @@
 
 	img:not([class]) {
 		display: block;
-		margin: 20px auto;
-
-		@include desktop {
-			margin: 40px auto;
-		}
+		width: 100%;
 	}
 
-	b {
+	iframe {
+		aspect-ratio: 16 / 9;
+		width: 100%;
+		height: auto;
+	}
+
+	b,
+	strong {
 		color: $black;
 	}
 
-	.mark {
-		display: block;
-		margin: 20px auto;
-		background: $gray_4;
-		padding: 15px 20px;
+	blockquote {
+		border-left: 3px solid $red;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 25px;
+		font-weight: 500;
+		font-family: $font_title;
 
 		@include tablet {
-			padding: 20px 40px;
+			margin-top: 20px;
 		}
 
 		@include desktop {
-			margin: 40px auto;
+			margin-top: 30px;
+		}
+	}
+
+	figure,
+	.content-image {
+		display: table;
+		width: 100%;
+
+		@include tablet-xl {
+			border-radius: 20px;
+			background-color: $gray_1;
+			padding: 30px;
+
+			img {
+				margin: auto;
+				width: auto;
+			}
+		}
+
+		figcaption {
+			display: table-caption;
+			caption-side: bottom;
+
+			@include tablet {
+				margin-top: 10px;
+			}
 		}
 	}
 }

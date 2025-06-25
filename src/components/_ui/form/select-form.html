@@ -1,3 +1,13 @@
-<select class="select-form {{#if class}}{{class}}{{/if}}">
+{{!-- {{#> select-form selectClass="catalog-section__select"}}
+<option
+	selected
+	value="by-popularity"
+>По популярности</option>
+<option value="by-price-ascend">По возрастанию цены</option>
+<option value="by-price-descend">По убыванию цены</option>
+<option value="by-name">По названию</option>
+{{/select-form}} --}}
+
+<select class="select-form {{#if selectClass}}{{selectClass}}{{/if}}">
 	{{> @partial-block}}
 </select>

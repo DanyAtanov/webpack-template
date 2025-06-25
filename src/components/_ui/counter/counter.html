@@ -1,0 +1,48 @@
+<!-- Классы такие же как на афторефе (BuyBtnClass.js)  -->
+<!-- Прикрутил alpine для показа динамики, на проде выпилю -->
+<!-- Повесить атрибут x-igone на counter, чтобы вырубить alpine-->
+<div
+	x-data="{quantityCart: 1}"
+	class="counter {{#if counterClass}}{{counterClass}}{{/if}}"
+>
+	<button
+		@click="quantityCart == 1 ? '' : quantityCart--"
+		aria-label="Убрать один товар"
+		type="button"
+		class="counter__button --minus-btn"
+	></button>
+
+	<span
+		x-text="quantityCart"
+		class="counter__quantity --cart-quantity"
+	>
+
+	</span>
+
+	<button
+		@click="quantityCart++"
+		aria-label="Добавить один товар"
+		type="button"
+		class="counter__button --plus-btn"
+	></button>
+
+	<span class="loader">
+		<svg
+			width="30"
+			height="30"
+			class="loader__spinner spinner"
+			viewBox="0 0 66 66"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<circle
+				class="path"
+				fill="none"
+				stroke-width="6"
+				stroke-linecap="round"
+				cx="33"
+				cy="33"
+				r="30"
+			></circle>
+		</svg>
+	</span>
+</div>

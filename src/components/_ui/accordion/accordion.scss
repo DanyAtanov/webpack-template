@@ -1,0 +1,55 @@
+.accordion {
+	$that: &;
+
+	&__item {
+		transition: border-color 0.25s ease-out;
+	}
+
+	&__item-title {
+		display: flex;
+		position: relative;
+		justify-content: space-between;
+		align-items: center;
+		gap: 15px;
+		transition: color 0.25s ease-out;
+		cursor: pointer;
+		text-wrap: balance;
+
+		&::after {
+			flex: none;
+			mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgOCA5IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfNDI3N181MDMzOCkiPgo8cGF0aCBkPSJNMC41NTA3ODEgMi42MzE1OUwwLjUyNzM0NCAyLjY0ODE5QzAuNTEwOTU3IDIuNjY1MzIgMC41MDAxMTYgMi42OTA4IDAuNSAyLjcyMTQ0QzAuNSAyLjczNjc3IDAuNTAzMDIyIDIuNzUxMTMgMC41MDc4MTMgMi43NjM0M0wwLjUyNzM0NCAyLjc5NTY1TDQgNi40MDYwMUw3LjQ3MjY2IDIuNzk1NjVDNy40ODkxMyAyLjc3ODQ0IDcuNSAyLjc1MjI5IDcuNSAyLjcyMTQ0QzcuNDk5OTQgMi43MDYzIDcuNDk2OTMgMi42OTI1OSA3LjQ5MjE5IDIuNjgwNDJMNy40NzI2NiAyLjY0ODE5QzcuNDU3MTEgMi42MzIwMiA3LjQ0MTQgMi42Mjc3MiA3LjQyODcxIDIuNjI3NjlDNy40MjI0OCAyLjYyNzY5IDcuNDE1NDIgMi42Mjg2MSA3LjQwODIgMi42MzE1OUw3LjM4NDc3IDIuNjQ4MTlMNC4zNjAzNSA1Ljc5MzdMNCA2LjE2ODdMMy42Mzk2NSA1Ljc5MzdMMC42MTUyMzQgMi42NDgxOUMwLjU5OTYyOCAyLjYzMTk2IDAuNTg0MDA5IDIuNjI3NjkgMC41NzEyODkgMi42Mjc2OUMwLjU2NTAyMyAyLjYyNzcgMC41NTgwMjkgMi42Mjg1NSAwLjU1MDc4MSAyLjYzMTU5WiIgZmlsbD0iIzFBMUIyMSIgc3Ryb2tlPSIjMUExQjIxIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF80Mjc3XzUwMzM4Ij4KPHJlY3Qgd2lkdGg9IjgiIGhlaWdodD0iOCIgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDguNzQyMjhlLTA4IDguNzQyMjhlLTA4IDEgOCAwLjEyNzY4NikiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K');
+			mask-position: center;
+			mask-repeat: no-repeat;
+			transition:
+				transform 0.25s ease-out,
+				background-color 0.25s ease-out;
+			margin-bottom: 2px;
+			background-color: $black;
+			width: 10px;
+			height: 22px;
+			content: '';
+
+			#{$that}__item.--is-open & {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&__item-caption {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: grid-template-rows 0.25s ease-out;
+
+		#{$that}__item.--is-open & {
+			grid-template-rows: 1fr;
+		}
+	}
+
+	&__item-caption-wrapper {
+		overflow: hidden;
+	}
+
+	&__item-caption-inner {
+		padding-top: 15px;
+	}
+}

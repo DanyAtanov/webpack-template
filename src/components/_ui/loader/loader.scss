@@ -1,62 +1,82 @@
 .loader {
-	$loader-size: 48px;
-	$loader-speed: 2s;
-	$loader-color: #fff;
+	$offset: 187;
+	$duration: 1.4s;
 
-	display: none;
-	position: relative;
-	flex: none;
-	aspect-ratio: 1/1;
-	width: 100%;
-	min-width: calc($loader-size / 2);
-	max-width: $loader-size;
+	display: none !important;
 
-	&:before,
-	&:after {
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		opacity: 0;
-		animation-duration: $loader-speed;
-		animation-iteration-count: infinite;
-		animation-name: pulse-loader;
-		box-shadow: 0 0 5px $loader-color;
-		border: 3px solid $loader-color;
-		border-radius: 50%;
-		width: 100%;
-		height: 100%;
-		content: '';
+	.button.--is-loading &,
+	.button.--loading & {
+		display: block !important;
+		@include absolute-center;
+
+		z-index: 2;
 	}
 
-	&:after {
-		animation-delay: calc($loader-speed / 2);
+	.product-card.--is-loading .counter &,
+	.product-card.--loading .counter & {
+		display: block !important;
+		@include absolute-center;
+
+		z-index: 2;
 	}
 
-	&.--dark {
-		&::before,
-		&::after {
-			box-shadow: 0 0 5px #b0b3b7;
-			border: 3px solid #b0b3b7;
-		}
+	.spinner {
+		animation: rotator $duration linear infinite;
+		width: 30px;
+		height: 30px;
 	}
 
-	@keyframes pulse-loader {
+	@keyframes rotator {
 		0% {
-			transform: scale(0);
-			opacity: 0;
-		}
-		60% {
-			opacity: 1;
+			transform: rotate(0deg);
 		}
 		100% {
-			transform: scale(1);
-			opacity: 0;
+			transform: rotate(270deg);
 		}
 	}
 
-/* 	@include phone {
-		min-width: calc($loader-size / 2.5);
-		max-width: calc($loader-size / 1.5);
+	.path {
+		stroke: #fff;
+		stroke-dasharray: $offset;
+		stroke-dashoffset: 0;
+		transform-origin: center;
+		animation: dash $duration ease-in-out infinite
+			/* ,
+			colors ($duration * 4) ease-in-out infinite */;
+		.button.--gray & {
+			stroke: #858c9a;
+		}
+	}
+
+	/* 	@keyframes colors {
+		0% {
+			stroke: #222;
+		}
+		25% {
+			stroke: #de3e35;
+		}
+		50% {
+			stroke: #f7c223;
+		}
+		75% {
+			stroke: #1b9a59;
+		}
+		100% {
+			stroke: #4285f4;
+		}
 	} */
+
+	@keyframes dash {
+		0% {
+			stroke-dashoffset: $offset;
+		}
+		50% {
+			stroke-dashoffset: calc($offset/4);
+			transform: rotate(135deg);
+		}
+		100% {
+			stroke-dashoffset: $offset;
+			transform: rotate(450deg);
+		}
+	}
 }

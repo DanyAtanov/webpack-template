@@ -9,10 +9,6 @@ let selectInit = (() => {
 				select: select,
 				settings: {
 					showSearch: false,
-					searchPlaceholder: 'Search',
-					searchText: 'No Results',
-					searchingText: 'Searching...',
-					searchHighlight: false,
 					closeOnSelect: true,
 					contentLocation: document.body,
 					contentPosition: 'static',

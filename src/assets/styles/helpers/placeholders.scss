@@ -1,15 +1,75 @@
 // CONTAINER
 %container,
 .container {
-  width: 100%;
-  max-width: 1601px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 20px;
+	padding-left: 20px;
+	width: 100%;
+	max-width: 1600px;
 
-  @include tablet {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
+	@include phone-s {
+		padding-right: 16px;
+		padding-left: 16px;
+	}
+
+	@include phone-xl {
+		padding-right: 30px;
+		padding-left: 30px;
+	}
+
+	@include tablet {
+		padding-right: 50px;
+		padding-left: 50px;
+	}
+}
+
+%container-out {
+	margin-right: -20px;
+	margin-left: -20px;
+
+	@include phone-s {
+		margin-right: -16px;
+		margin-left: -16px;
+	}
+
+	@include phone-xl {
+		margin-right: -30px;
+		margin-left: -30px;
+	}
+
+	@include tablet {
+		margin-right: -50px;
+		margin-left: -50px;
+	}
+
+	@include tablet-xl {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	> * {
+		padding-right: 20px;
+		padding-left: 20px;
+
+		@include phone-s {
+			padding-right: 16px;
+			padding-left: 16px;
+		}
+
+		@include phone-xl {
+			padding-right: 30px;
+			padding-left: 30px;
+		}
+
+		@include tablet {
+			padding-right: 50px;
+			padding-left: 50px;
+		}
+
+		@include tablet-xl {
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
 }

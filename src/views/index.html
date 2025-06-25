@@ -1,37 +1,12 @@
 {{#>layout}}
-{{#> breadcrumbs link0="Новости и Акции"}} Особенности оборудования {{/breadcrumbs}}
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 80vh;">
-	<div style="display: flex; flex-direction: column;">
-		<h1 style="text-align:center; display: flex; align-items: center;">Webpack Template
-			<svg
-				width="10"
-				height="10"
-			>
-				<use xlink:href='./assets/images/sprite.svg#close'></use>
-			</svg>
-		</h1>
 
-		{{> input-form placeholder="Имя*" minLength="3" name="name"
-		required="true"
-		inputClass="form-section__field" }}
-		<br />
-		{{> input-form placeholder="Пароль*" pattern="^[A-Za-z\x20-\x7E]+$" minLength="5" eye="true" type="password"
-		name="password" required="true"
-		inputClass="auth-modal__field" }}
-		<br />
-		{{> input-form placeholder="Телефон*" phoneMask="true" required="true" type="phone" name="phone"
-		required="true"
-		inputClass="auth-modal__field" }}
-		<br />
-		{{> input-form textArea="true" placeholder="Сообщение"}}
-		<br />
-		{{#> button buttonClass="--some-class"}} Назад в будущее{{/button}}
-	</div>
-
+<div style="display: grid;
+  place-items: center;">
 	<img
 		style="flex: none; max-height: 400px; margin-top: 60px;"
 		src="./assets/images/example.png"
 		alt=""
 	>
+</div>
 </div>
 {{/layout}}

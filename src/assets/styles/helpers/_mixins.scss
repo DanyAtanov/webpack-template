@@ -1,5 +1,5 @@
 @mixin visually-hidden() {
-	position: absolute !important;
+	position: absolute;
 	opacity: 0;
 	clip-path: inset(100%);
 	margin: -1px;
@@ -7,7 +7,6 @@
 	padding: 0;
 	width: 1px;
 	height: 1px;
-	user-select: none;
 }
 
 @mixin object-fit($fit: fill, $position: null) {
@@ -227,6 +226,7 @@
 	white-space: nowrap;
 }
 
+// @include flex-items(2, 60px);
 @mixin flex-items($count: 2, $column-gap: 10px, $row-gap: null) {
 	column-gap: $column-gap;
 
@@ -237,6 +237,6 @@
 	}
 
 	& > * {
-		flex: 0 0 calc((100% / $count) - ($column-gap/ $count * ($count - 1)));
+		flex: 0 0 calc((100% / $count) - ($column-gap/ $count * ($count - 1))) !important;
 	}
 }

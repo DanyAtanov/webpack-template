@@ -1,0 +1,249 @@
+.like-button {
+	--like-color: #e3e6e9;
+	--like-color-on-hover: #ff3347;
+	--like-color-active: #ff3347;
+
+	display: flex;
+	flex: none;
+	align-items: center;
+	transition:
+		transform 0.25s ease-out,
+		color 0.25s ease-out;
+	cursor: pointer;
+
+	color: transparent;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 16px;
+	text-transform: uppercase;
+
+	.heart {
+		fill: var(--like-color);
+		transition: fill 0.25s ease-out;
+	}
+
+	svg {
+		flex: none;
+		max-width: 20px;
+		overflow: visible;
+
+		@include desktop {
+			.product-card:not(.--wide) & {
+				max-width: 28px;
+			}
+		}
+	}
+
+	&:hover {
+		transform: scale(1.2);
+		color: var(--like-color-active, --like-color-on-hover);
+
+		.heart {
+			fill: var(--like-color-active, --like-color-on-hover);
+		}
+	}
+
+	.group {
+		transform: translate(-16px, -18px);
+	}
+
+	.heart {
+		transform-origin: center;
+		animation: animateHeartOut 0.3s linear forwards;
+	}
+
+	.main-circ {
+		transform-origin: 29.5px 29.5px;
+	}
+
+	&.--is-active {
+		.heart {
+			transform: scale(0.2);
+			fill: var(--like-color-active);
+			animation: animateHeart 0.3s linear forwards 0.25s;
+		}
+
+		.main-circ {
+			opacity: 1;
+			animation: animateCircle 0.3s linear forwards;
+			transition: all 2s;
+		}
+
+		.particle_1,
+		.particle_2,
+		.particle_3,
+		.particle_4,
+		.particle_5,
+		.particle_6,
+		.particle_7 {
+			opacity: 1;
+			transition:
+				transform 0.1s 0.3s ease-out,
+				opacity 0.1s 0.3s ease-out;
+		}
+
+		.particle_1 {
+			.oval_1 {
+				transform: scale(0) translate(0, -30px);
+				transform-origin: 0 0 0;
+				transition: 0.5s transform 0.3s;
+			}
+			.oval_2 {
+				transform: scale(0) translate(10px, -50px);
+				transform-origin: 0 0 0;
+				transition: 1.5s transform 0.3s;
+			}
+		}
+
+		.particle_2 {
+			.oval_1 {
+				transform: scale(0) translate(30px, -15px);
+				transform-origin: 0 0 0;
+				transition: 0.5s transform 0.3s;
+			}
+
+			.oval_2 {
+				transform: scale(0) translate(60px, -15px);
+				transform-origin: 0 0 0;
+				transition: 1.5s transform 0.3s;
+			}
+		}
+
+		.particle_3 {
+			.oval_1 {
+				transform: scale(0) translate(30px, 0px);
+				transform-origin: 0 0 0;
+				transition: 0.5s transform 0.3s;
+			}
+
+			.oval_2 {
+				transform: scale(0) translate(60px, 10px);
+				transform-origin: 0 0 0;
+				transition: 1.5s transform 0.3s;
+			}
+		}
+
+		.particle_4 {
+			.oval_1 {
+				transform: scale(0) translate(30px, 15px);
+				transform-origin: 0 0 0;
+				transition: 0.5s transform 0.3s;
+			}
+
+			.oval_2 {
+				transform: scale(0) translate(40px, 50px);
+				transform-origin: 0 0 0;
+				transition: 1.5s transform 0.3s;
+			}
+		}
+
+		.particle_5 {
+			.oval_1 {
+				transform: scale(0) translate(-10px, 20px);
+				transform-origin: 0 0 0;
+				transition: 0.5s transform 0.3s;
+			}
+
+			.oval_2 {
+				transform: scale(0) translate(-60px, 30px);
+				transform-origin: 0 0 0;
+				transition: 1.5s transform 0.3s;
+			}
+		}
+
+		.particle_6 {
+			.oval_1 {
+				transform: scale(0) translate(-30px, 0px);
+				transform-origin: 0 0 0;
+				transition: 0.5s transform 0.3s;
+			}
+
+			.oval_2 {
+				transform: scale(0) translate(-60px, -5px);
+				transform-origin: 0 0 0;
+				transition: 1.5s transform 0.3s;
+			}
+		}
+
+		.particle_7 {
+			.oval_1 {
+				transform: scale(0) translate(-30px, -15px);
+				transform-origin: 0 0 0;
+				transition: 0.5s transform 0.3s;
+			}
+
+			.oval_2 {
+				transform: scale(0) translate(-55px, -30px);
+				transform-origin: 0 0 0;
+				transition: 1.5s transform 0.3s;
+			}
+		}
+	}
+
+	@keyframes animateCircle {
+		40% {
+			transform: scale(10);
+			opacity: 1;
+			fill: var(--like-color-active);
+		}
+		55% {
+			transform: scale(11);
+			opacity: 1;
+			fill: var(--like-color-active);
+		}
+		65% {
+			transform: scale(12);
+			opacity: 1;
+			fill: var(--like-color-active);
+		}
+		75% {
+			transform: scale(13);
+			opacity: 1;
+			fill: transparent;
+			stroke: var(--like-color-active);
+			stroke-width: 0.5;
+		}
+		85% {
+			transform: scale(17);
+			opacity: 1;
+			fill: transparent;
+			stroke: var(--like-color-active);
+			stroke-width: 0.2;
+		}
+		95% {
+			transform: scale(18);
+			opacity: 1;
+			fill: transparent;
+			stroke: var(--like-color-active);
+			stroke-width: 0.1;
+		}
+		100% {
+			transform: scale(19);
+			opacity: 1;
+			fill: transparent;
+			stroke: var(--like-color-active);
+			stroke-width: 0;
+		}
+	}
+
+	@keyframes animateHeart {
+		0% {
+			transform: scale(0.2);
+		}
+		40% {
+			transform: scale(1.2);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	@keyframes animateHeartOut {
+		0% {
+			transform: scale(1.4);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+}

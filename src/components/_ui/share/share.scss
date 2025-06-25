@@ -41,7 +41,7 @@
 
 	.ya-share2__icon {
 		mask-repeat: none;
-		transition: background-color 0.25s ease-out;
+		transition: $transition_background;
 		background-image: none !important;
 		background-color: $color-share;
 	}

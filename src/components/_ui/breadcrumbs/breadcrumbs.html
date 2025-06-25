@@ -1,3 +1,6 @@
+{{!-- {{#> breadcrumbs link0="Главная" link1="Каталог" link2="Лакокрасочные покрытия"}} Лаки {{/breadcrumbs}}
+{{> catalog-section}} --}}
+
 {{#if justGoBack}}
 <div class="breadcrumbs breadcrumbs--back">
 	<div class="breadcrumbs__item">
@@ -13,7 +16,7 @@
 <ul
 	itemscope
 	itemtype="https://schema.org/BreadcrumbList"
-	class="breadcrumbs"
+	class="breadcrumbs {{#if breadcrumbsClass}}{{breadcrumbsClass}}{{/if}}"
 >
 	<li
 		itemprop="itemListElement"

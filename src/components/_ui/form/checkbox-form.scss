@@ -6,21 +6,34 @@
 	justify-content: flex-start;
 	align-items: flex-start;
 	cursor: pointer;
-	padding-left: 28px;
+	padding-left: 25px;
 	min-height: 18px;
 	color: $black;
 	user-select: none;
 
-	@include tablet-xl {
+	&.--agreement {
+		text-align: left;
+		font-size: 12px;
+		
+		&:last-child {
+			margin-top: 20px;
+		}
+	}
+
+	@include laptop {
 		&:hover {
-			#{$that}__text {
-				color: $color_primary;
+			&:not(.--agreement) {
+				#{$that}__text {
+					color: $hyperlink_hover;
+				}
 			}
 
 			#{$that}__box {
-				&::before,
+				border-color: transparent;
+				background-color: rgba($green, 0.4);
+
 				&::after {
-					opacity: 0.2;
+					transform: scale(0.8);
 				}
 			}
 		}
@@ -33,45 +46,29 @@
 	&__box {
 		display: flex;
 		position: absolute;
-		top: 2px;
+		top: 3px;
 		left: 0;
 		justify-content: center;
 		align-items: center;
-		background-color: $gray;
+		border: 1px solid $gray;
+		border-radius: 5px;
 		width: 15px;
 		height: 15px;
 
 		#{$that}__input:checked + & {
-			background-color: $color_primary;
+			border-color: $green;
+			background-color: $green;
 
-			&::before,
 			&::after {
 				opacity: 1;
 			}
 		}
 
-		&::before {
-			position: absolute;
-			top: 6px;
-			left: 4px;
-			transform: rotate(-40deg);
-			opacity: 0;
-			transition: opacity 0.25s ease-out;
-			background-color: $black;
-			width: 2px;
-			height: 5px;
-			content: '';
-		}
-
 		&::after {
-			position: absolute;
-			top: 3px;
-			right: 5px;
-			transform: rotate(40deg);
-			opacity: 0;
-			transition: opacity 0.25s ease-out;
-			background-color: $black;
-			width: 2px;
+			background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDkgMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOC40MDUzMyAyLjIxOTY3QzguNjk4MjIgMi41MTI1NiA4LjY5ODIyIDIuOTg3NDQgOC40MDUzMyAzLjI4MDMzTDMuMzc1IDguMzEwNjZMMC41OTQ2NyA1LjUzMDMzQzAuMzAxNzc3IDUuMjM3NDQgMC4zMDE3NzcgNC43NjI1NiAwLjU5NDY3IDQuNDY5NjdDMC44ODc1NjMgNC4xNzY3OCAxLjM2MjQ0IDQuMTc2NzggMS42NTUzMyA0LjQ2OTY3TDMuMzc1IDYuMTg5MzRMNy4zNDQ2NyAyLjIxOTY3QzcuNjM3NTYgMS45MjY3OCA4LjExMjQ0IDEuOTI2NzggOC40MDUzMyAyLjIxOTY3WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==');
+			background-position: center;
+			background-repeat: no-repeat;
+			width: 9px;
 			height: 9px;
 			content: '';
 		}
@@ -81,7 +78,7 @@
 		line-height: 150%;
 
 		@include tablet-xl {
-			transition: color 0.25s ease-out;
+			transition: $transition_color;
 		}
 	}
 }

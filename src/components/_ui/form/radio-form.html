@@ -1,0 +1,20 @@
+<label class="radio-form {{ radioClass }}">
+	<input
+		class="radio-form__input"
+		type="radio"
+		name="{{ radioName }}"
+		id="#"
+		value="#"
+		{{#if
+		required}}
+		required
+		{{/if}}
+		{{#if
+		isChecked}}
+		checked
+		{{/if}}
+	/>
+	<span class="radio-form__box">
+	</span>
+	<span class="radio-form__text">{{> @partial-block}}</span>
+</label>

@@ -1,0 +1,12 @@
+{{#>copy-text}}8476-76557 {{/copy-text}}
+<span
+	x-data
+	class="copy-text {{#if copyClass}}{{copyClass}}{{/if}}"
+>
+	<span x-ref="code">{{@partial-block}}</span>
+	<button
+		@click="navigator.clipboard.writeText($refs.code.textContent), $el.classList.add('--is-copied')"
+		@transitionend="$el.classList.remove('--is-copied')"
+		class="copy-text__button"
+		aria-label="Копировать"
+	></button></span>

@@ -1,4 +1,5 @@
 <button
+	hidden
 	id='cookies-trigger'
 	popovertarget="cookie-alert"
 	popovertargetaction="show"
@@ -10,28 +11,21 @@
 	popover="manual"
 	class="cookie-alert"
 >
+	Для повышения удобства сайта мы используем сооkiе. Оставаясь на сайте, вы
+	соглашаетесь с
+	<a
+		href="/cookies/"
+		target="_blank"
+		class="cookie-alert__go"
+	>политикой их применения</a>
+	<br>
+	<br>
 	<button
-		class="cookie-alert__button-close"
-		aria-label="Закрыть"
+		class="button cookie-alert__button-close"
+		aria-label="Принять"
 		popovertarget="cookie-alert"
 		popovertargetaction="hide"
-	><svg
-			xmlns="http://www.w3.org/2000/svg"
-			width="17"
-			height="17"
-			viewBox="0 0 17 17"
-			fill="none"
-		>
-			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
-				d="M8.50012 10.2499L11.8752 13.625L13.6252 11.875L10.2501 8.4999L13.625 5.12501L11.875 3.37501L8.50012 6.7499L5.12522 3.375L3.37522 5.125L6.75012 8.4999L3.375 11.875L5.125 13.625L8.50012 10.2499Z"
-				fill="black"
-			/>
-		</svg></button>
-	Мы используем cookie. Они помогают показывать лучшие предложения для Вас.
-	<a
-		class="cookie-alert__go"
-		href="/cookies.php"
-	>Как это работает?</a>
+	>
+		Принять
+	</button>
 </div>

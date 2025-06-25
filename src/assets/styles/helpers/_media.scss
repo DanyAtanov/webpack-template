@@ -1,10 +1,16 @@
 // Media (Mobile First)
-$phone-xl: 431px;
+$phone-xl: 480px;
 $tablet: 768px;
 $tablet-xl: 1024px;
 $laptop: 1280px;
 $desktop: 1440px;
 $desktop-xl: 1921px;
+
+@mixin phone-s {
+	@media (max-width: 374px) {
+		@content;
+	}
+}
 
 @mixin phone-xl($only: false) {
 	@if $only {

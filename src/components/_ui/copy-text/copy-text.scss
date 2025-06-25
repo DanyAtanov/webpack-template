@@ -1,0 +1,49 @@
+.copy-text {
+	$that: &;
+
+	display: inline-flex;
+
+	&__button {
+		position: relative;
+		flex: none;
+		margin-left: 10px;
+		@include flex-center;
+
+		&::before {
+			flex: none;
+			mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNSAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkZyYW1lIDI0NTciIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8yMDIwXzExNzk1MSkiPgo8cGF0aCBpZD0iU3VidHJhY3QiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNS42Mjg5MSAyLjM3NUg4LjMxMjU4QzkuNDE3MTUgMi4zNzUgMTAuMzEyNiAzLjI3MDQzIDEwLjMxMjYgNC4zNzVWMTIuNTYyNUMxMC4zMTI2IDEyLjYwNDUgMTAuMzExMyAxMi42NDYyIDEwLjMwODcgMTIuNjg3NUgxMy4wMDAxQzE0LjEwNDYgMTIuNjg3NSAxNS4wMDAxIDExLjc5MjEgMTUuMDAwMSAxMC42ODc1VjIuNUMxNS4wMDAxIDEuMzk1NDMgMTQuMTA0NiAwLjUgMTMuMDAwMSAwLjVINy42MjUwNkM2LjU2MjQ4IDAuNSA1LjY5MzQzIDEuMzI4NjYgNS42Mjg5MSAyLjM3NVoiIGZpbGw9IiNFM0U2RTkiLz4KPHJlY3QgaWQ9IlJlY3RhbmdsZSAxMjQ3IiB5PSIzLjMxMjUiIHdpZHRoPSI5LjM3NSIgaGVpZ2h0PSIxMi4xODc1IiByeD0iMiIgZmlsbD0iI0UzRTZFOSIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzIwMjBfMTE3OTUxIj4KPHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjE1IiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwLjUpIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==');
+			mask-position: center;
+			mask-repeat: no-repeat;
+			transition: background-color 0.25s ease-out;
+			margin-bottom: 2px;
+			background-color: $gray;
+			width: 15px;
+			height: 15px;
+			content: '' / 'Копировать';
+		}
+
+		&::after {
+			position: absolute;
+			top: 0;
+			transform: translate3d(0, calc(-100% - 4px), 0);
+			opacity: 0;
+			transition: opacity 0.35s ease-out;
+			width: max-content;
+			content: '😎';
+			font: 400 12px/100% $font_title;
+			user-select: none;
+		}
+
+		&.--is-copied {
+			&::after {
+				opacity: 1;
+			}
+		}
+
+		&:hover {
+			&::before {
+				background-color: $gray_3;
+			}
+		}
+	}
+}
