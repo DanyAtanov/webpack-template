@@ -49,6 +49,7 @@
 		"webpack-merge": "^6.0.1"
 	},
 	"dependencies": {
+		"@alpinejs/intersect": "^3.14.9",
 		"@alpinejs/mask": "^3.14.8",
 		"alpinejs": "^3.14.8",
 		"toastify-js": "^1.12.0"

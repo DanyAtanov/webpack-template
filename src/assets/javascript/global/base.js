@@ -1,6 +1,7 @@
 // import 'core-js/stable';
 import Alpine from 'alpinejs';
 import mask from '@alpinejs/mask';
+import intersect from '@alpinejs/intersect';
 import { Throttle } from '../utils/throttle';
 
 window.Alpine = Alpine;
@@ -35,7 +36,8 @@ let winScroll = new Throttle(updateScrollState, 150);
 
 window.addEventListener('DOMContentLoaded', () => {
 	Alpine.plugin(mask);
-	
+	Alpine.plugin(intersect);
+
 	Alpine.data('mask', () => ({
 		init() {
 			this.$el.addEventListener('blur', () => {
