@@ -1,34 +1,23 @@
 .page-pagination {
 	$that: &;
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	@include tablet-xl {
-		margin-right: -10px;
-		margin-left: -10px;
-	}
-
 	&__nav {
-		opacity: 0.8;
-		transition:
-			transform 0.25s ease-out,
-			opacity 0.25s ease-out;
-		cursor: pointer;
-
-		&:hover {
-			transform: scale(1.2);
-			opacity: 1;
+		&::before {
+			@include absolute-center;
+			z-index: 3;
+			mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjY4ODE1IDkuODA4OThDMi40MzcyOCA5LjU1NDI5IDIuNDM3MjggOS4xNDEzNiAyLjY4ODE1IDguODg2NjdMNi41MTY0MiA1TDIuNjg4MTUgMS4xMTMzM0MyLjQzNzI4IDAuODU4NjQyIDIuNDM3MjggMC40NDU3MDcgMi42ODgxNSAwLjE5MTAxOEMyLjkzOTAxIC0wLjA2MzY3MiAzLjM0NTc0IC0wLjA2MzY3MiAzLjU5NjYgMC4xOTEwMThMOC4zMzMzMyA1TDMuNTk2NiA5LjgwODk4QzMuMzQ1NzQgMTAuMDYzNyAyLjkzOTAxIDEwLjA2MzcgMi42ODgxNSA5LjgwODk4WiIgZmlsbD0iIzRENTE1NCIvPgo8L3N2Zz4K');
+			mask-position: center;
+			mask-repeat: no-repeat;
+			background-color: #f6f6f6;
+			aspect-ratio: 1;
+			width: 36px;
+			pointer-events: none;
+			content: '';
 		}
 
 		&--prev {
-			transform: rotate(180deg);
-			margin-left: 0;
-
-			&:hover {
-				transform: rotate(180deg) scale(0.8);
-				opacity: 0.6;
+			&::before {
+				transform: translate3d(-50%, -50%, 0) rotate(180deg);
 			}
 		}
 	}
@@ -36,9 +25,11 @@
 	&__list {
 		display: flex;
 		align-items: center;
+		gap: 5px;
 	}
 
 	&__list-item {
+		position: relative;
 		flex: none;
 		padding: 0 1px;
 		@include flex-center;
@@ -47,33 +38,41 @@
 	&__go {
 		display: block;
 		position: relative;
-		width: 32px;
-		height: 32px;
-		color: #B0B3B7;
-		font-weight: 500;
-		@include flex-center;
+		transition: color 0.25s ease-out;
 		background-color: transparent;
+		aspect-ratio: 1;
+		@include flex-center;
+		width: 36px;
 
 		span {
-			transform: translate3d(0, 2px, 0);
+			position: relative;
+			z-index: 2;
+		}
+
+		&::before {
+			transition: transform 0.2s ease-out;
+			border-radius: 50%;
+			background-color: #f6f6f6;
+			aspect-ratio: 1;
+			width: 36px;
+			content: '';
+			@include absolute-center;
+			transform: translate3d(-50%, -50%, 0) scale(0);
 		}
 
 		&.--is-active {
-			cursor: auto;
-			color: $black;
+			color: $white;
+
+			&:before {
+				transform: translate3d(-50%, -50%, 0) scale(1);
+				background-color: red;
+			}
 		}
 
-		@include tablet-xl {
-			transition: background-color 0.25s ease-out;
-			width: 38px;
-			height: 38px;
-			font-size: 18px;
-
+		@media (hover: hover) {
 			&:hover {
-				background-color: $gray_4;
-
-				#{$that}__nav & {
-					background-color: transparent;
+				&:before {
+					transform: translate3d(-50%, -50%, 0) scale(1);
 				}
 			}
 		}

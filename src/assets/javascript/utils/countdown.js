@@ -8,6 +8,7 @@
 
 export function countdown(selector, duration, start, end = null) {
 	const elements = document.querySelectorAll(selector);
+	let frenchformatter = new Intl.NumberFormat('fr-FR');
 
 	elements.forEach((element) => {
 		let startTimestamp = null;
@@ -18,7 +19,9 @@ export function countdown(selector, duration, start, end = null) {
 
 			const progress = Math.min((timestamp - startTimestamp) / duration, 1);
 
-			element.innerHTML = Math.floor(progress * (+finalEnd - start) + start);
+			element.innerHTML = frenchformatter.format(
+				Math.floor(progress * (+finalEnd - start) + start)
+			);
 
 			if (progress < 1) {
 				window.requestAnimationFrame(step);

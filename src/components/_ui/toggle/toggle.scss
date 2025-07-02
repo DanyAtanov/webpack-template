@@ -2,11 +2,6 @@
 	display: inline-block;
 	cursor: pointer;
 
-	&.--disabled {
-		opacity: 0.4;
-		pointer-events: none;
-	}
-
 	&__label {
 		vertical-align: middle;
 		margin-left: 12px;

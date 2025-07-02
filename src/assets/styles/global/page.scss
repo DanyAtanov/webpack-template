@@ -32,9 +32,12 @@ body {
 
 	&:has(dialog[open]),
 	&:has(.fslightbox-full-dimension) {
+		height: 100vh;
+		height: 100dvh;
 		overflow: hidden;
+		overflow: clip;
 
-		@include tablet-xl {
+		@media (hover: hover) {
 			padding-right: 0.5rem;
 
 			header {
@@ -42,6 +45,10 @@ body {
 			}
 		}
 	}
+}
+
+b {
+	color: $black;
 }
 
 a:not([class]) {
@@ -125,5 +132,28 @@ section {
 		transform: translate3d(0, 40px, 0);
 		opacity: 0;
 		will-change: transform;
+	}
+}
+
+[x-cloak] {
+	display: none !important;
+}
+
+.--disabled,
+[disabled] {
+	opacity: 0.4;
+	pointer-events: none;
+	user-select: none;
+}
+
+.--desktop {
+	@media (max-width: 1279px) {
+		display: none;
+	}
+}
+
+.--mobile {
+	@include laptop {
+		display: none;
 	}
 }

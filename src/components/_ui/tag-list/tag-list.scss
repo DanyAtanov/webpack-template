@@ -4,19 +4,10 @@
 	display: inline-flex;
 	gap: 5px;
 	overflow: auto;
-	@include hide-scrollbar;
-	margin: 0 -16px;
-	padding: 0 16px;
-
-	@include tablet {
-		margin: 0 -40px;
-		padding: 0 40px;
-	}
+	@extend %container-out;
 
 	@include tablet-xl {
 		flex-wrap: wrap;
-		margin: 0;
-		padding: 0;
 	}
 
 	&__item {
@@ -39,25 +30,22 @@
 			background-color 0.25s ease-out,
 			color 0.25s ease-out;
 		cursor: pointer;
-		background-color: $gray;
-		padding: 5px 11px;
-		color: $color_text;
+		border-radius: 30px;
+		background-color: $gray_3;
+		padding: 4px 12px;
+		color: $black;
 		font-size: 12px;
 
-		&:hover {
-			color: $black;
+		@media (hover: hover) {
+			&:hover {
+				background-color: $gray-hover;
+			}
 		}
 
 		&:active,
 		&.--is-active {
-			background-color: $gray;
-			color: $color_primary;
-		}
-
-		@include tablet-xl {
-			padding: 7px 18px;
-			font-size: 14px;
-			line-height: 150%;
+			background-color: $blue;
+			color: $white;
 		}
 	}
 }

@@ -203,7 +203,7 @@
 	}
 }
 
-@mixin background($opacity: 1) {
+@mixin background-image($position: center, $opacity: 1) {
 	position: absolute;
 	opacity: $opacity;
 	z-index: -1;
@@ -217,6 +217,7 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		object-position: $position;
 	}
 }
 
@@ -237,6 +238,15 @@
 	}
 
 	& > * {
-		flex: 0 0 calc((100% / $count) - ($column-gap/ $count * ($count - 1))) !important;
+		flex: 0 0 min(calc((100% - ($column-gap * ($count - 1))) / $count), 100%) !important;
+		max-width: calc((100% - ($column-gap * ($count - 1))) / $count);
 	}
+}
+
+// Если swiper распидорасило
+// на flex/grid родителе
+@mixin swiper-wide-fix {
+	width: 100%;
+	min-width: 0;
+	max-width: 100%;
 }
