@@ -1,9 +1,13 @@
 // import 'core-js/stable';
 import Alpine from 'alpinejs';
 import mask from '@alpinejs/mask';
+import initMask from '../../javascript/utils/alpine/mask';
 import intersect from '@alpinejs/intersect';
 import { Throttle } from '../utils/throttle';
 
+Alpine.plugin(mask);
+Alpine.plugin(intersect);
+Alpine.data('mask', initMask);
 window.Alpine = Alpine;
 
 const allSkeletons = document.querySelectorAll('.skeleton');
@@ -35,42 +39,6 @@ let updateScrollState = () => {
 let winScroll = new Throttle(updateScrollState, 150);
 
 window.addEventListener('DOMContentLoaded', () => {
-	Alpine.plugin(mask);
-	Alpine.plugin(intersect);
-
-	Alpine.data('mask', () => ({
-		init() {
-			this.$el.addEventListener('blur', () => {
-				if (
-					this.$el.value.length < 18 &&
-					/^[0-9+\s()\-]+$/.test(this.$el.value)
-				) {
-					this.$el.value = '';
-				} else if (
-					this.$el.value.length === 18 &&
-					/^[0-9+\s()\-]+$/.test(this.$el.value)
-				) {
-					this.$el.closest('.input-form').classList.remove('--error');
-					return;
-				} else {
-					if (this.$el.value.includes('@') && this.$el.value.includes('.')) {
-						this.$el.closest('.input-form').classList.remove('--error');
-					} else {
-						this.$el.closest('.input-form').classList.add('--error');
-					}
-				}
-			});
-
-			this.$el.addEventListener('input', () => {
-				if (!/^[0-9+\s()\-]+$/.test(this.$el.value)) {
-					if (this.$el.value[1] === '7') {
-						this.$el.value = this.$el.value.replace('7', '');
-					}
-					this.$el.value = this.$el.value.replace(/[\s()]+|\+/g, '');
-				} else return;
-			});
-		},
-	}));
 	Alpine.start();
 });
 
