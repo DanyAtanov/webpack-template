@@ -1,3 +1,9 @@
 {{#>layout}}
 {{#> title-section}}UI-page{{/title-section}}
-{{/layout}}
+
+<section class="container">
+	{{> input-form placeholder="Телефон или E-mail*" dynamicMask="true" required="true" name="phone/email"
+	required="true"
+	inputClass="auth-modal__field" }}
+	{{/layout}}
+</section>
