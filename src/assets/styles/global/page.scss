@@ -139,6 +139,14 @@ section {
 	display: none !important;
 }
 
+.fslightbox-container {
+	video,
+	iframe {
+		aspect-ratio: 16 /9;
+		height: auto !important;
+	}
+}
+
 .--disabled,
 [disabled] {
 	opacity: 0.4;
