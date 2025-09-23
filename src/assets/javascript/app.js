@@ -1,6 +1,9 @@
 import './global/base';
-//import { phoneMask } from '../javascript/utils/phoneMask';
-//import { animateIn } from './utils/animateIn';
+//import { animateIn } from './utils/animation';
+//import { animateInList } from './utils/animation';
 import '../../components/header/header';
 import '../images/svg/_sprite';
 import '../../components/_ui/modal/modal';
+
+//animateIn();
+//animateInList();
