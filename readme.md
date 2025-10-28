@@ -39,11 +39,22 @@ yarn prod:no-hash
 </svg>
   ```
 
-
 ### AlpneJS
 
 Body-scroll-lock если true-условие
 
 ```bash
   x-trap.noscroll="foo"
+  ```
+
+Ловим Escape
+
+```bash
+  @keyup.escape.window="foo"
+  ```
+
+  Клик на всем документе
+
+```bash
+    @click.document="foo"
   ```
