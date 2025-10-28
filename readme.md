@@ -9,7 +9,7 @@
 
 ```bash
 
-yarn dev
+npm dev
 
 ```
 
@@ -17,7 +17,7 @@ yarn dev
 
 ```bash
 
-yarn prod
+npm prod
 
 ```
 
@@ -25,7 +25,7 @@ JS-файлы без хешей:
 
 ```bash
 
-yarn prod:no-hash
+npm prod:no-hash
 
 ```
 
@@ -44,17 +44,17 @@ yarn prod:no-hash
 Body-scroll-lock если true-условие
 
 ```bash
-  x-trap.noscroll="foo"
+x-trap.noscroll="foo"
   ```
 
 Ловим Escape
 
 ```bash
-  @keyup.escape.window="foo"
+@keyup.escape.window="foo"
   ```
 
   Клик на всем документе
 
 ```bash
-    @click.document="foo"
+@click.document="foo"
   ```
