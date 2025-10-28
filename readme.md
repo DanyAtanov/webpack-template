@@ -9,7 +9,7 @@
 
 ```bash
 
-npm dev
+npm run dev
 
 ```
 
@@ -17,7 +17,7 @@ npm dev
 
 ```bash
 
-npm prod
+npm run prod
 
 ```
 
@@ -25,7 +25,7 @@ JS-файлы без хешей:
 
 ```bash
 
-npm prod:no-hash
+npm run prod:no-hash
 
 ```
 
