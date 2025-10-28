@@ -1,10 +1,12 @@
 // import 'core-js/stable';
 import Alpine from 'alpinejs';
+import focus from '@alpinejs/focus';
 import mask from '@alpinejs/mask';
 import initMask from '../../javascript/utils/alpine/mask';
 import intersect from '@alpinejs/intersect';
 import { Throttle } from '../utils/throttle';
 
+Alpine.plugin(focus);
 Alpine.plugin(mask);
 Alpine.plugin(intersect);
 Alpine.data('mask', initMask);

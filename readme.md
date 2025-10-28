@@ -38,3 +38,12 @@ yarn prod:no-hash
      <use xlink:href="./assets/images/sprite.svg#имя_файла"></use>
 </svg>
   ```
+
+
+### AlpneJS
+
+Body-scroll-lock если true-условие
+
+```bash
+  x-trap.noscroll="foo"
+  ```
