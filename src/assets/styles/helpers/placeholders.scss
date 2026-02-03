@@ -1,30 +1,3 @@
-// CONTAINER
-%container,
-.container {
-	margin-right: auto;
-	margin-left: auto;
-	padding-right: 20px;
-	padding-left: 20px;
-	width: 100%;
-	max-width: 1600px;
-
-	@include phone-s {
-		padding-right: 16px;
-		padding-left: 16px;
-	}
-
-	@include phone-xl {
-		padding-right: 30px;
-		padding-left: 30px;
-	}
-
-	@include tablet {
-		padding-right: 50px;
-		padding-left: 50px;
-	}
-}
-
-// CONTAINER
 %container,
 .container {
 	margin-right: auto;
