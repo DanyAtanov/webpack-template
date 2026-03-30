@@ -250,3 +250,20 @@
 	min-width: 0;
 	max-width: 100%;
 }
+
+//@include bubble(1em, 0.5em, 50%, #fff);
+@mixin bubble($base: 1em, $height: 0.5em, $position: 50%, $color: #fff) {
+	clip-path: polygon(
+		0 100%,
+		0 0,
+		100% 0,
+		100% 100%,
+		min(100%, $position + $base / 2) 100%,
+		$position calc(100% + $height),
+		max(0%, $position - $base / 2) 100%
+	);
+	border-image: conic-gradient($color 0 0) fill 0 / 1.5em
+		calc(100% - $position - $base / 2) 0 calc($position - $base / 2) / 0 0
+		$height 0;
+	background: $color;
+}
