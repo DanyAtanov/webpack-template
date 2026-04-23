@@ -1,29 +1,30 @@
+// import Xwiper from 'xwiper';
+
 let modal = (() => {
-	const buttons = document.querySelectorAll('[data-modal]:not(dialog)');
-	const modals = document.querySelectorAll('dialog[data-modal]');
+	let theModal;
 
 	let init = () => {
-		if (buttons.length === 0) return;
+		document.addEventListener('click', (event) => {
+			const modalLink = event.target.closest('[data-modal]:not(dialog)'); // ищем ссылку или ее родителя
 
-		let theModal;
-		let closeButton;
-
-		buttons.forEach((button) => {
-			button.addEventListener('click', (event) => {
+			if (modalLink) {
 				event.preventDefault();
-				for (let index = 0; index < modals.length; index++) {
-					const el = modals[index];
 
-					if (el.dataset.modal === button.dataset.modal) {
-						theModal = el;
-						closeButton = el.querySelector('.modal__close');
-
-						break;
-					}
-				}
+				theModal = document.querySelector(
+					`dialog[data-modal="${modalLink.dataset.modal}"`
+				);
 
 				theModal?.showModal();
-			});
+
+				// закрываем свайпом вниз
+				/* if (window.matchMedia('(max-width: 767px)').matches && theModal) {
+					const xwiper = new Xwiper(theModal);
+					xwiper?.onSwipeDown(() => {
+						theModal?.close();
+					}),
+						{ once: true };
+				} */
+			}
 		});
 	};
 
