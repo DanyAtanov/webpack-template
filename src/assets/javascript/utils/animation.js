@@ -83,3 +83,28 @@ export let animateInList = () => {
 
 	init();
 };
+
+export let animateSkew = () => {
+	gsap.registerPlugin(ScrollTrigger);
+	let proxy = { skew: 0 };
+	const skewSetter = gsap.quickSetter('.--skew', 'skewY', 'deg'); // fast
+	let clamp = gsap.utils.clamp(-2, 2); // don't let the skew go beyond 20 degrees.
+
+	ScrollTrigger.create({
+		onUpdate: (self) => {
+			let skew = clamp(self.getVelocity() / -300);
+			if (Math.abs(skew) > Math.abs(proxy.skew)) {
+				proxy.skew = skew;
+				gsap.to(proxy, {
+					skew: 0,
+					duration: 0.8,
+					ease: 'power3',
+					overwrite: true,
+					onUpdate: () => skewSetter(proxy.skew),
+				});
+			}
+		},
+	});
+
+	gsap.set('.--skew', { transformOrigin: 'right center', force3D: true });
+};
