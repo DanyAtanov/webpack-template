@@ -108,3 +108,61 @@ export let animateSkew = () => {
 
 	gsap.set('.--skew', { transformOrigin: 'right center', force3D: true });
 };
+
+export let animateTilt = (selector = '[data-tilt]') => {
+	const cards = document.querySelectorAll(selector);
+	if (!cards.length) return;
+
+	const createQuickTo = (target, property) =>
+		gsap.quickTo(target, property, {
+			duration: 0.35,
+			ease: 'power2.out',
+		});
+
+	cards.forEach((card) => {
+		const outer = card.querySelector('[data-tilt-outer]') || card;
+		const inner = card.querySelector('[data-tilt-inner]');
+
+		// Настройки из data-атрибутов
+		const perspective = Number(card.dataset.tilt) || 950;
+		const maxRotation = Number(card.dataset.outer) || 10;
+		const maxOffset = Number(card.dataset.inner) || 15;
+
+		gsap.set(card, { perspective });
+
+		const animate = {
+			rotateX: createQuickTo(outer, 'rotationX'),
+			rotateY: createQuickTo(outer, 'rotationY'),
+			moveX: inner ? createQuickTo(inner, 'x') : null,
+			moveY: inner ? createQuickTo(inner, 'y') : null,
+		};
+
+		const handleMove = ({ clientX, clientY }) => {
+			const { left, top, width, height } = card.getBoundingClientRect();
+
+			const x = (clientX - left) / width;
+			const y = (clientY - top) / height;
+
+			animate.rotateX(gsap.utils.interpolate(maxRotation, -maxRotation, y));
+			animate.rotateY(gsap.utils.interpolate(-maxRotation, maxRotation, x));
+
+			if (inner) {
+				animate.moveX(gsap.utils.interpolate(-maxOffset, maxOffset, x));
+				animate.moveY(gsap.utils.interpolate(-maxOffset, maxOffset, y));
+			}
+		};
+
+		const resetTilt = () => {
+			animate.rotateX(0);
+			animate.rotateY(0);
+
+			if (inner) {
+				animate.moveX(0);
+				animate.moveY(0);
+			}
+		};
+
+		card.addEventListener('pointermove', handleMove);
+		card.addEventListener('pointerleave', resetTilt);
+	});
+};
