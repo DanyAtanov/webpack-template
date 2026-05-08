@@ -166,3 +166,45 @@ export let animateTilt = (selector = '[data-tilt]') => {
 		card.addEventListener('pointerleave', resetTilt);
 	});
 };
+
+export const animateScrub = () => {
+	gsap.registerPlugin(ScrollTrigger);
+
+	const elements = gsap.utils.toArray('.--scrub');
+	if (!elements.length) return;
+
+	const clamp = gsap.utils.clamp(-50, 50);
+
+	gsap.set(elements, {
+		willChange: 'transform',
+		force3D: true,
+	});
+
+	elements.forEach((el) => {
+		let proxy = { y: 0 };
+		const setY = gsap.quickSetter(el, 'y', 'px');
+
+		ScrollTrigger.create({
+			onUpdate: (self) => {
+				const targetY = clamp(self.getVelocity() / 15);
+
+				gsap.to(proxy, {
+					y: targetY,
+					duration: 0.6,
+					ease: 'power2.out',
+					overwrite: true,
+					onUpdate: () => setY(proxy.y),
+				});
+
+				gsap.to(proxy, {
+					y: 0,
+					duration: 1.2,
+					delay: 0.1,
+					ease: 'power3.out',
+					overwrite: false,
+					onUpdate: () => setY(proxy.y),
+				});
+			},
+		});
+	});
+};
