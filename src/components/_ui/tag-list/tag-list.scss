@@ -31,21 +31,21 @@
 			color 0.25s ease-out;
 		cursor: pointer;
 		border-radius: 30px;
-		background-color: $gray_3;
+		background-color: settings.$gray_3;
 		padding: 4px 12px;
-		color: $black;
+		color: settings.$black;
 		font-size: 12px;
 
 		@media (hover: hover) {
 			&:hover {
-				background-color: $gray-hover;
+				background-color: settings.$gray-hover;
 			}
 		}
 
 		&:active,
 		&.--is-active {
-			background-color: $blue;
-			color: $white;
+			background-color: settings.$blue;
+			color: settings.$white;
 		}
 	}
 }

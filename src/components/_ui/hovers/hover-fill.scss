@@ -16,7 +16,7 @@
 	.--ripple {
 		position: absolute;
 		z-index: 1;
-		background: $color_primary;
+		background: settings.$color_primary;
 		transform: translate(-50%, -50%);
 		pointer-events: none;
 		border-radius: 50%;

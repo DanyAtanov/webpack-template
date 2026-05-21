@@ -8,13 +8,13 @@
 	gap: 10px;
 	cursor: pointer;
 	min-height: 18px;
-	color: $black;
+	color: settings.$black;
 	user-select: none;
 
 	@include laptop {
 		&:hover {
 			#{$that}__text {
-				color: $hyperlink_hover;
+				color: settings.$hyperlink_hover;
 			}
 
 			#{$that}__box {
@@ -35,7 +35,7 @@
 		flex: none;
 		justify-content: center;
 		align-items: center;
-		border: 2px solid $gray;
+		border: 2px solid settings.$gray;
 		border-radius: 5px;
 		border-radius: 50%;
 		width: 15px;
@@ -55,7 +55,7 @@
 				opacity 0.25s ease-out,
 				transform 0.25s ease-out;
 			border-radius: 50%;
-			background-color: $green;
+			background-color: settings.$green;
 			width: 7px;
 			height: 7px;
 			content: '';
@@ -66,7 +66,7 @@
 		line-height: 150%;
 
 		@include tablet-xl {
-			transition: $transition_color;
+			transition: settings.$transition_color;
 		}
 	}
 }

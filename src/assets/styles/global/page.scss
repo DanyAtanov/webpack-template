@@ -5,12 +5,12 @@ html {
 	//scrollbar-gutter: stable;
 
 	::selection {
-		background: rgba($color_primary, 0.99);
+		background: rgba(settings.$color_primary, 0.99);
 		color: white;
 	}
 
 	::-moz-selection {
-		background: $color_primary;
+		background: settings.$color_primary;
 		color: white;
 	}
 
@@ -20,12 +20,12 @@ html {
 }
 
 body {
-	background: $white;
-	color: $color_text;
+	background: settings.$white;
+	color: settings.$color_text;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 140%;
-	font-family: $font_text;
+	font-family: settings.$font_text;
 	text-size-adjust: none;
 	-webkit-font-smoothing: antialiased;
 	-webkit-overflow-scrolling: touch;
@@ -48,17 +48,17 @@ body {
 }
 
 b {
-	color: $black;
+	color: settings.$black;
 }
 
 a:not([class]) {
-	color: $hyperlink;
+	color: settings.$hyperlink;
 
 	@media (hover: hover) {
 		transition: color 0.25s ease-out;
 
 		&:hover {
-			color: $hyperlink_hover;
+			color: settings.$hyperlink_hover;
 		}
 	}
 }
@@ -96,7 +96,7 @@ section {
 }
 
 .fslightbox-container {
-	//background: $white !important;
+	//background: settings.$white !important;
 
 	.fslightbox-slide-number-container {
 		display: none !important;

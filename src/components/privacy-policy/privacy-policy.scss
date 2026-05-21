@@ -1,13 +1,13 @@
 .privacy-policy {
 	padding-top: 40px;
-	color: $gray_text;
+	color: settings.$gray_text;
 
 	h1 {
-		color: $black;
+		color: settings.$black;
 		font-weight: 500;
 		font-size: 20px;
 		line-height: 110%;
-		font-family: $font_title;
+		font-family: settings.$font_title;
 
 		@include laptop {
 			margin-bottom: 20px;
@@ -19,19 +19,19 @@
 	h2 {
 		margin: 20px 0 10px;
 		padding: 0;
-		color: $black;
+		color: settings.$black;
 		font-weight: 600;
 		font-size: 16px;
 		line-height: 24px;
-		font-family: $font_title;
+		font-family: settings.$font_title;
 	}
 
 	a {
-		color: $hyperlink;
+		color: settings.$hyperlink;
 		font-weight: 500;
 
 		&:hover {
-			color: $hyperlink_hover;
+			color: settings.$hyperlink_hover;
 		}
 	}
 
@@ -90,7 +90,7 @@
 
 			&::before {
 				content: '' !important;
-				@include circle($color-primary, 5px);
+				@include circle(settings.$color-primary, 5px);
 				position: absolute;
 				top: 8px;
 				left: 0;
@@ -103,12 +103,12 @@
 	}
 
 	table {
-		border: 1px solid $gray_text;
+		border: 1px solid settings.$gray_text;
 		border-collapse: collapse;
 
 		tr,
 		td {
-			border: 1px solid $gray_text;
+			border: 1px solid settings.$gray_text;
 		}
 
 		td,

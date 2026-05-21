@@ -8,7 +8,7 @@
 	cursor: pointer;
 	padding-left: 25px;
 	min-height: 18px;
-	color: $black;
+	color: settings.$black;
 	user-select: none;
 
 	&.--agreement {
@@ -24,7 +24,7 @@
 		&:hover {
 			&:not(.--agreement) {
 				#{$that}__text {
-					color: $hyperlink_hover;
+					color: settings.$hyperlink_hover;
 				}
 			}
 
@@ -50,14 +50,14 @@
 		left: 0;
 		justify-content: center;
 		align-items: center;
-		border: 1px solid $gray;
+		border: 1px solid settings.$gray;
 		border-radius: 5px;
 		width: 15px;
 		height: 15px;
 
 		#{$that}__input:checked + & {
-			border-color: $green;
-			background-color: $green;
+			border-color: settings.$green;
+			background-color: settings.$green;
 
 			&::after {
 				opacity: 1;
@@ -78,7 +78,7 @@
 		line-height: 150%;
 
 		@include tablet-xl {
-			transition: $transition_color;
+			transition: settings.$transition_color;
 		}
 	}
 }

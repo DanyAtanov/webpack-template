@@ -16,7 +16,7 @@
 			mask-repeat: no-repeat;
 			transition: background-color 0.25s ease-out;
 			margin-bottom: 2px;
-			background-color: $gray;
+			background-color: settings.$gray;
 			width: 15px;
 			height: 15px;
 			content: '' / 'Копировать';
@@ -30,7 +30,7 @@
 			transition: opacity 0.35s ease-out;
 			width: max-content;
 			content: '😎';
-			font: 400 12px/100% $font_title;
+			font: 400 12px/100% settings.$font_title;
 			user-select: none;
 		}
 
@@ -42,7 +42,7 @@
 
 		&:hover {
 			&::before {
-				background-color: $gray_3;
+				background-color: settings.$gray_3;
 			}
 		}
 	}

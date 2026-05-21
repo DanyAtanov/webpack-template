@@ -5,8 +5,8 @@
 	&__label {
 		vertical-align: middle;
 		margin-left: 12px;
-		color: $black;
-		font-family: $font_title;
+		color: settings.$black;
+		font-family: settings.$font_title;
 
 		&:first-of-type {
 			margin-right: 12px;
@@ -26,7 +26,7 @@
 		transition: background-color 0.25s ease-out;
 		cursor: pointer;
 		border-radius: 34px;
-		background-color: $gray;
+		background-color: settings.$gray;
 		padding: 3px;
 		width: 40px;
 		height: 20px;
@@ -41,7 +41,7 @@
 				margin 0.3s ease;
 			box-sizing: content-box;
 			border-radius: 28px;
-			background-color: $white;
+			background-color: settings.$white;
 			width: 40%;
 			height: 100%;
 			content: '';
@@ -55,7 +55,7 @@
 		}
 
 		&:checked {
-			background-color: $red;
+			background-color: settings.$red;
 
 			&::after {
 				left: 59.1%;
@@ -73,7 +73,7 @@
 			opacity: 0.3;
 
 			&::after {
-				background: $gray;
+				background: settings.$gray;
 			}
 
 			&:active:after {
@@ -83,7 +83,7 @@
 		}
 
 		&:hover {
-			background-color: rgba($red, 0.4);
+			background-color: rgba(settings.$red, 0.4);
 		}
 	}
 }

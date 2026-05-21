@@ -27,7 +27,7 @@
 
 			&:last-child {
 				pointer-events: none;
-				color: $black;
+				color: settings.$black;
 			}
 		}
 	}
@@ -72,7 +72,7 @@
 			transition: color 0.25s ease-out;
 
 			&:hover {
-				color: $red;
+				color: settings.$red;
 			}
 		}
 	}

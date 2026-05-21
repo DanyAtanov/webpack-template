@@ -7,7 +7,7 @@
 	position: relative;
 	clip-path: circle(0);
 	transition: clip-path 1.2s ease-out;
-	border: 1px solid $gray;
+	border: 1px solid settings.$gray;
 	border-radius: 40px;
 	padding: $toggle-padding;
 	overflow: hidden;
@@ -35,16 +35,16 @@
 		transition: color 0.3s;
 		cursor: pointer;
 		padding: 8px;
-		color: $gray_3;
+		color: settings.$gray_3;
 		font-weight: 500;
-		font-family: $font_title;
+		font-family: settings.$font_title;
 		user-select: none;
 		text-align: center;
 		white-space: nowrap;
 
 		&:has(input:checked) {
 			pointer-events: none;
-			color: $black;
+			color: settings.$black;
 		}
 
 		@include phone-xl {
@@ -62,7 +62,7 @@
 			line-height: 150%;
 
 			&:hover {
-				color: $black;
+				color: settings.$black;
 			}
 		}
 	}
@@ -79,7 +79,7 @@
 			left 0.5s 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.075),
 			width 0.5s cubic-bezier(0.885, 0.885, 0.32, 1.275),
 			border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		box-shadow: $shadows_mini;
+		box-shadow: settings.$shadows_mini;
 		border-radius: 30px;
 		background: white;
 		height: calc(100% - $toggle-padding * 2);

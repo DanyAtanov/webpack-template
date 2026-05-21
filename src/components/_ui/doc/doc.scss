@@ -4,18 +4,18 @@
 	display: grid;
 	grid-template-rows: repeat(2, auto);
 	grid-template-columns: auto 1fr;
-	background-color: $gray_4;
+	background-color: settings.$gray_4;
 	padding: 15px 20px;
 	grid-column-gap: 16px;
 	grid-row-gap: 5px;
 	align-items: center;
 
 	&.--red {
-		background-color: $color_primary;
+		background-color: settings.$color_primary;
 
 		#{$that}__name,
 		#{$that}__type {
-			color: $white;
+			color: settings.$white;
 		}
 	}
 
@@ -25,11 +25,11 @@
 			background-color 0.25s ease-out;
 
 		&:hover {
-			box-shadow: $box_shadow_mini;
-			background-color: $white;
+			box-shadow: settings.$box_shadow_mini;
+			background-color: settings.$white;
 
 			&.--red {
-				background-color: $color_primary_hover;
+				background-color: settings.$color_primary_hover;
 			}
 		}
 	}
@@ -55,7 +55,7 @@
 			transform-origin: left;
 			width: 100%;
 			content: attr(data-type);
-			color: $white;
+			color: settings.$white;
 			font-weight: 500;
 			font-size: 10px;
 			line-height: 100%;
@@ -81,7 +81,7 @@
 		grid-area: 2 / 2 / 3 / 3;
 		justify-content: space-between;
 		align-items: center;
-		color: $gray_text;
+		color: settings.$gray_text;
 		text-transform: uppercase;
 
 		&::after {

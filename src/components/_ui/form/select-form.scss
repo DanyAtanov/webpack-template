@@ -224,7 +224,7 @@
 		mask-position: center;
 		transition: background-color 0.25s ease-out;
 		margin-left: auto;
-		background-color: $black;
+		background-color: settings.$black;
 		width: 9px;
 		height: 9px;
 		content: '';

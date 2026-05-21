@@ -36,16 +36,16 @@
 	h4:not([class]),
 	h5:not([class]),
 	h6:not([class]) {
-		color: $black;
+		color: settings.$black;
 		font-style: normal;
-		font-family: $font_title;
+		font-family: settings.$font_title;
 	}
 
 	h1:not([class]) {
 		font-weight: 600;
 		font-size: 22px;
 		line-height: 140%;
-		font-family: $font_title;
+		font-family: settings.$font_title;
 
 		@include laptop {
 			font-size: 26px;
@@ -110,7 +110,7 @@
 		li {
 			&::marker {
 				margin-right: 2px;
-				color: $red;
+				color: settings.$red;
 			}
 		}
 	}
@@ -134,16 +134,16 @@
 
 	b,
 	strong {
-		color: $black;
+		color: settings.$black;
 	}
 
 	blockquote {
-		border-left: 3px solid $red;
+		border-left: 3px solid settings.$red;
 		padding-top: 5px;
 		padding-bottom: 5px;
 		padding-left: 25px;
 		font-weight: 500;
-		font-family: $font_title;
+		font-family: settings.$font_title;
 
 		@include tablet {
 			margin-top: 20px;
@@ -161,7 +161,7 @@
 
 		@include tablet-xl {
 			border-radius: 20px;
-			background-color: $gray_1;
+			background-color: settings.$gray_1;
 			padding: 30px;
 
 			img {
