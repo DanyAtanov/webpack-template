@@ -35,7 +35,7 @@ dl.table-content {
 		}
 	}
 
-	@include tablet-xl {
+	@include media.tablet-xl {
 		gap: 30px;
 		column-count: 2;
 	}

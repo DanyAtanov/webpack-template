@@ -11,7 +11,7 @@
 	color: settings.$black;
 	user-select: none;
 
-	@include laptop {
+	@include media.laptop {
 		&:hover {
 			#{$that}__text {
 				color: settings.$hyperlink_hover;
@@ -27,7 +27,7 @@
 	}
 
 	&__input {
-		@include visually-hidden();
+		@include mixins.visually-hidden();
 	}
 
 	&__box {
@@ -65,7 +65,7 @@
 	&__text {
 		line-height: 150%;
 
-		@include tablet-xl {
+		@include media.tablet-xl {
 			transition: settings.$transition_color;
 		}
 	}

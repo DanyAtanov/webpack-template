@@ -20,11 +20,11 @@
 		pointer-events: none;
 	}
 
-	@include phone-xl {
+	@include media.phone-xl {
 		width: fit-content;
 	}
 
-	@include desktop {
+	@include media.desktop {
 		padding: $toggle-padding-desktop;
 	}
 
@@ -47,15 +47,15 @@
 			color: settings.$black;
 		}
 
-		@include phone-xl {
+		@include media.phone-xl {
 			padding: 8px calc(32 / 768 * 100vw);
 		}
 
-		@include tablet {
+		@include media.tablet {
 			padding: 8px 32px;
 		}
 
-		@include desktop {
+		@include media.desktop {
 			padding: 10px 36px;
 			min-width: 174px;
 			font-size: 16px;
@@ -105,6 +105,6 @@
 	}
 
 	&__input {
-		@include visually-hidden;
+		@include mixins.visually-hidden;
 	}
 }

@@ -9,7 +9,7 @@
 		line-height: 110%;
 		font-family: settings.$font_title;
 
-		@include laptop {
+		@include media.laptop {
 			margin-bottom: 20px;
 			font-weight: 700;
 			font-size: 28px;
@@ -90,7 +90,7 @@
 
 			&::before {
 				content: '' !important;
-				@include circle(settings.$color-primary, 5px);
+				@include mixins.circle(settings.$color-primary, 5px);
 				position: absolute;
 				top: 8px;
 				left: 0;

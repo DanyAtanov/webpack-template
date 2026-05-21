@@ -13,7 +13,7 @@
 	border-radius: 50%;
 	aspect-ratio: 1/1;
 	width: 40px;
-	@include flex-center;
+	@include mixins.flex-center;
 	transition: background-color 0.25s ease-out;
 	background-color: settings.$white;
 

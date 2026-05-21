@@ -27,7 +27,7 @@
 		max-width: 20px;
 		overflow: visible;
 
-		@include desktop {
+		@include media.desktop {
 			.product-card:not(.--wide) & {
 				max-width: 28px;
 			}

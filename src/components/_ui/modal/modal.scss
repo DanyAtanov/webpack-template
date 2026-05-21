@@ -52,7 +52,7 @@
 			animation: backdrop-animation 0.35s ease-out forwards;
 		}
 
-		@include tablet {
+		@include media.tablet {
 			animation: modal-animation 0.25s ease-out forwards;
 			margin-bottom: auto;
 		}
@@ -62,7 +62,7 @@
 		background: $backdrop-color;
 	}
 
-	@include tablet {
+	@include media.tablet {
 		width: 100%;
 		min-width: auto;
 		max-width: 854px;
@@ -76,7 +76,7 @@
 		position: relative;
 		padding: 20px 16px 30px;
 
-		@include tablet {
+		@include media.tablet {
 			padding: 50px;
 		}
 	}
@@ -102,7 +102,7 @@
 			}
 		}
 
-		@include tablet {
+		@include media.tablet {
 			top: 20px;
 			right: 20px;
 			opacity: 1;

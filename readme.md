@@ -43,8 +43,10 @@ npm run prod:no-hash
 
 ```bash
 .foo {
-  color: settings.$primary;
-  @include mixins.flex-center;
+  @include media.laptop {
+    color: settings.$primary;
+    @include mixins.flex-center;
+  }
 }
   ```
 

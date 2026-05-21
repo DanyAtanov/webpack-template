@@ -71,7 +71,7 @@
 		background-color: transparent;
 	}
 
-	/* 	@include tablet {
+	/* 	@include media.tablet {
 		padding: 4px 8px 4px 18px;
 		min-height: 36px;
 	} */
@@ -343,9 +343,9 @@
 	height: auto;
 	overflow-x: clip;
 	overflow-y: auto;
-	@include hide-scrollbar;
+	@include mixins.hide-scrollbar;
 
-	@include phone-xl {
+	@include media.phone-xl {
 		padding: 14px 56px 14px 24px;
 	}
 }
@@ -551,7 +551,7 @@
 		opacity: 1;
 	}
 
-	@include tablet-xl {
+	@include media.tablet-xl {
 		flex: none;
 	}
 }

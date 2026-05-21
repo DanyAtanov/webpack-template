@@ -15,7 +15,7 @@
 	background-color: settings.$white;
 	width: $size;
 	height: $size;
-	@include flex-center;
+	@include mixins.flex-center;
 	transition:
 		background-color 0.2s ease-out,
 		opacity 0.2s ease-out;
@@ -23,7 +23,7 @@
 
 	&::before {
 		content: '';
-		@include absolute-fill;
+		@include mixins.absolute-fill;
 		clip-path: circle(0%);
 		transition: clip-path 0.8s cubic-bezier(0.25, 1, 0.25, 1);
 		background-color: settings.$red;

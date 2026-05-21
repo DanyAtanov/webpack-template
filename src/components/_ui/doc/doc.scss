@@ -19,7 +19,7 @@
 		}
 	}
 
-	@include laptop {
+	@include media.laptop {
 		transition:
 			box-shadow 0.25s ease-out,
 			background-color 0.25s ease-out;
@@ -34,7 +34,7 @@
 		}
 	}
 
-	@include desktop {
+	@include media.desktop {
 		padding: 30px;
 	}
 
@@ -71,7 +71,7 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
-		@include desktop {
+		@include media.desktop {
 			font-size: 16px;
 		}
 	}

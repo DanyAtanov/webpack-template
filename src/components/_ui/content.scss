@@ -3,7 +3,7 @@
 
 	&.landing-section {
 		p {
-			@include tablet-xl {
+			@include media.tablet-xl {
 				max-width: 608px;
 			}
 		}
@@ -25,7 +25,7 @@
 			margin-bottom: 0;
 		}
 
-		@include desktop {
+		@include media.desktop {
 			margin: 20px 0;
 		}
 	}
@@ -47,11 +47,11 @@
 		line-height: 140%;
 		font-family: settings.$font_title;
 
-		@include laptop {
+		@include media.laptop {
 			font-size: 26px;
 		}
 
-		@include desktop {
+		@include media.desktop {
 			font-size: 30px;
 		}
 	}
@@ -67,7 +67,7 @@
 			+ p {
 				margin-top: 5px;
 
-				@include tablet-xl {
+				@include media.tablet-xl {
 					margin-top: 10px;
 				}
 			}
@@ -77,17 +77,17 @@
 			margin-top: 0;
 		}
 
-		@include tablet {
+		@include media.tablet {
 			margin: 15px 0 10px;
 			font-weight: 700;
 			font-size: 16px;
 		}
 
-		@include laptop {
+		@include media.laptop {
 			margin: 20px 0 10px;
 		}
 
-		@include desktop {
+		@include media.desktop {
 			font-size: 24px;
 			line-height: 130%;
 		}
@@ -96,7 +96,7 @@
 	h3:not([class]) {
 		font-size: 14px;
 
-		@include laptop {
+		@include media.laptop {
 			font-size: 16px;
 			line-height: 130%;
 		}
@@ -145,11 +145,11 @@
 		font-weight: 500;
 		font-family: settings.$font_title;
 
-		@include tablet {
+		@include media.tablet {
 			margin-top: 20px;
 		}
 
-		@include desktop {
+		@include media.desktop {
 			margin-top: 30px;
 		}
 	}
@@ -159,7 +159,7 @@
 		display: table;
 		width: 100%;
 
-		@include tablet-xl {
+		@include media.tablet-xl {
 			border-radius: 20px;
 			background-color: settings.$gray_1;
 			padding: 30px;
@@ -174,7 +174,7 @@
 			display: table-caption;
 			caption-side: bottom;
 
-			@include tablet {
+			@include media.tablet {
 				margin-top: 10px;
 			}
 		}

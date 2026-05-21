@@ -7,7 +7,7 @@
 		position: relative;
 		flex: none;
 		margin-left: 10px;
-		@include flex-center;
+		@include settings.flex-center;
 
 		&::before {
 			flex: none;

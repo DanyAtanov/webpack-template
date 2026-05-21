@@ -20,7 +20,7 @@
 		}
 	}
 
-	@include phone-s {
+	@include media.phone-s {
 		min-width: auto;
 	}
 
@@ -29,7 +29,7 @@
 		border-radius: 50%;
 		background-color: settings.$white;
 		user-select: none;
-		@include flex-center;
+		@include mixins.flex-center;
 		transition: background-color 0.25s ease-out;
 		aspect-ratio: 1 / 1;
 		height: 100%;

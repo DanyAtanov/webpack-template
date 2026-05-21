@@ -13,7 +13,7 @@
 			margin-left: 0;
 		}
 
-		@include tablet {
+		@include media.tablet {
 			font-size: 13px;
 			line-height: 18px;
 		}

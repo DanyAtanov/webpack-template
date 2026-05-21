@@ -51,7 +51,7 @@
 		text-align: center;
 	}
 
-	@include tablet {
+	@include media.tablet {
 		padding: 50px;
 	}
 }

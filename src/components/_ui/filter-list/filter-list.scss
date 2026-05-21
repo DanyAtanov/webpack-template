@@ -5,7 +5,7 @@
 	flex-wrap: wrap;
 	gap: 5px;
 
-	@include tablet-xl {
+	@include media.tablet-xl {
 		gap: 10px;
 	}
 
@@ -76,7 +76,7 @@
 				background-color: settings.$gray;
 			}
 
-			@include laptop {
+			@include media.laptop {
 				transition:
 					border-color 0.25s ease-out,
 					color 0.25s ease-out,
@@ -84,7 +84,7 @@
 			}
 		}
 
-		@include laptop {
+		@include media.laptop {
 			transition:
 				border-color 0.25s ease-out,
 				color 0.25s ease-out;

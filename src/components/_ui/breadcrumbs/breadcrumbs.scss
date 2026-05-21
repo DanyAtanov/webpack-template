@@ -8,7 +8,7 @@
 	color: #525358;
 	user-select: none;
 
-	@include tablet-xl {
+	@include media.tablet-xl {
 		margin: 20px auto;
 		font-size: 14px;
 		line-height: 150%;
@@ -22,7 +22,7 @@
 			display: block;
 		}
 
-		@include tablet-xl {
+		@include media.tablet-xl {
 			display: block;
 
 			&:last-child {
@@ -46,7 +46,7 @@
 			width: 5px;
 			height: 8px;
 
-			@include tablet-xl {
+			@include media.tablet-xl {
 				mask: unset;
 				margin-right: 10px;
 				border-radius: 50%;
@@ -61,12 +61,12 @@
 		}
 
 		span {
-			@include tablet-xl {
+			@include media.tablet-xl {
 				margin-right: 10px;
 			}
 		}
 
-		@include tablet-xl {
+		@include media.tablet-xl {
 			display: flex;
 			align-items: center;
 			transition: color 0.25s ease-out;
