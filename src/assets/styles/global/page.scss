@@ -15,7 +15,7 @@ html {
 	}
 
 	@include laptop {
-		@include scrollbar(gray, pink);
+		@include mixins.scrollbar(gray, pink);
 	}
 }
 
