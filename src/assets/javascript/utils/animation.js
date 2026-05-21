@@ -173,7 +173,7 @@ export const animateScrub = () => {
 	const elements = gsap.utils.toArray('.--scrub');
 	if (!elements.length) return;
 
-	const clamp = gsap.utils.clamp(-50, 50);
+	const clamp = gsap.utils.clamp(-40, 40);
 
 	gsap.set(elements, {
 		willChange: 'transform',

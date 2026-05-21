@@ -24,7 +24,7 @@ const UI_PARTIALS = fs
 module.exports = {
 	entry: {
 		app: path.resolve(__dirname, 'src/index.js'),
-		'main-page': path.resolve(__dirname, 'src/assets/javascript/main-page.js'),
+		/* 'main-page': path.resolve(__dirname, 'src/assets/javascript/main-page.js'), */
 	},
 
 	output: {
@@ -139,6 +139,7 @@ module.exports = {
 		new CopyPlugin({
 			patterns: [
 				{ from: 'src/assets/images', to: 'assets/images' },
+				{ from: 'src/assets/video', to: 'assets/video' },
 				{ from: 'robots.txt' },
 			],
 		}),

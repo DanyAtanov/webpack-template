@@ -8,7 +8,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 // const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const PATHS = {
 	src: path.join(__dirname, 'src'),
@@ -27,6 +27,7 @@ module.exports = (env) =>
 		},
 
 		optimization: {
+			runtimeChunk: 'single',
 			minimize: true,
 			minimizer: [
 				new ImageMinimizerPlugin({
@@ -52,15 +53,15 @@ module.exports = (env) =>
 				}),
 			],
 
-			/* splitChunks: {
-			cacheGroups: {
-				vendor: {
-					test: /[\\/]node_modules[\\/]/,
-					name: 'vendors',
-					chunks: 'all',
+			splitChunks: {
+				cacheGroups: {
+					vendor: {
+						test: /[\\/]node_modules[\\/]/,
+						name: 'vendors',
+						chunks: 'all',
+					},
 				},
 			},
-		}, */
 		},
 
 		plugins: [
