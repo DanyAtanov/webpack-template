@@ -3,7 +3,7 @@
 // HELPERS
 @use 'helpers/settings' as settings;
 @use 'helpers/media' as *;
-@use 'helpers/mixins' as *;
+@use 'helpers/mixins' as mixins;
 @import 'helpers/placeholders';
 
 // LAYOUT
