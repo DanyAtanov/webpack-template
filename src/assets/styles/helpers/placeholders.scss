@@ -7,12 +7,12 @@
 	width: 100%;
 	max-width: 1720px;
 
-	@include media.phone-xl {
+	@include phone-xl {
 		padding-right: 30px;
 		padding-left: 30px;
 	}
 
-	@include media.tablet {
+	@include tablet {
 		padding-right: 50px;
 		padding-left: 50px;
 	}
@@ -24,21 +24,21 @@
 	padding-right: 20px;
 	padding-left: 20px;
 
-	@include media.phone-xl {
+	@include phone-xl {
 		margin-right: -30px;
 		margin-left: -30px;
 		padding-right: 30px;
 		padding-left: 30px;
 	}
 
-	@include media.tablet {
+	@include tablet {
 		margin-right: -50px;
 		margin-left: -50px;
 		padding-right: 50px;
 		padding-left: 50px;
 	}
 
-	@include media.tablet-xl {
+	@include tablet-xl {
 		margin-right: 0;
 		margin-left: 0;
 		padding-right: 0;

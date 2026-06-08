@@ -5,7 +5,7 @@
 	height: clamp(278px, calc(394 / 768 * 100vw), 394px);
 	overflow: hidden;
 
-	@include media.tablet {
+	@include tablet {
 		height: clamp(394px, calc(842 / 1920 * 100vw), 842px);
 	}
 

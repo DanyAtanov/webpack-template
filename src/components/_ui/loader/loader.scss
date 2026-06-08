@@ -7,7 +7,7 @@
 	.button.--is-loading &,
 	.button.--loading & {
 		display: block !important;
-		@include mixins.absolute-center;
+		@include absolute-center;
 
 		z-index: 2;
 	}
@@ -15,7 +15,7 @@
 	.product-card.--is-loading .counter &,
 	.product-card.--loading .counter & {
 		display: block !important;
-		@include mixins.absolute-center;
+		@include absolute-center;
 
 		z-index: 2;
 	}

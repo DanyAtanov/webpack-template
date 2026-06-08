@@ -3,7 +3,7 @@
 
 	&__nav {
 		&::before {
-			@include mixins.absolute-center;
+			@include absolute-center;
 			z-index: 3;
 			mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjY4ODE1IDkuODA4OThDMi40MzcyOCA5LjU1NDI5IDIuNDM3MjggOS4xNDEzNiAyLjY4ODE1IDguODg2NjdMNi41MTY0MiA1TDIuNjg4MTUgMS4xMTMzM0MyLjQzNzI4IDAuODU4NjQyIDIuNDM3MjggMC40NDU3MDcgMi42ODgxNSAwLjE5MTAxOEMyLjkzOTAxIC0wLjA2MzY3MiAzLjM0NTc0IC0wLjA2MzY3MiAzLjU5NjYgMC4xOTEwMThMOC4zMzMzMyA1TDMuNTk2NiA5LjgwODk4QzMuMzQ1NzQgMTAuMDYzNyAyLjkzOTAxIDEwLjA2MzcgMi42ODgxNSA5LjgwODk4WiIgZmlsbD0iIzRENTE1NCIvPgo8L3N2Zz4K');
 			mask-position: center;
@@ -32,7 +32,7 @@
 		position: relative;
 		flex: none;
 		padding: 0 1px;
-		@include mixins.flex-center;
+		@include flex-center;
 	}
 
 	&__go {
@@ -41,7 +41,7 @@
 		transition: color 0.25s ease-out;
 		background-color: transparent;
 		aspect-ratio: 1;
-		@include mixins.flex-center;
+		@include flex-center;
 		width: 36px;
 
 		span {
@@ -56,12 +56,12 @@
 			aspect-ratio: 1;
 			width: 36px;
 			content: '';
-			@include mixins.absolute-center;
+			@include absolute-center;
 			transform: translate3d(-50%, -50%, 0) scale(0);
 		}
 
 		&.--is-active {
-			color: settings.$white;
+			color: $white;
 
 			&:before {
 				transform: translate3d(-50%, -50%, 0) scale(1);

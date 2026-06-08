@@ -5,27 +5,27 @@ html {
 	//scrollbar-gutter: stable;
 
 	::selection {
-		background: rgba(settings.$color_primary, 0.99);
+		background: rgba($color_primary, 0.99);
 		color: white;
 	}
 
 	::-moz-selection {
-		background: settings.$color_primary;
+		background: $color_primary;
 		color: white;
 	}
 
-	@include media.laptop {
-		@include mixins.scrollbar(gray, pink);
+	@include laptop {
+		@include scrollbar(gray, pink);
 	}
 }
 
 body {
-	background: settings.$white;
-	color: settings.$color_text;
+	background: $white;
+	color: $color_text;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 140%;
-	font-family: settings.$font_text;
+	font-family: $font_text;
 	text-size-adjust: none;
 	-webkit-font-smoothing: antialiased;
 	-webkit-overflow-scrolling: touch;
@@ -48,17 +48,17 @@ body {
 }
 
 b {
-	color: settings.$black;
+	color: $black;
 }
 
 a:not([class]) {
-	color: settings.$hyperlink;
+	color: $hyperlink;
 
 	@media (hover: hover) {
 		transition: color 0.25s ease-out;
 
 		&:hover {
-			color: settings.$hyperlink_hover;
+			color: $hyperlink_hover;
 		}
 	}
 }
@@ -69,34 +69,34 @@ section {
 	&:first-of-type {
 		margin: 0 auto 30px;
 
-		@include media.tablet {
+		@include tablet {
 			margin: 0 auto 50px;
 		}
 
-		@include media.laptop {
+		@include laptop {
 			margin: 0 auto 80px;
 		}
 
-		@include media.desktop {
+		@include desktop {
 			margin: 0 auto 100px;
 		}
 	}
 
-	@include media.tablet {
+	@include tablet {
 		margin: 50px 0;
 	}
 
-	@include media.laptop {
+	@include laptop {
 		margin: 80px auto;
 	}
 
-	@include media.desktop {
+	@include desktop {
 		margin: 100px 0;
 	}
 }
 
 .fslightbox-container {
-	//background: settings.$white !important;
+	//background: $white !important;
 
 	.fslightbox-slide-number-container {
 		display: none !important;
@@ -128,7 +128,7 @@ section {
 }
 
 .--animate-in {
-	@include media.desktop {
+	@include desktop {
 		transform: translate3d(0, 40px, 0);
 		opacity: 0;
 		will-change: transform;
@@ -137,7 +137,7 @@ section {
 
 .--animate-in-list {
 	> li {
-		@include media.desktop {
+		@include desktop {
 			transform: translate3d(0, 40px, 0);
 			will-change: transform;
 		}
@@ -170,7 +170,7 @@ section {
 }
 
 .--mobile {
-	@include media.laptop {
+	@include laptop {
 		display: none;
 	}
 }

@@ -12,10 +12,10 @@
 	margin-top: calc($size/2 - $size);
 	box-shadow: 4px 16px 43.4px 0px rgba(4, 10, 32, 0.08);
 	border-radius: 50%;
-	background-color: settings.$white;
+	background-color: $white;
 	width: $size;
 	height: $size;
-	@include mixins.flex-center;
+	@include flex-center;
 	transition:
 		background-color 0.2s ease-out,
 		opacity 0.2s ease-out;
@@ -23,10 +23,10 @@
 
 	&::before {
 		content: '';
-		@include mixins.absolute-fill;
+		@include absolute-fill;
 		clip-path: circle(0%);
 		transition: clip-path 0.8s cubic-bezier(0.25, 1, 0.25, 1);
-		background-color: settings.$red;
+		background-color: $red;
 	}
 
 	&::after {
@@ -65,7 +65,7 @@
 
 		&::after {
 			transition: background-color 0.25s ease-out;
-			background-color: settings.$white;
+			background-color: $white;
 		}
 	}
 

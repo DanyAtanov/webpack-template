@@ -15,7 +15,7 @@
 	text-wrap: balance;
 	text-wrap: pretty;
 
-	@include media.tablet {
+	@include tablet {
 		left: auto !important;
     right: 50px !important;
 		transform: translate3d(0, 0, 0) !important;

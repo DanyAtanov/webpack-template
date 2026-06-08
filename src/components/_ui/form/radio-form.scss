@@ -8,13 +8,13 @@
 	gap: 10px;
 	cursor: pointer;
 	min-height: 18px;
-	color: settings.$black;
+	color: $black;
 	user-select: none;
 
-	@include media.laptop {
+	@include laptop {
 		&:hover {
 			#{$that}__text {
-				color: settings.$hyperlink_hover;
+				color: $hyperlink_hover;
 			}
 
 			#{$that}__box {
@@ -27,7 +27,7 @@
 	}
 
 	&__input {
-		@include mixins.visually-hidden();
+		@include visually-hidden();
 	}
 
 	&__box {
@@ -35,7 +35,7 @@
 		flex: none;
 		justify-content: center;
 		align-items: center;
-		border: 2px solid settings.$gray;
+		border: 2px solid $gray;
 		border-radius: 5px;
 		border-radius: 50%;
 		width: 15px;
@@ -55,7 +55,7 @@
 				opacity 0.25s ease-out,
 				transform 0.25s ease-out;
 			border-radius: 50%;
-			background-color: settings.$green;
+			background-color: $green;
 			width: 7px;
 			height: 7px;
 			content: '';
@@ -65,8 +65,8 @@
 	&__text {
 		line-height: 150%;
 
-		@include media.tablet-xl {
-			transition: settings.$transition_color;
+		@include tablet-xl {
+			transition: $transition_color;
 		}
 	}
 }

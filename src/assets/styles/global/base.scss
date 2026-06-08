@@ -68,8 +68,8 @@ textarea {
 	&:-webkit-autofill,
 	&:-webkit-autofill:hover,
 	&:-webkit-autofill:focus {
-		-webkit-text-fill-color: settings.$black;
-		-webkit-box-shadow: 0 0 0px 1000px settings.$white inset;
+		-webkit-text-fill-color: $black;
+		-webkit-box-shadow: 0 0 0px 1000px $white inset;
 	}
 }
 

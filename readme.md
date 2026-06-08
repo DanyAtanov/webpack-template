@@ -3,9 +3,9 @@
 * [Handlebars](https://handlebarsjs.com/guide/)
 * [Alpine.js](https://alpinejs.dev/)
 
-Сборка фронта. SCSS. Handlebars. Alpine.js.
+Сборка фронта. SCSS. Handlebars. Alpine.js. 
 
-Dev-разработка
+## Начало работы
 
 ```bash
 
@@ -13,7 +13,7 @@ npm run dev
 
 ```
 
-Сборка
+## Сборка
 
 ```bash
 
@@ -31,23 +31,12 @@ npm run prod:no-hash
 
 ## Features
 
-### SVG Sprite (depricated)
+### SVG Sprite
 
 ```bash
 <svg>
      <use xlink:href="./assets/images/sprite.svg#имя_файла"></use>
 </svg>
-  ```
-
-### SCSS
-
-```bash
-.foo {
-  @include media.laptop {
-    color: settings.$primary;
-    @include mixins.flex-center;
-  }
-}
   ```
 
 ### AlpneJS

@@ -5,15 +5,15 @@
 	&__label {
 		vertical-align: middle;
 		margin-left: 12px;
-		color: settings.$black;
-		font-family: settings.$font_title;
+		color: $black;
+		font-family: $font_title;
 
 		&:first-of-type {
 			margin-right: 12px;
 			margin-left: 0;
 		}
 
-		@include media.tablet {
+		@include tablet {
 			font-size: 13px;
 			line-height: 18px;
 		}
@@ -26,7 +26,7 @@
 		transition: background-color 0.25s ease-out;
 		cursor: pointer;
 		border-radius: 34px;
-		background-color: settings.$gray;
+		background-color: $gray;
 		padding: 3px;
 		width: 40px;
 		height: 20px;
@@ -41,7 +41,7 @@
 				margin 0.3s ease;
 			box-sizing: content-box;
 			border-radius: 28px;
-			background-color: settings.$white;
+			background-color: $white;
 			width: 40%;
 			height: 100%;
 			content: '';
@@ -55,7 +55,7 @@
 		}
 
 		&:checked {
-			background-color: settings.$red;
+			background-color: $red;
 
 			&::after {
 				left: 59.1%;
@@ -73,7 +73,7 @@
 			opacity: 0.3;
 
 			&::after {
-				background: settings.$gray;
+				background: $gray;
 			}
 
 			&:active:after {
@@ -83,7 +83,7 @@
 		}
 
 		&:hover {
-			background-color: rgba(settings.$red, 0.4);
+			background-color: rgba($red, 0.4);
 		}
 	}
 }

@@ -4,15 +4,15 @@
 	display: inline-block;
 	position: relative;
 	transition: background-color 0.25s ease-out;
-	border: 1px solid settings.$gray_1;
+	border: 1px solid $gray_1;
 	border-radius: 30px;
-	background-color: settings.$gray_1;
+	background-color: $gray_1;
 	padding: 15px 20px;
 	width: 100%;
 	height: 55px;
 	font-weight: 500;
 	font-size: 12px;
-	font-family: settings.$font_title;
+	font-family: $font_title;
 
 	&::before {
 		position: absolute;
@@ -20,7 +20,7 @@
 		transition: transform 0.2s ease-out;
 		pointer-events: none;
 		content: attr(data-placeholder);
-		color: settings.$gray_3;
+		color: $gray_3;
 		user-select: none;
 	}
 
@@ -51,7 +51,7 @@
 			mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxMyAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkZyYW1lIDIyMzUiPgo8cGF0aCBpZD0iVmVjdG9yIDM0IChTdHJva2UpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEyLjE0MTEgMi40ODQyOUMxMi41NjQyIDIuOTA3MzYgMTIuNTY0MiAzLjU5MzI5IDEyLjE0MTEgNC4wMTYzNkw0Ljg3NTA4IDExLjI4MjRMMC44NTkwNDkgNy4yNjYzNkMwLjQzNTk4MSA2Ljg0MzI5IDAuNDM1OTgxIDYuMTU3MzYgMC44NTkwNDkgNS43MzQyOUMxLjI4MjEyIDUuMzExMjIgMS45NjgwNSA1LjMxMTIyIDIuMzkxMTEgNS43MzQyOUw0Ljg3NTA4IDguMjE4MjZMMTAuNjA5IDIuNDg0MjlDMTEuMDMyMSAyLjA2MTIzIDExLjcxOCAyLjA2MTIzIDEyLjE0MTEgMi40ODQyOVoiIGZpbGw9IiMwQUIyMkUiLz4KPC9nPgo8L3N2Zz4K');
 			mask-position: center;
 			mask-repeat: no-repeat;
-			background-color: settings.$green;
+			background-color: $green;
 			width: 13px;
 			height: 23px;
 			content: '';
@@ -73,14 +73,14 @@
 			field-sizing: content;
 			resize: none;
 
-			@include media.desktop {
+			@include desktop {
 				min-height: 125px;
 			}
 		}
 	}
 
 	&:hover {
-		background-color: rgba(settings.$gray_1, 0.5);
+		background-color: rgba($gray_1, 0.5);
 	}
 
 	&__input {
@@ -90,7 +90,7 @@
 		width: 100%;
 		height: 100%;
 
-		@include media.desktop {
+		@include desktop {
 			height: 20px;
 		}
 	}
@@ -102,8 +102,8 @@
 		cursor: pointer;
 		width: 18px;
 		height: 18px;
-		color: settings.$black;
-		color: settings.$gray_3;
+		color: $black;
+		color: $gray_3;
 
 		line {
 			opacity: 0;

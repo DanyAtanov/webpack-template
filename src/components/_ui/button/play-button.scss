@@ -43,7 +43,7 @@
 	}
 
 	&:not(#{$that}--no-text) {
-		@include media.desktop {
+		@include desktop {
 			width: fit-content;
 			min-width: 112px;
 			height: 41px;
@@ -98,7 +98,7 @@
 		content: '';
 	}
 
-	@include media.laptop {
+	@include laptop {
 		transition: transform 0.3s ease-out;
 	}
 
@@ -107,7 +107,7 @@
 		justify-content: center;
 		align-items: center;
 		transition: transform 0.25s ease-out;
-		color: settings.$white;
+		color: $white;
 		font-weight: 500;
 		font-size: 15px;
 
@@ -118,7 +118,7 @@
 		span {
 			display: none;
 
-			@include media.desktop {
+			@include desktop {
 				display: inline-block;
 				margin-right: 10px;
 			}
@@ -140,12 +140,12 @@
 				height: 9px;
 			}
 
-			@include media.desktop {
+			@include desktop {
 				margin-left: 0;
 			}
 		}
 
-		@include media.desktop {
+		@include desktop {
 			padding: 0 18px;
 		}
 	}

@@ -4,37 +4,37 @@
 	display: grid;
 	grid-template-rows: repeat(2, auto);
 	grid-template-columns: auto 1fr;
-	background-color: settings.$gray_4;
+	background-color: $gray_4;
 	padding: 15px 20px;
 	grid-column-gap: 16px;
 	grid-row-gap: 5px;
 	align-items: center;
 
 	&.--red {
-		background-color: settings.$color_primary;
+		background-color: $color_primary;
 
 		#{$that}__name,
 		#{$that}__type {
-			color: settings.$white;
+			color: $white;
 		}
 	}
 
-	@include media.laptop {
+	@include laptop {
 		transition:
 			box-shadow 0.25s ease-out,
 			background-color 0.25s ease-out;
 
 		&:hover {
-			box-shadow: settings.$box_shadow_mini;
-			background-color: settings.$white;
+			box-shadow: $box_shadow_mini;
+			background-color: $white;
 
 			&.--red {
-				background-color: settings.$color_primary_hover;
+				background-color: $color_primary_hover;
 			}
 		}
 	}
 
-	@include media.desktop {
+	@include desktop {
 		padding: 30px;
 	}
 
@@ -55,7 +55,7 @@
 			transform-origin: left;
 			width: 100%;
 			content: attr(data-type);
-			color: settings.$white;
+			color: $white;
 			font-weight: 500;
 			font-size: 10px;
 			line-height: 100%;
@@ -71,7 +71,7 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
-		@include media.desktop {
+		@include desktop {
 			font-size: 16px;
 		}
 	}
@@ -81,7 +81,7 @@
 		grid-area: 2 / 2 / 3 / 3;
 		justify-content: space-between;
 		align-items: center;
-		color: settings.$gray_text;
+		color: $gray_text;
 		text-transform: uppercase;
 
 		&::after {

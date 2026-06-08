@@ -11,25 +11,25 @@
 
 	&:has(.import-callback-popup):has(.tippy-arrow) {
 		&[data-placement^='top'] > .tippy-arrow::before {
-			border-top-color: settings.$gray_4;
+			border-top-color: $gray_4;
 		}
 		&[data-placement^='bottom'] > .tippy-arrow::before {
-			border-bottom-color: settings.$gray_4;
+			border-bottom-color: $gray_4;
 		}
 		&[data-placement^='left'] > .tippy-arrow::before {
-			border-left-color: settings.$gray_4;
+			border-left-color: $gray_4;
 		}
 		&[data-placement^='right'] > .tippy-arrow::before {
-			border-right-color: settings.$gray_4;
+			border-right-color: $gray_4;
 		}
 	}
 }
 
 .tippy-content {
-	background-color: settings.$white;
+	background-color: $white;
 	padding: 40px 20px;
 	min-width: 330px;
-	color: settings.$black;
+	color: $black;
 
 	&:has(+ .tippy-arrow) {
 		padding: 30px;
@@ -43,15 +43,15 @@
 	.modal__title,
 	.popup__title {
 		margin-bottom: 20px;
-		color: settings.$black;
+		color: $black;
 		font-size: 28px;
 		line-height: 110%;
-		font-family: settings.$font_title;
+		font-family: $font_title;
 		letter-spacing: 1.12px;
 		text-align: center;
 	}
 
-	@include media.tablet {
+	@include tablet {
 		padding: 50px;
 	}
 }
@@ -62,7 +62,7 @@
 		top: 20px;
 		right: 20px;
 		cursor: pointer;
-		color: settings.$gray;
+		color: $gray;
 
 		svg {
 			width: 12px;

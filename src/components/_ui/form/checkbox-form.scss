@@ -8,7 +8,7 @@
 	cursor: pointer;
 	padding-left: 25px;
 	min-height: 18px;
-	color: settings.$black;
+	color: $black;
 	user-select: none;
 
 	&.--agreement {
@@ -20,11 +20,11 @@
 		}
 	}
 
-	@include medai.laptop {
+	@include laptop {
 		&:hover {
 			&:not(.--agreement) {
 				#{$that}__text {
-					color: settings.$hyperlink_hover;
+					color: $hyperlink_hover;
 				}
 			}
 
@@ -40,7 +40,7 @@
 	}
 
 	&__input {
-		@include mixins.visually-hidden();
+		@include visually-hidden();
 	}
 
 	&__box {
@@ -50,14 +50,14 @@
 		left: 0;
 		justify-content: center;
 		align-items: center;
-		border: 1px solid settings.$gray;
+		border: 1px solid $gray;
 		border-radius: 5px;
 		width: 15px;
 		height: 15px;
 
 		#{$that}__input:checked + & {
-			border-color: settings.$green;
-			background-color: settings.$green;
+			border-color: $green;
+			background-color: $green;
 
 			&::after {
 				opacity: 1;
@@ -77,8 +77,8 @@
 	&__text {
 		line-height: 150%;
 
-		@include media.tablet-xl {
-			transition: settings.$transition_color;
+		@include tablet-xl {
+			transition: $transition_color;
 		}
 	}
 }

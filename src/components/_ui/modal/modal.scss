@@ -5,7 +5,7 @@
 	transform: translate3d(0, -80px, 0);
 	outline: 0;
 	border: 0;
-	background: settings.$white;
+	background: $white;
 	padding: 0;
 	min-width: 100vw;
 	min-height: auto;
@@ -52,7 +52,7 @@
 			animation: backdrop-animation 0.35s ease-out forwards;
 		}
 
-		@include media.tablet {
+		@include tablet {
 			animation: modal-animation 0.25s ease-out forwards;
 			margin-bottom: auto;
 		}
@@ -62,7 +62,7 @@
 		background: $backdrop-color;
 	}
 
-	@include media.tablet {
+	@include tablet {
 		width: 100%;
 		min-width: auto;
 		max-width: 854px;
@@ -76,13 +76,13 @@
 		position: relative;
 		padding: 20px 16px 30px;
 
-		@include media.tablet {
+		@include tablet {
 			padding: 50px;
 		}
 	}
 
 	&__close {
-		@include mixins.click-area(30px);
+		@include click-area(30px);
 		position: absolute;
 		top: 10px;
 		right: 10px;
@@ -98,11 +98,11 @@
 
 		@media (hover: hover) {
 			&:hover {
-				color: settings.$black !important;
+				color: $black !important;
 			}
 		}
 
-		@include media.tablet {
+		@include tablet {
 			top: 20px;
 			right: 20px;
 			opacity: 1;

@@ -5,7 +5,7 @@
 	justify-content: space-between;
 	align-items: center;
 	border-radius: 30px;
-	background-color: settings.$gray_1;
+	background-color: $gray_1;
 	padding: 5px;
 	min-width: 134px;
 	height: 100%;
@@ -20,16 +20,16 @@
 		}
 	}
 
-	@include media.phone-s {
+	@include phone-s {
 		min-width: auto;
 	}
 
 	&__button {
 		flex: none;
 		border-radius: 50%;
-		background-color: settings.$white;
+		background-color: $white;
 		user-select: none;
-		@include mixins.flex-center;
+		@include flex-center;
 		transition: background-color 0.25s ease-out;
 		aspect-ratio: 1 / 1;
 		height: 100%;
@@ -41,7 +41,7 @@
 				mask-position: center;
 				mask-repeat: no-repeat;
 				transition: background-color 0.25s ease-out;
-				background-color: settings.$black;
+				background-color: $black;
 				width: 9px;
 				height: 9px;
 				content: '';
@@ -55,11 +55,11 @@
 		}
 
 		&:hover {
-			background-color: settings.$red;
-			color: settings.$white;
+			background-color: $red;
+			color: $white;
 
 			&::after {
-				background-color: settings.$white;
+				background-color: $white;
 			}
 		}
 	}
@@ -67,8 +67,8 @@
 	&__quantity {
 		flex: none;
 		padding: 0 10px;
-		color: settings.$black;
+		color: $black;
 		font-weight: 500;
-		font-family: settings.$font_title;
+		font-family: $font_title;
 	}
 }

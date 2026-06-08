@@ -15,6 +15,6 @@
 		position: relative;
 		flex: 1;
 		transition: background-color 0.25s ease-out;
-		@include mixins.click-area(1px, 20px);
+		@include click-area(1px, 20px);
 	}
 }

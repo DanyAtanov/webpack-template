@@ -8,7 +8,7 @@
 	color: #525358;
 	user-select: none;
 
-	@include media.tablet-xl {
+	@include tablet-xl {
 		margin: 20px auto;
 		font-size: 14px;
 		line-height: 150%;
@@ -22,12 +22,12 @@
 			display: block;
 		}
 
-		@include media.tablet-xl {
+		@include tablet-xl {
 			display: block;
 
 			&:last-child {
 				pointer-events: none;
-				color: settings.$black;
+				color: $black;
 			}
 		}
 	}
@@ -46,7 +46,7 @@
 			width: 5px;
 			height: 8px;
 
-			@include media.tablet-xl {
+			@include tablet-xl {
 				mask: unset;
 				margin-right: 10px;
 				border-radius: 50%;
@@ -61,18 +61,18 @@
 		}
 
 		span {
-			@include media.tablet-xl {
+			@include tablet-xl {
 				margin-right: 10px;
 			}
 		}
 
-		@include media.tablet-xl {
+		@include tablet-xl {
 			display: flex;
 			align-items: center;
 			transition: color 0.25s ease-out;
 
 			&:hover {
-				color: settings.$red;
+				color: $red;
 			}
 		}
 	}

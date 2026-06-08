@@ -6,7 +6,7 @@
 	overflow: auto;
 	@extend %container-out;
 
-	@include media.tablet-xl {
+	@include tablet-xl {
 		flex-wrap: wrap;
 	}
 
@@ -31,21 +31,21 @@
 			color 0.25s ease-out;
 		cursor: pointer;
 		border-radius: 30px;
-		background-color: settings.$gray_3;
+		background-color: $gray_3;
 		padding: 4px 12px;
-		color: settings.$black;
+		color: $black;
 		font-size: 12px;
 
 		@media (hover: hover) {
 			&:hover {
-				background-color: settings.$gray-hover;
+				background-color: $gray-hover;
 			}
 		}
 
 		&:active,
 		&.--is-active {
-			background-color: settings.$blue;
-			color: settings.$white;
+			background-color: $blue;
+			color: $white;
 		}
 	}
 }
