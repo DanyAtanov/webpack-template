@@ -5,6 +5,9 @@ let modal = (() => {
 
 	let init = () => {
 		document.addEventListener('click', (event) => {
+			// На alpine контролим закрытие по фону и X
+			if (event.target.closest('dialog')) return;
+
 			const modalLink = event.target.closest('[data-modal]:not(dialog)'); // ищем ссылку или ее родителя
 
 			if (modalLink) {
