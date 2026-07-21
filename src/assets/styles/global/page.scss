@@ -45,6 +45,17 @@ body {
 			}
 		}
 	}
+
+	// fix swiper dialog open
+	&:has(dialog[open] .swiper.--is-loaded) {
+		section {
+			pointer-events: none;
+		}
+
+		dialog[open] {
+			pointer-events: all;
+		}
+	}
 }
 
 b {
