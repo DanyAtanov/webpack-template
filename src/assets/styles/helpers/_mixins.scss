@@ -267,3 +267,14 @@
 		$height 0;
 	background: $color;
 }
+
+@mixin mask($url: null) {
+  mask-size: contain;
+  mask-position: center;
+	mask-repeat: no-repeat;
+  flex: none;
+
+  @if $url {
+    mask-image: url($url);
+  }
+}
