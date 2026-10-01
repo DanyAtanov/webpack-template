@@ -1,3 +1,11 @@
+@use 'sass:math';
+@use 'sass:string';
+@use 'sass:meta';
+
+@function strip-unit($n) {
+	@return math.div($n, $n * 0 + 1);
+}
+
 @mixin visually-hidden() {
 	position: absolute;
 	opacity: 0;
@@ -133,6 +141,8 @@
 }
 
 @mixin hide-scrollbar {
+	scrollbar-width: none;
+
 	&::-webkit-scrollbar,
 	&::-webkit-scrollbar-track,
 	&::-webkit-scrollbar-thumb {
@@ -258,23 +268,83 @@
 		0 0,
 		100% 0,
 		100% 100%,
-		min(100%, $position + $base / 2) 100%,
+		min(100%, $position + $base * 0.5) 100%,
 		$position calc(100% + $height),
-		max(0%, $position - $base / 2) 100%
+		max(0%, $position - $base * 0.5) 100%
 	);
 	border-image: conic-gradient($color 0 0) fill 0 / 1.5em
-		calc(100% - $position - $base / 2) 0 calc($position - $base / 2) / 0 0
+		calc(100% - $position - $base * 0.5) 0 calc($position - $base * 0.5) / 0 0
 		$height 0;
 	background: $color;
 }
 
 @mixin mask($url: null) {
-  mask-size: contain;
-  mask-position: center;
+	flex: none;
+	mask-position: center;
+	mask-size: contain;
 	mask-repeat: no-repeat;
-  flex: none;
 
-  @if $url {
-    mask-image: url($url);
+	@if $url {
+		mask-image: url('#{$url}');
+	}
+}
+
+// padding: adapt(12px, 30px) adapt(20px, 60px);
+@function adapt($min, $max, $min-vw: 768px, $max-vw: 1920px) {
+	$slope: math.div(strip-unit($max - $min), strip-unit($max-vw - $min-vw));
+	$intercept: strip-unit($min) - $slope * strip-unit($min-vw);
+
+	@return clamp(
+		#{math.min($min, $max)},
+		calc(#{$intercept * 1px} + #{$slope * 100}vw),
+		#{math.max($min, $max)}
+	);
+}
+
+// @include adapt(font-size, 14px, 26px);
+@mixin adapt($property, $min, $max, $min-vw: 768px, $max-vw: 1920px) {
+	#{$property}: adapt($min, $max, $min-vw, $max-vw);
+}
+
+// Абсолютное позиционирование элементов
+// @include place(right-bottom, 20px, 20px);
+// позиции: top-left, top, top-right, left, center, right, bottom-left, bottom, bottom-right
+// порядок слов не важен: right-bottom и bottom-right одно и то же
+@mixin place($pos: center, $x: 0px, $y: 0px) {
+  @if meta.type-of($x) == 'number' and math.is-unitless($x) { $x: $x * 1px; }
+  @if meta.type-of($y) == 'number' and math.is-unitless($y) { $y: $y * 1px; }
+
+  $left: string.index($pos, 'left');
+  $right: string.index($pos, 'right');
+  $top: string.index($pos, 'top');
+  $bottom: string.index($pos, 'bottom');
+
+  $center-x: not $left and not $right;
+  $center-y: not $top and not $bottom;
+  $tx: 0;
+  $ty: 0;
+
+  position: absolute;
+
+  @if $left {
+    left: $x;
+  } @else if $right {
+    right: $x;
+  } @else {
+    @if $x == 0px { left: 50%; } @else { left: calc(50% + #{$x}); }
+    $tx: -50%;
+  }
+
+  @if $top {
+    top: $y;
+  } @else if $bottom {
+    bottom: $y;
+  } @else {
+    @if $y == 0px { top: 50%; } @else { top: calc(50% + #{$y}); }
+    $ty: -50%;
+  }
+
+  @if $center-x or $center-y {
+    translate: $tx $ty;
   }
 }
