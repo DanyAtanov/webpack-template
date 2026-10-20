@@ -1,0 +1,61 @@
+/* Бегущая строка.
+
+<div class="marquee" data-direction="reverse" data-speed="fast">
+	<ul class="any-list">...</ul>
+</div>
+
+Первый дочерний элемент — список, его содержимое в разметке продублировано дважды (трек крутится на -50%).
+Отступы между элементами — через margin-right у элементов, не gap, иначе идет потергивание!
+
+data-direction="reverse" — движение вправо
+data-speed — slow | normal (по умолчанию) | fast 
+*/
+
+.marquee {
+	$speeds: (
+		slow: 60s,
+		normal: 40s,
+		fast: 20s,
+	);
+
+	overflow: hidden;
+
+	> :first-child {
+		display: flex;
+		animation: marquee map-get($speeds, normal) linear infinite;
+		width: max-content;
+		will-change: transform;
+
+		> * {
+			flex: none;
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			animation: none;
+		}
+	}
+
+	@each $name, $duration in $speeds {
+		&[data-speed='#{$name}'] > :first-child {
+			animation-duration: $duration;
+		}
+	}
+
+	&[data-direction='reverse'] > :first-child {
+		animation-direction: reverse;
+	}
+
+	&:hover > :first-child {
+		animation-play-state: paused;
+	}
+}
+
+@keyframes marquee {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+
+	to {
+		transform: translate3d(-50%, 0, 0);
+	}
+}
